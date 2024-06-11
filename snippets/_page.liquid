@@ -47,15 +47,14 @@
       </figure>
     {% endif %}
 
-    <div class="mt-4 space-y-6 text-slate-600 dark:text-slate-400 ProseMirror grow" data-controller="view_images">
-      <div class="mt-8 flow-root">
-        <div class="-mx-4 -my-2 overflow-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 align-middle sm:px-6 lg:px-8">
-            {{ page.settings.content }}
-          </div>
+    <div class="mt-8 flow-root">
+      <div class="overflow-auto">
+        <div data-controller="view_images" class="ProseMirror prose sm:prose-base lg:prose-lg focus:outline-none dark:prose-invert prose-a:text-blue-600">
+          {{ page.settings.content }}
         </div>
       </div>
     </div>
+
 
     {% # 只有没有子页面的时候才显示feedback和上下页 %}
     {% # feedback %}
