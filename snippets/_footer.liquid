@@ -9,7 +9,7 @@
   <div class="mx-auto {{ screen_width }} p-4 sm:p-6">
     <div class="sm:flex sm:items-center sm:justify-between">
       <div class="flex space-x-2 text-sm text-gray-500 sm:text-center dark:text-gray-400">
-        <a href="{{ site.page_url | default: '/' }}" class="flex items-center">
+        <a href="/" class="flex items-center">
           {% assign logo = 'images/logo.png' | asset_url %}
           <img src="{{ site.favicon_url | default: logo  }}" class="h-8 mr-3" alt="{{ site.name }} Logo">
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ site.name }}</span>
