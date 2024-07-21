@@ -11,8 +11,10 @@
     "theme_support_url": "https://help.baklib.cn/themes/wiki/settings",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
-      "images/theme/index-list.png",
+      "images/theme/wiki.png",
       "images/theme/index-help-center.png",
+      "images/theme/index-list.png",
+      "images/theme/index-docs.png",
       "images/theme/page.png"
     ],
     "theme_languages": [
