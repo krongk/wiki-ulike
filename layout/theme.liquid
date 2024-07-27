@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="{{ site.language }}" class="scroll-smooth">
   <head>
@@ -11,7 +10,7 @@
     {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
 
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
-    {% if false %}{{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+    {% if true %}{{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
   </head>
   <body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false }">
@@ -26,7 +25,7 @@
       "
     >
       {% render 'header', settings: site.settings %}
-      <div class="relative mt-10 md:mt-16">{{ content_for_layout }}</div>
+      <div class=" mt-10 md:mt-16">{{ content_for_layout }}</div>
       {% render 'footer', settings: site.settings %}
 
       {% # 回到顶部图标 %}
