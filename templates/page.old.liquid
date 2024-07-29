@@ -1,5 +1,3 @@
-{% comment %} 2024072管家婆需求： 新设计，左侧导航fixed固定 {% endcomment %}
-
 {% assign sub_pages = page.children_in_list %}
 {% assign sub_pages_size = sub_pages | size %}
 {% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
@@ -23,11 +21,11 @@
           <div
             x-show="show_navtree"
             x-cloak
-            class="fixed top-20 w-72 z-50 hidden border-r md:block  border-slate-200 dark:border-gray-700"
+            class="relative hidden border-r md:block md:mr-6 lg:mr-12 border-slate-200 dark:border-gray-700"
           >
             <div
               id="page-tree"
-              class="mr-0 overflow-y-scroll max-h-[calc(100vh-220px)]"
+              class="mr-0 w-72 overflow-y-scroll max-h-[calc(100vh-120px)]"
             >
               <div class="relative w-full pr-2 overflow-x-auto">
                 <ul class="pt-5" data-controller="navtree" data-navtree-target="menuList">
@@ -55,7 +53,7 @@
             x-show="header_navtree_show"
             x-cloak
             @click.outside="header_navtree_show=false"
-            class="fixed left-0 z-50 w-full px-4 overflow-hidden transition-all duration-300 transform top-24 sm:px-6"
+            class="fixed left-0 z-50 w-full px-4 overflow-hidden transition-all duration-300 transform top-18 sm:px-6"
             x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0 translate-y-[-10%]"
             x-transition:enter-end="opacity-100 translate-y-0"
@@ -92,7 +90,7 @@
           <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
         </svg>
       </div>
-      <turbo-frame id="main-content" class="grow lg:pl-6 lg:pr-6 xl:pr-0" :class="show_navtree ? 'md:ml-72' : 'md:ml-0' ">
+      <turbo-frame id="main-content" class="grow lg:pr-6 xl:pr-0">
         <div class="min-h-[calc(100vh-120px)] flex flex-col">
           {% # 面包屑导航 %}
           <div class="mb-3">

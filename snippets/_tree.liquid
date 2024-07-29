@@ -30,11 +30,11 @@
             href="{{ page.path }}"
             data-turbo-frame="main-content"
             data-turbo-action="advance"
-            class="flex items-center justify-between flex-1 "
+            class="flex items-center justify-between flex-1 truncate hover:text-primary"
             data-action="click->navtree#toggleActive"
             @click="header_navtree_show=false"
           >
-            <span>{{ page.link_text | truncate: 28}}</span>
+            <span>{{ page.link_text | truncate: 16}}</span>
           </a>
         </div>
       {% else %}
@@ -42,11 +42,11 @@
           href="{{ page.path }}"
           data-turbo-frame="main-content"
           data-turbo-action="advance"
-          class="flex items-center current"
+          class="flex items-center current truncate hover:text-primary"
           data-action="click->navtree#toggleActive"
           @click="header_navtree_show=false"
         >
-          <span>{{ page.link_text | truncate: 28 }}</span>
+          <span>{{ page.link_text | truncate: 16 }}</span>
         </a>
       {% endif %}
     </div>
