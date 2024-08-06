@@ -14,23 +14,18 @@
       </a>
     </div>
     <!-- Page header -->
-    <div class="hidden md:flex md:justify-between my-4">
+    <div class="hidden md:flex md:justify-between items-center my-4">
       <div class="">
-        <h3 class="font-bold text-3xl leading-[26px] md:text-heading-4 mb-[23px]">搜索结果</h3>
-        <p class="text-base text-gray-400">
+        <h3 class="font-bold text-3xl leading-[26px] md:text-heading-4 mb-[23px]">{{ "generic.search_result" | t }}:
           {% if search.tag or search.keywords %}
-            <p class="mt-3 text-base">
-              搜索自
               {% if search.tag %}
                 <i class="px-2 py-1 rounded" style="background-color: {{ search.tag.color }}">{{ search.tag.name }}</i>
               {% endif %}
               {% if search.keywords %}
                 <i class="text-orange-600">{{ search.keywords }}</i>
               {% endif %}
-              的结果。
-            </p>
           {% endif %}
-        </p>
+        </h3>
       </div>
       <div>
         {% form_tag 'search' %}
@@ -39,10 +34,10 @@
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.833 2.3335C18.629 2.3335 23.333 7.0375 23.333 12.8335C23.333 18.6295 18.629 23.3335 12.833 23.3335C7.03701 23.3335 2.33301 18.6295 2.33301 12.8335C2.33301 7.0375 7.03701 2.3335 12.833 2.3335ZM12.833 21.0002C17.3445 21.0002 20.9997 17.345 20.9997 12.8335C20.9997 8.32083 17.3445 4.66683 12.833 4.66683C8.32034 4.66683 4.66634 8.32083 4.66634 12.8335C4.66634 17.345 8.32034 21.0002 12.833 21.0002ZM22.7322 21.083L26.0327 24.3823L24.3818 26.0332L21.0825 22.7327L22.7322 21.083Z" fill="#D0D5DD"/>
               </svg>
-              <input name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}" class="outline-none flex-1 text-gray-900 placeholder:text-gray-400 placeholder:text-md placeholder:py-0 px-[13px]" type="text" placeholder="输入搜索内容...">
+              <input name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}" class="outline-none flex-1 text-gray-900 placeholder:text-gray-400 placeholder:text-md placeholder:py-0 px-[13px]" type="text" placeholder="{{ "generic.search" | t }}">
             </div>
             <div class="flex flex-col gap-5 md:flex-row">
-              <button type="submit" class="flex items-center transition-colors duration-200 py-[13px] px-[22px] rounded-[8px] text-heading-6 font-bold bg-primary text-white w-fit">搜索</button>
+              <button type="submit" class="flex items-center transition-colors duration-200 py-[13px] px-[22px] rounded-[8px] text-heading-6 font-bold bg-primary text-white w-fit">{{ "placeholders.search" | t }}</button>
             </div>
           </div>
         {% endform_tag %}
