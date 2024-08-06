@@ -99,7 +99,7 @@
             {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
           </div>
           {% if page.settings.show_list %}
-            {% render 'page_list', pages: sub_pages %}
+            {% render 'page_list', page: page, pages: sub_pages %}
           {% else %}
             {% render 'page', page: page, default_avatar_url: default_avatar_url %}
           {% endif %}
