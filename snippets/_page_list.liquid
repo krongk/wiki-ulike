@@ -20,26 +20,28 @@
     {% endif %}
 
     {% if page.settings.description %}
-      <figure class="p-4 my-2 border-l border-l-2 rounded-md border-primary bg-slate-100 dark:bg-slate-800">
+      <figure class="p-4 my-2 border-l-2 rounded-md border-primary bg-slate-100 dark:bg-slate-800">
         <blockquote class="font-semibold text-gray-500">
           <p>{{ page.settings.description }}</p>
         </blockquote>
       </figure>
     {% endif %}
 
-    <div class="mt-8 flow-root">
-      <div class="overflow-auto">
-        <div data-controller="view_images"
-          class="ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600">
-          {{ page.settings.content }}
+    {% if page.settings.content %}
+      <div class="my-0 md:my-4 flow-root">
+        <div class="overflow-auto">
+          <div data-controller="view_images"
+            class="ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600">
+            {{ page.settings.content }}
+          </div>
         </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 </article>
 
 <!-- page list -->
-<div class="border-t border-primary mt-4 py-4">
+<div class="border-t border-primary-300 py-4">
   <ul role="list" class="divide-y divide-gray-100">
     {% for page in pages %}
       <li class="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 px-3 py-2 rounded-lg sm:flex-nowrap hover:bg-slate-100">
