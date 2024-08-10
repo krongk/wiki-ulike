@@ -85,6 +85,13 @@ export default class extends Controller {
       li.appendChild(link)
       ul.appendChild(li)
 
+      // 给 Heading 添加锚点
+      const hea = document.getElementById(node.id)
+      hea.classList = "flex group"
+      hea.insertAdjacentHTML("beforeend",'<div data-controller="clipboard" data-clipboard-success-content-value="Copied!"><input type="hidden" value="Click the button to copy me!" data-clipboard-target="source" /><button type="button" data-action="clipboard#copy" data-clipboard-target="button" class="flex ml-1 opacity-0 group-hover:opacity-100">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-5 text-gray-300 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />\n      </svg>\n    </button></div>')
+
+
+
       if (node.children.length > 0) {
         const subList = this.renderDirectory(node, li, level+1)
         li.appendChild(subList)
@@ -103,11 +110,12 @@ export default class extends Controller {
       return node.id
     } else {
       const generateId =  `heading-${Math.random().toString(36).substring(2, 15)}`
-
       node.id = generateId
       return generateId
     }
   }
+
+
 
   // 为当前标签设置高亮显示
   hightLightActiveLink() {
@@ -168,7 +176,6 @@ export default class extends Controller {
       window.scrollBy(0, scrollToPosition);
     }
   }
-
   headerHeight() {
     // 动态获取header的高度，并且判断是否是固定
     const header = document.getElementById('header')
