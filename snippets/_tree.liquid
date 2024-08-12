@@ -34,7 +34,7 @@
             data-action="click->navtree#toggleActive"
             @click="header_navtree_show=false"
           >
-            <span>{{ page.link_text | truncate: 12}}</span>
+            <span>{{ page.link_text | truncate: 10 }}</span>
           </a>
         </div>
       {% else %}
@@ -46,7 +46,7 @@
           data-action="click->navtree#toggleActive"
           @click="header_navtree_show=false"
         >
-          <span>{{ page.link_text | truncate: 12 }}</span>
+          <span>{{ page.link_text | truncate: 10 }}</span>
         </a>
       {% endif %}
     </div>
