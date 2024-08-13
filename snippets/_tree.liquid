@@ -12,12 +12,12 @@
   id="treeview-item__{{ dom_id }}"
   x-data="{ expanded: {{ !!expanded }} }"
   x-init="$watch('expanded', value => { document.getElementById('js-treeview__{{ dom_id }}')._x_dataStack[0].show = value; })"
-  class="group page-tree--node"
+  class="group page-tree--node hover:bg-slate-200 rounded-lg"
 >
   <div class="flex space-x-1">
-    <div style="width: calc(26px * {{ depth }})" class="flex justify-center"></div>
+    <div style="width: calc(26px * {{ depth }})" class="flex-none">&nbsp;</div>
 
-    <div class="flex items-center ">
+    <div class="flex-initial">
       {% if children_size > 0 %}
         <div @click="expanded = !expanded" class="flex items-center justify-center cursor-pointer">
           <svg t="1698224111506"
@@ -30,11 +30,11 @@
             href="{{ page.path }}"
             data-turbo-frame="main-content"
             data-turbo-action="advance"
-            class="flex items-center justify-between flex-1 truncate hover:text-primary"
+            class="hover:text-primary truncate text-nowrap inner-block"
             data-action="click->navtree#toggleActive"
             @click="header_navtree_show=false"
           >
-            <span>{{ page.link_text | truncate: 16 }}</span>
+            <span>{{ page.link_text | truncate: 18 }}</span>
           </a>
         </div>
       {% else %}
@@ -42,11 +42,11 @@
           href="{{ page.path }}"
           data-turbo-frame="main-content"
           data-turbo-action="advance"
-          class="flex items-center current truncate hover:text-primary"
+          class="current hover:text-primary truncate text-nowrap block"
           data-action="click->navtree#toggleActive"
           @click="header_navtree_show=false"
         >
-          <span>{{ page.link_text | truncate: 16 }}</span>
+          {{ page.link_text | truncate: 18 }}
         </a>
       {% endif %}
     </div>
