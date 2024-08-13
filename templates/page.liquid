@@ -23,13 +23,13 @@
           <div
             x-show="show_navtree"
             x-cloak
-            class="fixed top-20 w-72 z-50 hidden border-r md:block  border-slate-200 dark:border-gray-700"
+            class="fixed top-20 w-80 z-50 hidden border-r md:block  border-slate-200 dark:border-gray-700"
           >
             <div
               id="page-tree"
-              class="mr-0 overflow-y-scroll max-h-[calc(100vh-220px)]"
+              class="mr-0 overflow-y-scroll max-h-[calc(100vh-20px)]"
             >
-              <div class="relative w-full pr-2 overflow-x-auto">
+              <div class="relative w-full pr-2 overflow-x-auto bg-white dark:bg-slate-600">
                 <ul class="pt-5" data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
                     src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
@@ -66,7 +66,7 @@
             <div class="w-full p-5 bg-white rounded shadow-lg text-slate-800 dark:bg-slate-900 dark:text-slate-200">
               <div
                 id="page-tree"
-                class="overflow-y-scroll max-h-[calc(100vh-160px)]"
+                class="overflow-y-scroll max-h-[calc(100vh-60px)]"
               >
                 <div class="relative w-full overflow-x-auto">
                   <ul data-controller="navtree" data-navtree-target="menuList">
@@ -92,7 +92,7 @@
           <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
         </svg>
       </div>
-      <turbo-frame id="main-content" class="grow lg:pl-6 lg:pr-6 xl:pr-0" :class="show_navtree ? 'md:ml-72' : 'md:ml-0' ">
+      <turbo-frame id="main-content" class="grow lg:pl-6 lg:pr-6 xl:pr-0" :class="show_navtree ? 'md:ml-80' : 'md:ml-0' ">
         <div class="min-h-[calc(100vh-120px)] flex flex-col">
           {% # 面包屑导航 %}
           <div class="mb-3">
@@ -104,6 +104,7 @@
             {% render 'page', page: page, default_avatar_url: default_avatar_url %}
           {% endif %}
         </div>
+        {% render 'footer', settings: site.settings %}
       </turbo-frame>
     </div>
   </div>
