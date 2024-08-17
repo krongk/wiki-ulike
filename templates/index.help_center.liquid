@@ -2,7 +2,7 @@
 {% assign hot_tags = page.settings.hot_tags | split: ',' %}
 {% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
 {% assign channel_pages = site.pages['/'].children_in_list  | limit: 50 %}
-{% assign card_pages = site.pages['/'].children_in_nav_menu  | limit: 9 %}
+{% assign card_pages = site.pages['/'].children_in_nav_menu  | limit: 24 %}
 {% assign faq_pages = site.pages['/'].pages_in_list | order_by: '-visits_count' | limit: 10 %}
 
 <!--prepare class for yarn build -->
