@@ -86,9 +86,9 @@
         <div class="w-1 h-full mr-3 bg-primary"></div>
         <span>{{ 'generic.channel_pages' | t }}</span>
       </div>
-      <div class="items-start lg:max-w-none grid grid-cols-2 gap-3 md:grid-cols-6 lg:grid-cols-12 lg:gap-2">
+      <div class="items-start lg:max-w-none grid grid-cols-2 gap-3 md:grid-cols-6 lg:grid-cols-10 lg:gap-2">
           {% for channel_page in channel_pages %}
-            <a href="{{ channel_page.path }}" class="flex flex-col font-semibold text-lg h-full p-4 bg-white hover:bg-primary/20 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md shadow-2xl shadow-slate-200 overflow-hidden">
+            <a href="{{ channel_page.path }}" class="flex flex-col font-semibold text-lg h-full p-4 bg-white hover:bg-blue-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md shadow-2xl shadow-slate-200 overflow-hidden">
               <h3 class="line-clamp-1">{{ channel_page.link_text }}</h3>
               <p>{{ channel_page.settings.description }}</p>
             </a>
