@@ -101,6 +101,10 @@
   <section class="bg-transparent">
     <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
       {% # 列表指南- Guide %}
+      <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
+        <div class="w-1 h-full mr-3 bg-primary"></div>
+        <span>{{ 'generic.recommend_pages' | t }}</span>
+      </div>
       <div class="items-start lg:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
         {% for card_page in card_pages %}
           <!-- Card -->
