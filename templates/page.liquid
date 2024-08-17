@@ -33,9 +33,10 @@
               class="mr-0 overflow-y-scroll max-h-[calc(100vh-20px)]"
             >
               <div class="relative w-full pr-2 overflow-x-auto bg-white dark:bg-slate-600">
+                <h1 class="text-xl font-semibold py-2 border-b">{{ parent.link_text }}</h1>
                 <ul class="pt-5" data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
-                    src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
+                    src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id | append: '&parent=' | append: parent.id }}"
                     id="nav_tree"
                   ></turbo-frame>
                 </ul>
@@ -74,7 +75,7 @@
                 <div class="relative w-full overflow-x-auto">
                   <ul data-controller="navtree" data-navtree-target="menuList">
                     <turbo-frame
-                      src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
+                      src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id | append: '&parent=' | append: parent.id }}"
                       id="nav_tree"
                     ></turbo-frame>
                   </ul>
