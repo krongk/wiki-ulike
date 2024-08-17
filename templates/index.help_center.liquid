@@ -88,7 +88,10 @@
       </div>
       <div class="items-start lg:max-w-none grid grid-cols-2 gap-3 md:grid-cols-6 lg:grid-cols-10 lg:gap-2">
           {% for channel_page in channel_pages %}
-            <a href="{{ channel_page.path }}" class="flex flex-col font-semibold text-lg h-full p-4 bg-white hover:bg-blue-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md shadow-2xl shadow-slate-200 overflow-hidden">
+            <a href="{{ channel_page.path }}" class="flex flex-col font-semibold text-center items-center text-lg h-full p-4 bg-white hover:bg-blue-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md shadow-2xl shadow-slate-200 overflow-hidden">
+              {% if channel_page.settings.icon %}
+                <span class="mr-4"><img src="{{ channel_page.settings.icon }}" class="h-10"/> </span>
+              {% endif %}
               <h3 class="line-clamp-1">{{ channel_page.link_text }}</h3>
               <p>{{ channel_page.settings.description }}</p>
             </a>
