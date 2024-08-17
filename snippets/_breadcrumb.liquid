@@ -13,7 +13,12 @@
           <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
         </svg>
         {% endif %}
-        <a href="{{ crumb.path }}" data-turbo-frame="_top">{{ crumb.link_text }}</a>
+        {%# 临时解决 page 中 parent 找不到 nav_tree 的问题 %}
+        {% if forloop.index0 == 1 %}
+          <a href="/#{{ crumb.path }}" data-turbo-frame="_top">{{ crumb.link_text }}</a>
+        {% else %}
+          <a href="{{ crumb.path }}" data-turbo-frame="_top">{{ crumb.link_text }}</a>
+        {% endif %}
       </div>
     </li>
   {% endfor %}
