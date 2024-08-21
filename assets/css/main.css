@@ -1782,10 +1782,6 @@ video {
   resize: none;
 }
 
-.scroll-pt-4 {
-  scroll-padding-top: 1rem;
-}
-
 .list-none {
   list-style-type: none;
 }
