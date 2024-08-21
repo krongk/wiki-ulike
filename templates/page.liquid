@@ -37,7 +37,18 @@
               class="mr-0 overflow-y-scroll max-h-[calc(100vh-20px)]"
             >
               <div class="relative w-full pr-2 overflow-x-auto bg-white dark:bg-slate-600">
-                <h1 class="text-xl font-semibold py-2 border-b">{{ parent.link_text }}</h1>
+                <div class="flex justify-between py-2 border-b">
+                  <h1 class="text-xl font-semibold">{{ parent.link_text }}</h1>
+                  {%  assign up_parent = parent.parent %}
+                  {% if up_parent %}
+                    <a href="{{ up_parent.path }}" class="flex items-center border border-slate-300 bg-slate-100 px-2 py-1 rounded-lg text-sm hover:bg-primary hover:text-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.99 7.5 8.24 3.75m0 0L4.49 7.5m3.75-3.75v16.499h11.25" />
+                      </svg>
+                      {{ 'generic.back' | t }}
+                    </a>
+                  {% endif %}
+                </div>
                 <ul class="pt-5" data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
                     src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id | append: '&parent=' | append: parent.id }}"
@@ -48,7 +59,7 @@
             </div>
             {% # 关闭侧边栏 %}
             <div
-              class="absolute flex items-center justify-center w-10 h-10 bg-white border rounded-full cursor-pointer -right-5 top-5 dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700"
+              class="absolute flex items-center justify-center w-10 h-10 bg-white border rounded-full cursor-pointer -right-5 top-10 hover:bg-primary hover:text-white dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700"
               @click="show_navtree = !show_navtree"
             >
             <svg t="1697770917150" class="w-5 h-5 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055" >
@@ -94,7 +105,7 @@
         x-show="!show_navtree"
         x-cloak
         @click="show_navtree=true"
-        class="fixed px-3 py-1 bg-white border rounded-r-full cursor-pointer dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 top-20 2xl:top-28 -left-1"
+        class="fixed px-3 py-1 bg-white border rounded-r-full cursor-pointer hover:bg-primary hover:text-white dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 top-20 2xl:top-28 -left-1"
       >
         <svg t="1697770917150" class="w-5 h-5 rotate-180 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055">
           <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
