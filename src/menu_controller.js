@@ -106,7 +106,7 @@ export default class extends Controller {
 
   // 动态生成id
   generateUniqueId(node, index) {
-    node.style.cssText = "padding-top: 60px; margin-top: -60px;"
+    node.style.cssText = "padding-top: 120px; margin-top: -120px;"
     // 有id, 直接赋值; 没有, 随机生成
     if (node.id) {
       return node.id
