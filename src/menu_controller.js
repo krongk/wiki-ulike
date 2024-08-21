@@ -20,7 +20,7 @@ export default class extends Controller {
   // 生成目录树
   // { level: 0, children: [ {level: 1, id: '', text: '', children: [], parent: []} ] }
   buildDirectoryTree(headings) {
-    var index = 0
+    var index = 1
     const root = { level: 0, children: [] }
 
     let currentNode = root

@@ -1782,6 +1782,10 @@ video {
   resize: none;
 }
 
+.scroll-pt-4 {
+  scroll-padding-top: 1rem;
+}
+
 .list-none {
   list-style-type: none;
 }
@@ -2391,6 +2395,10 @@ video {
 
 .pr-3 {
   padding-right: 0.75rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .pt-12 {
@@ -3725,10 +3733,6 @@ video {
     margin-top: 0px;
   }
 
-  .md\:mt-16 {
-    margin-top: 4rem;
-  }
-
   .md\:block {
     display: block;
   }
@@ -3803,6 +3807,10 @@ video {
 
   .md\:p-4 {
     padding: 1rem;
+  }
+
+  .md\:pt-16 {
+    padding-top: 4rem;
   }
 
   .md\:pt-5 {

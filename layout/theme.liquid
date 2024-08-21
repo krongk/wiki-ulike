@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.language }}" class="scroll-smooth">
+<html lang="{{ site.language }}" class="scroll-smooth scroll-pt-4" style="scroll-padding-top: 4rem;">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@
       "
     >
       {% render 'header', settings: site.settings %}
-      <div class=" mt-10 md:mt-16">{{ content_for_layout }}</div>
+      <div class="pt-10 md:pt-16">{{ content_for_layout }}</div>
       {%# render 'footer', settings: site.settings %}
 
       {% # 回到顶部图标 %}
