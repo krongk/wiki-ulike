@@ -1,80 +1,56 @@
 <!-- locals: pages: 搜索返回结果, keywords: 搜索关键词 -->
 {% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
 
+<!-- locals: pages: 搜索返回结果, keywords: 搜索关键词 search.extends - 自定义结果集  search.page_number - 当前分页的页码 -->
 <main class="grow">
-  <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
 
-    <!-- Back -->
-    <div class="flex items-center my-4 text-center md:my-8">
-      <a class="flex px-3 py-1 text-sm font-semibold leading-6 dark:text-slate-200 dark:hover:text-white bg-slate-200 hover:bg-slate-300 rounded-full" href="/">
-        <svg viewBox="0 -9 3 24" class="w-auto h-6 mr-3 overflow-visible dark:group-hover:text-slate-300">
-          <path d="M3 0L0 3L3 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-        <span>{{ "generic.back" | t }}</span>
-      </a>
-    </div>
-    <!-- Page header -->
-    <div class="hidden md:flex md:justify-between items-center my-4">
-      <div class="">
-        <h3 class="font-bold text-3xl leading-[26px] md:text-heading-4 mb-[23px]">{{ "generic.search_result" | t }}:
-          {% if search.tag or search.keywords %}
-              {% if search.tag %}
-                <i class="px-2 py-1 rounded" style="background-color: {{ search.tag.color }}">{{ search.tag.name }}</i>
-              {% endif %}
-              {% if search.keywords %}
-                <i class="text-orange-600">{{ search.keywords }}</i>
-              {% endif %}
-          {% endif %}
-        </h3>
-      </div>
-      <div>
-        {% form_tag 'search' %}
-          <div class="border bg-primary-10 shadow-4 flex items-start whitespace-nowrap flex-col gap-2 border-primary py-4 px-8 rounded-xl md:flex-row md:items-center hover:border-secondary">
-            <div class="flex w-full">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.833 2.3335C18.629 2.3335 23.333 7.0375 23.333 12.8335C23.333 18.6295 18.629 23.3335 12.833 23.3335C7.03701 23.3335 2.33301 18.6295 2.33301 12.8335C2.33301 7.0375 7.03701 2.3335 12.833 2.3335ZM12.833 21.0002C17.3445 21.0002 20.9997 17.345 20.9997 12.8335C20.9997 8.32083 17.3445 4.66683 12.833 4.66683C8.32034 4.66683 4.66634 8.32083 4.66634 12.8335C4.66634 17.345 8.32034 21.0002 12.833 21.0002ZM22.7322 21.083L26.0327 24.3823L24.3818 26.0332L21.0825 22.7327L22.7322 21.083Z" fill="#D0D5DD"/>
-              </svg>
-              <input name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}" class="outline-none flex-1 text-gray-900 placeholder:text-gray-400 placeholder:text-md placeholder:py-0 px-[13px]" type="text" placeholder="{{ "generic.search" | t }}">
-            </div>
-            <div class="flex flex-col gap-5 md:flex-row">
-              <button type="submit" class="flex items-center transition-colors duration-200 py-[13px] px-[22px] rounded-[8px] text-heading-6 font-bold bg-primary text-white w-fit">{{ "placeholders.search" | t }}</button>
-            </div>
-          </div>
-        {% endform_tag %}
-      </div>
-    </div>
+  <div class="relative px-4 mx-auto {{ screen_width }} sm:px-6">
 
     <!-- Main content -->
-    <article class="flex xl:space-x-12">
-      <!-- Main area -->
-      <div class="min-w-0">
-        <!-- Article content -->
-        {% if search.keywords or search.tag %}
-          <div class="space-y-3 text-slate-600 dark:text-slate-400">
-            {% paginate_tag search.pages, as: 'pages', per: 12 %}
-              {% for page in pages %}
-                <div class="space-y-4 rounded-md bg-slate-50 hover:bg-slate-150 md:p-4 dark:text-slate-200 dark:bg-navy-500">
-                  <a class="text-lg font-bold md:text-xl text-slate-800 hover:text-secondary dark:text-slate-200" href="{{ page.url }}">{{ page.link_text | highlight: search.keywords }}</a>
-                  <p class="text-sm line-clamp-3 text-slate-400">{{ page.settings.content | strip_html | highlight: search.keywords }}</p>
-                  <div class="flex items-center justify-between">
-                    <div class="hidden overflow-x-auto md:block">
-                      {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
-                    </div>
-                  </div>
-                </div>
-              {% else %}
-                <div class="w-full mx-auto my-8">{{ "search.no_results" | t: 'No results found' }}</div>
-              {% endfor %}
-              {% render 'paginate', paginate: paginate %}
-            {% endpaginate_tag %}
-          </div>
-        {% else  %}
-          <div class="w-full mx-auto my-8">{{ "search.please_enter_keywords" | t: 'Please enter keywords'  }}</div>
-        {% endif %}
+    <div class="pb-8 w-5xl">
+
+      <!-- Page header -->
+      <div class="flex justify-between my-2 md:my-4">
+        <a class="mr-auto flex" href="javascript: history.back();">
+          <button class="btn btn-sm rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+              <path fill="currentColor"
+                d="M16.707 19.293 9.414 12l7.293-7.293-1.414-1.414L6.586 12l8.707 8.707 1.414-1.414z"></path>
+            </svg>
+            <span class="text-xs md:text-sm font-medium">{{ "generic.back" | t }}</span>
+          </button>
+        </a>
 
       </div>
-      <!-- Secondary navigation -->
-    </article>
 
+      <div class="space-y-3 text-slate-600 dark:text-slate-400">
+        {% if search.page_number == 1 %}
+          {% for link in search.extends %}
+            <div class="space-y-4 rounded-md bg-accent-100 hover:bg-accent-200 md:p-4">
+              <a class="text-lg font-bold md:text-xl text-slate-800 hover:text-secondary dark:text-slate-200 search-highlight-block" href="{{ link.url }}">{{ link.link_text }}</a>
+              <p class="text-sm line-clamp-3 text-slate-400 search-highlight-block">{{ link.url }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
+        {% paginate_tag search.pages, as: 'pages', per: 10 %}
+          {% for page in pages %}
+            <div class="space-y-4 rounded-md bg-accent-100 hover:bg-accent-200 md:p-4">
+              <a class="text-lg font-bold md:text-xl text-slate-800 hover:text-secondary dark:text-slate-200 search-highlight-block" href="{{ page.url }}">{{ page.highlighted_search_title }}</a>
+              <p class="text-sm line-clamp-3 text-slate-400 search-highlight-block">{{ page.highlighted_search_content }}</p>
+              <div class="flex items-center justify-between">
+                <div class="breadcrumbs hidden overflow-x-auto md:block text-sm">
+                  {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
+                </div>
+              </div>
+            </div>
+          {% else %}
+            <div class="w-full mx-auto my-8">{{ "search.no_results" | t: 'No results found' }}</div>
+          {% endfor %}
+          {% render 'paginate', paginate: paginate %}
+        {% endpaginate_tag %}
+      </div>
+
+    </div>
   </div>
+
 </main>
