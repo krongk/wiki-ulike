@@ -170,3 +170,8 @@
 .page-tree--node.active > a > .page-tree--nav__article_point {
   display: flex;
 }
+
+.search-highlight-block b{
+  color: red;
+  color: var(--color-primary);
+}
