@@ -3,73 +3,6 @@
 @tailwind utilities;
 @config '../tailwind.config.js'
 
-.h-\[100px\] {
-  height: 100px;
-}
-
-.h-\[200px\] {
-  height: 200px;
-}
-
-.h-\[300px\] {
-  height: 300px;
-}
-
-.h-\[400px\] {
-  height: 400px;
-}
-
-.h-\[500px\] {
-  height: 500px;
-}
-
-.h-\[600px\] {
-  height: 600px;
-}
-
-.h-\[700px\] {
-  height: 700px;
-}
-
-.h-\[800px\] {
-  height: 800px;
-}
-
-.h-\[900px\] {
-  height: 900px;
-}
-
-@media (min-width: 768px) {
-  .md\:h-\[200px\] {
-    height: 200px;
-  }
-  .md\:h-\[300px\] {
-    height: 300px;
-  }
-  .md\:h-\[400px\] {
-    height: 400px;
-  }
-  .md\:h-\[500px\] {
-    height: 500px;
-  }
-  .md\:h-\[600px\] {
-    height: 600px;
-  }
-  .md\:h-\[700px\] {
-    height: 700px;
-  }
-  .md\:h-\[800px\] {
-    height: 800px;
-  }
-  .md\:h-\[900px\] {
-    height: 900px;
-  }
-}
-
-.max-h-\[380px\] {
-  max-height: 380px;
-}
-
 .page--article__link {
   border-bottom: 1px solid rgb(240, 240, 240);
 }
@@ -171,7 +104,7 @@
   display: flex;
 }
 
-.search-highlight-block b{
-  color: red;
-  color: var(--color-primary);
+/* 搜索关键词高亮 */
+.search-highlight-block b {
+  color: hsl(var(--theme-color-primary));
 }

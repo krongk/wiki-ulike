@@ -13,7 +13,7 @@
         <div class="grow">
           <div class="flex items-center">
             <!-- Logo -->
-            <a href="/" aria-label="{{ site.name }}" class="flex items-center flex-grow">
+            <a href="/" aria-label="{{ site.name }}" class="flex items-center">
               {% assign logo = 'images/logo.png' | asset_url %}
               <span><img src="{{ site.favicon_url | default: logo }}" class="h-8" alt="Docs" /></span>
               <span class="hidden ml-2 text-xl font-bold text-slate-600 dark:text-slate-200 md:block">{{ site.name }}</span>
@@ -27,7 +27,7 @@
           <ul class="flex flex-wrap items-center justify-end space-x-5 grow text-slate-600 dark:text-slate-200">
             <!-- Search -->
             <li class="flex flex-col justify-center" x-show="search_button_show" x-cloak>
-              <button @click="search_show=!search_show;search_button_show=false">
+              <button @click="search_show=!search_show;search_button_show=false" class="relative p-2 border rounded-full cursor-pointer btn hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                   t="1698302846305"
                   class="w-4 h-4 icon"
@@ -40,6 +40,7 @@
                 </svg>
               </button>
             </li>
+
             {% # 导航菜单 %}
             {% if site.settings.header_menu_html %}
               {{ site.settings.header_menu_html }}
@@ -126,7 +127,7 @@
           <label class="relative flex">
             <input
               id="modal-search"
-              class="w-full text-base bg-white text-slate-400 inline-flex items-center justify-between leading-5 pl-3 pr-2 py-1.5 rounded border border-slate-200 hover:border-slate-300 shadow-sm whitespace-nowrap dark:text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:hover:border-slate-600 outline-none placeholder:text-sm"
+              class="block w-full h-10 md:h-12 lg:h-14 pl-3 pr-10 transition duration-300 ease-in-out bg-white bg-opacity-75 dark:text-primary border-2 border-primary rounded outline-none focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90"
               type="search"
               name="q"
               value="{{ params.q }}"

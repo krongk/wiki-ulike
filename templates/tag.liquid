@@ -8,13 +8,15 @@
     <div class="pb-8 w-5xl">
 
       <!-- Page header -->
-      <div class="flex items-center my-4 text-center md:my-8">
-        <a class="flex px-3 py-1 text-sm font-semibold leading-6 dark:text-slate-200 dark:hover:text-white hover:bg-slate-200 hover:rounded-full" href="/">
-          <svg viewBox="0 -9 3 24" class="w-auto h-6 mr-3 overflow-visible dark:group-hover:text-slate-300">
-            <path d="M3 0L0 3L3 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <div class="flex justify-between my-2 md:my-8">
+        <a href="javascript: history.back();" class="mr-auto font-medium inline-flex items-center rounded-full px-4 py-2 bg-gray-100 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-800">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2">
+            <path fill="currentColor"
+              d="M16.707 19.293 9.414 12l7.293-7.293-1.414-1.414L6.586 12l8.707 8.707 1.414-1.414z"></path>
           </svg>
-          <span>{{ "generic.back" | t }}</span>
+          <span class="text-xs md:text-sm font-medium">{{ "generic.back" | t }}</span>
         </a>
+        <div></div>
       </div>
 
       <article class="flex xl:space-x-12">

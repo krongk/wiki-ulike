@@ -13,10 +13,8 @@
 
 <section class="relative bg-slate-100 dark:bg-slate-900">
   <!-- Hero Section -->
-  <section id="hero"
-class="flex items-center justify-center flex-col bg-no-repeat bg-cover bg-center bg-primary/40 dark:bg-primary/120 h-[250px]  {% if screen_width == 'max-w-screen-2xl' %}  md:h-[500px] {% else %}  md:h-[300px] {%- endif -%}"
-    style="background-image: url({{ page.settings.hero_image_url | default: default_hero_image }})"
-  >
+  <section id="hero" class="flex items-center justify-center flex-col bg-no-repeat bg-cover bg-center bg-primary/40 dark:bg-primary/120 h-[250px]  {% if screen_width == 'max-w-screen-2xl' %}  md:h-[500px] {% else %}  md:h-[300px] {%- endif -%}"
+    style="background-image: url({{ page.settings.hero_image_url | default: default_hero_image }})">
     <div class="flex items-center justify-center flex-1 w-full py-3">
       <div class="container flex flex-col h-full px-4 mx-auto">
         <div class="flex flex-col items-center justify-center flex-grow">
@@ -36,7 +34,7 @@ class="flex items-center justify-center flex-col bg-no-repeat bg-cover bg-center
                   name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}"
                   placeholder="{{ "placeholders.search" | t }}"
                   autocomplete="off"
-                  class="block w-full h-10 md:h-12 lg:h-14 pl-3 pr-10 transition duration-300 ease-in-out bg-white bg-opacity-75 border border-transparent rounded outline-none focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90"
+                  class="block w-full h-10 md:h-12 lg:h-14 pl-3 pr-10 transition duration-300 ease-in-out bg-white bg-opacity-75 dark:text-primary border border-transparent rounded outline-none focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90"
                 >
               </div>
             {% endform_tag %}
@@ -84,7 +82,7 @@ class="flex items-center justify-center flex-col bg-no-repeat bg-cover bg-center
       <div class="items-start lg:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
         {% for card_page in card_pages %}
           <!-- Card -->
-          <div class="flex flex-col h-full bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md shadow-2xl shadow-slate-200 overflow-hidden">
+          <div class="flex flex-col h-full bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md overflow-hidden">
             <!-- Image -->
             <!-- Card Content -->
             <div class="flex-1 flex flex-col p-6">
