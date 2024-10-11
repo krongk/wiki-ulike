@@ -1,6 +1,9 @@
 {% assign default_hero_image = 'images/hero.jpg' | asset_url %}
 {% assign hot_tags = page.settings.hot_tags | split: ',' %}
 {% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
+{% assign channel_pages = site.pages['/'].children_in_list  | limit: 50 %}
+{% assign card_pages = site.pages['/'].children_in_nav_menu  | limit: 24 %}
+{% assign faq_pages = site.pages['/'].pages_in_list | order_by: '-visits_count' | limit: 10 %}
 
 <!--prepare class for yarn build -->
 <div class="mx-auto max-w-screen-lg "></div>
@@ -74,11 +77,38 @@
     </div>
   </section>
 
+  <!-- Channel Section -->
+  {% if true %}
+  <section class="bg-transparent">
+    <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+      {% # 标题 %}
+      <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
+        <div class="w-1 h-full mr-3 bg-primary"></div>
+        <span>{{ 'generic.channel_pages' | t }}</span>
+      </div>
+      <div class="items-start lg:max-w-none grid grid-cols-2 gap-3 md:grid-cols-6 lg:grid-cols-10 lg:gap-2">
+          {% for channel_page in channel_pages %}
+            <a href="{{ channel_page.path }}" class="flex flex-col text-center items-center text-md h-full p-4 bg-white hover:bg-blue-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md shadow-2xl shadow-slate-200 overflow-hidden">
+              {% if channel_page.settings.icon %}
+                <span class="mr-4"><img src="{{ channel_page.settings.icon }}" class="h-10"/> </span>
+              {% endif %}
+              <h3 class="line-clamp-1 mt-1">{{ channel_page.link_text }}</h3>
+              <p>{{ channel_page.settings.description }}</p>
+            </a>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+  {% endif %}
+
   <!-- Pages Section -->
   <section class="bg-transparent">
     <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
       {% # 列表指南- Guide %}
-      {% assign card_pages = site.pages['/'].children_in_nav_menu  | limit: 9 %}
+      <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
+        <div class="w-1 h-full mr-3 bg-primary"></div>
+        <span>{{ 'generic.recommend_pages' | t }}</span>
+      </div>
       <div class="items-start lg:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
         {% for card_page in card_pages %}
           <!-- Card -->
@@ -130,7 +160,6 @@
       </div>
 
       {% # 常见问题 - FAQ %}
-      {% assign faq_pages = site.pages['/'].pages_in_list | order_by: '-visits_count' | limit: 10 %}
       <div class="pt-4 pb-8 mt-8 lg:mt-14 lg:pb-12">
         {% # 标题 %}
         <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
@@ -159,8 +188,10 @@
       </div>
     </div>
   </section>
-
 </section>
+
+{% render 'footer', settings: site.settings %}
+
 {% schema %}
   {
     "name": "Help Center",
