@@ -29,7 +29,7 @@
               id="page-tree"
               class="mr-0 overflow-y-scroll max-h-[calc(100vh-220px)]"
             >
-              <div class="relative w-full pr-2 overflow-x-auto">
+              <div class="relative w-full pr-2 overflow-auto">
                 <ul class="pt-5" data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
                     src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
@@ -93,7 +93,7 @@
         </svg>
       </div>
       {%# page_list 内页列表点击 URL 不改变，需要添加 data-turbo-action="advance" %}
-      <turbo-frame id="main-content" {% if page.settings.show_list %} data-turbo-action="advance" {% endif %} class="grow lg:pl-6 lg:pr-6 xl:pr-0" :class="show_navtree ? 'md:ml-72' : 'md:ml-0' ">
+      <turbo-frame id="main-content" data-turbo-action="advance" class="grow lg:pl-6 lg:pr-6 xl:pr-0" :class="show_navtree ? 'md:ml-72' : 'md:ml-0' ">
         <div class="min-h-[calc(100vh-120px)] flex flex-col">
           {% # 面包屑导航 %}
           <div class="mb-3">
