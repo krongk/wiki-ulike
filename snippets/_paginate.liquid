@@ -8,7 +8,7 @@
       </div>
       <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
-          <p class="text-sm">
+          <p class="text-sm text-gray-700">
             Showing
             <span class="font-medium">{{paginate.from}}</span>
             to
@@ -34,12 +34,12 @@
               {% case type %}
                 {% when 'string' %}
                   {% if i == 'gap' %}
-                    <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+                    <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
                   {% else %}
-                    <a href="#" aria-current="page" class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{i}}</a>
+                    <a href="#" aria-current="page" class="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-indigo-600 focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{i}}</a>
                   {% endif %}
                 {% when 'integer' %}
-                  <a href="{{paginate.url_for[i]}}" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">{{i}}</a>
+                  <a href="{{paginate.url_for[i]}}" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">{{i}}</a>
               {% endcase %}
             {% endfor %}
 
