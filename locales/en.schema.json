@@ -11,6 +11,9 @@
           "label": "Hero Banner",
           "info": "For the help center index theme, size of 1900*600px is recommended."
         },
+        "title": {
+          "label": "site title"
+        },
         "description": {
           "label": "site description"
         },
