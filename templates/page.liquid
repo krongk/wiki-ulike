@@ -13,8 +13,8 @@
 {% endif %}
 
 {% comment %} 页面内容部分 {% endcomment %}
-<main class="grow">
-  <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+<main class="flex min-h-screen">
+  <div class="px-4 mt-8 sm:px-6">
     <div class="flex w-full" x-data="{ show_navtree: true }">
       {% # 侧边栏 %}
       {% # render 'sidebar', current_page: page %}
@@ -27,10 +27,19 @@
           >
             <div
               id="page-tree"
-              class="mr-0 overflow-y-scroll max-h-[calc(100vh-220px)]"
+              class="mr-0"
             >
-              <div class="relative w-full pr-2 overflow-auto">
-                <ul class="pt-5" data-controller="navtree" data-navtree-target="menuList">
+              <div class="">
+                <ul class="pt-5 h-[calc(100vh-theme(spacing.16))] max-h-[calc(100vh-120px)]
+                    overflow-y-scroll
+                    [&::-webkit-scrollbar]:w-2
+                    [&::-webkit-scrollbar-track]:rounded-full
+                    [&::-webkit-scrollbar-track]:bg-gray-100
+                    [&::-webkit-scrollbar-thumb]:rounded-full
+                    [&::-webkit-scrollbar-thumb]:bg-gray-300
+                    dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+                    dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500" 
+                    data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
                     src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
                     id="nav_tree"
@@ -40,12 +49,12 @@
             </div>
             {% # 关闭侧边栏 %}
             <div
-              class="absolute flex items-center justify-center w-10 h-10 bg-white border rounded-full cursor-pointer -right-5 top-5 dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700"
+              class="absolute flex items-center justify-center w-10 h-10 bg-white border rounded-full cursor-pointer -right-5 top-0 dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 hover:bg-primary"
               @click="show_navtree = !show_navtree"
             >
-            <svg t="1697770917150" class="w-5 h-5 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055" >
-              <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
-            </svg>
+              <svg t="1697770917150" class="w-5 h-5 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055" >
+                <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
+              </svg>
             </div>
           </div>
         </template>
@@ -86,7 +95,7 @@
         x-show="!show_navtree"
         x-cloak
         @click="show_navtree=true"
-        class="fixed px-3 py-1 bg-white border rounded-r-full cursor-pointer dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 top-20 2xl:top-28 -left-1"
+        class="fixed px-3 py-1 bg-white hover:bg-primary border rounded-r-full cursor-pointer dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 top-20 2xl:top-28 -left-1"
       >
         <svg t="1697770917150" class="w-5 h-5 rotate-180 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055">
           <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
@@ -105,6 +114,7 @@
             {% render 'page', page: page, default_avatar_url: default_avatar_url %}
           {% endif %}
         </div>
+        {% render 'footer', settings: site.settings %}
       </turbo-frame>
     </div>
   </div>

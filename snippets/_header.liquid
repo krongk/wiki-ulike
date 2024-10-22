@@ -24,15 +24,10 @@
         <!-- Desktop navigation -->
         <nav class="flex">
           <!-- Right side elements links -->
-          <ul class="flex flex-wrap items-center justify-end space-x-5 grow text-slate-600 dark:text-slate-200">
+          <ul class="flex flex-wrap items-center justify-end space-x-3 grow text-slate-600 dark:text-slate-200">
             
-
             {% # 导航菜单 %}
-            {% if site.settings.header_menu_html %}
-              {{ site.settings.header_menu_html }}
-            {% else %}
-                <a href="{{ statics['/about'] }}">About</a>
-            {% endif %}
+            {% render 'custom_menu' %}
 
             {% # 文章目录 %}
             <li class="md:hidden" x-show="search_button_show" @click="header_navtree_show=!header_navtree_show" x-cloak>
