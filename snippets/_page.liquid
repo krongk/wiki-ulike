@@ -63,7 +63,7 @@
       <a
         data-turbo-method="get"
         data-turbo-stream="true"
-        href="/-/feedbacks/new?page_path={{ page.path }}"
+        href="{{site.index_path}}-/feedbacks/new?page_path={{ page.path }}"
         class="flex items-center justify-center border-2 rounded-full cursor-pointer w-14 h-14 border-primary text-primary"
         :class="{ 'bg-primary text-white': {{ page.visitor_posted_feedback }} }"
       >
