@@ -13,7 +13,7 @@
         <div class="grow">
           <div class="flex items-center">
             <!-- Logo -->
-            <a href="/" aria-label="{{ site.name }}" class="flex items-center">
+            <a href="{{site.index_path}}" aria-label="{{ site.name }}" class="flex items-center">
               {% assign logo = 'images/logo.png' | asset_url %}
               <span><img src="{{ site.favicon_url | default: logo }}" class="h-8" alt="Docs" /></span>
               <span class="hidden ml-2 text-xl font-bold text-slate-600 dark:text-slate-200 md:block">{{ site.name }}</span>

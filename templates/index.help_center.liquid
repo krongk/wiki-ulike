@@ -60,7 +60,7 @@
               <p class="mr-3 text-white">{{ 'generic.popular_search' | t }}:</p>
               {% for search_hot_key in hot_tags %}
                 <a
-                  href="/-/search?q={{ search_hot_key }}"
+                  href="{{site.index_path}}-/search?q={{ search_hot_key }}"
                   class="mr-3 text-white hover:text-primary focus:ring hover:-translate-y-[2px]"
                 >
                   {{ search_hot_key }}
