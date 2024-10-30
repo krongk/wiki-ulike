@@ -1496,10 +1496,6 @@ video {
   max-height: calc(100vh - 160px);
 }
 
-.max-h-\[calc\(100vh-220px\)\] {
-  max-height: calc(100vh - 220px);
-}
-
 .max-h-full {
   max-height: 100%;
 }
@@ -2675,6 +2671,31 @@ video {
   color: hsl(var(--theme-color-primary));
 }
 
+/* wiki保持跟editor样式同步，去掉了 tailwind prose */
+
+.ProseMirror {
+  /* 使分栏的宽度固定 */
+  [data-block-column-width="flex-1"] {
+    width: 50%;
+  }
+  table {
+    width: 100%;
+  }
+  table {
+    min-width: 640px !important;
+  }
+  table {
+    table-layout: auto;
+  }
+  table {
+    text-align: center;
+  }
+  table {
+    /* daisyui: @apply table table-pin-rows table-pin-cols; */
+    /* baklib editor: @apply table-auto w-full table; */
+  }
+}
+
 .dark\:prose-invert:is(.dark *) {
   --tw-prose-body: var(--tw-prose-invert-body);
   --tw-prose-headings: var(--tw-prose-invert-headings);
@@ -3467,6 +3488,10 @@ video {
 
   .md\:mt-16 {
     margin-top: 4rem;
+  }
+
+  .md\:mt-8 {
+    margin-top: 2rem;
   }
 
   .md\:block {

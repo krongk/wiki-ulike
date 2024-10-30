@@ -108,3 +108,16 @@
 .search-highlight-block b {
   color: hsl(var(--theme-color-primary));
 }
+
+/* wiki保持跟editor样式同步，去掉了 tailwind prose */
+.ProseMirror {
+  /* 使分栏的宽度固定 */
+  [data-block-column-width="flex-1"] {
+    @apply w-1/2;
+  }
+  table {
+    @apply table-auto w-full text-center !min-w-[640px];
+    /* daisyui: @apply table table-pin-rows table-pin-cols; */
+    /* baklib editor: @apply table-auto w-full table; */
+  }
+}

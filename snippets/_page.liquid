@@ -1,5 +1,5 @@
 
-<article class="flex justify-between xl:space-x-12">
+<article class="mx-auto w-full flex justify-between xl:space-x-12">
   <div class="flex flex-col w-full">
     <h1 class="flex items-center mb-2 text-2xl font-bold sm:text-3xl xl:text-4xl text-slate-800 dark:text-slate-200">
       {{ page.settings.title }}
@@ -40,17 +40,18 @@
     {% endif %}
 
     {% if page.settings.description %}
-      <figure class="p-4 my-2 border-l border-l-2 rounded-md border-primary bg-slate-100 dark:bg-slate-800">
+      <figure class="p-4 my-2 border-l-2 rounded-md border-primary bg-slate-100 dark:bg-slate-800">
         <blockquote class="font-semibold text-gray-500">
           <p>{{ page.settings.description }}</p>
         </blockquote>
       </figure>
     {% endif %}
 
+    {% # 跟后台editor保持一致，去掉了 prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600 %}
     <div class="mt-8 flow-root">
       <div class="overflow-auto">
         <div data-controller="view_images"
-          class="ProseMirror prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600">
+          class="ProseMirror">
           {{ page.settings.content }}
         </div>
       </div>
