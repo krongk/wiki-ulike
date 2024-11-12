@@ -1897,6 +1897,10 @@ video {
   white-space: nowrap;
 }
 
+.break-words {
+  overflow-wrap: break-word;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -2674,6 +2678,9 @@ video {
 /* wiki保持跟editor样式同步，去掉了 tailwind prose */
 
 .ProseMirror {
+  width: 100%;
+  max-width: 56rem;
+  overflow-wrap: break-word;
   /* 使分栏的宽度固定 */
   [data-block-column-width="flex-1"] {
     width: 50%;
@@ -2686,9 +2693,6 @@ video {
   }
   table {
     table-layout: auto;
-  }
-  table {
-    text-align: center;
   }
   table {
     /* daisyui: @apply table table-pin-rows table-pin-cols; */

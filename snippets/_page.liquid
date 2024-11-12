@@ -17,7 +17,7 @@
             </p>
           {% endif %}
           {% if site.settings.is_allow_published_at %}
-            <p class="text-sm text-gray-500 text-md">发布于：{{ page.published_at | date: "%Y-%m-%d" }}</p>
+            <p class="text-sm text-gray-500 text-md">{{ 'generic.published_at' | t }}: {{ page.published_at | date: "%Y-%m-%d" }}</p>
           {% endif %}
         </div>
       </div>
@@ -48,10 +48,9 @@
     {% endif %}
 
     {% # 跟后台editor保持一致，去掉了 prose sm:prose-base lg:prose-md focus:outline-none dark:prose-invert prose-a:text-blue-600 %}
-    <div class="mt-8 flow-root">
-      <div class="overflow-auto">
-        <div data-controller="view_images"
-          class="ProseMirror w-full max-w-5xl">
+    <div class="mt-4 flow-root">
+      <div class="overflow-x-auto">
+        <div data-controller="view_images" class="ProseMirror break-words">
           {{ page.settings.content }}
         </div>
       </div>
