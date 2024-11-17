@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% meta_tags %}
-    {{ 'baklib/shared/editor.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'editor.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
     {{ 'css/viewer.min.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
