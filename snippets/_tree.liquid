@@ -15,9 +15,9 @@
   class="group page-tree--node"
 >
   <div class="flex space-x-1">
-    <div style="width: calc(26px * {{ depth }})" class="flex justify-center"></div>
+    <div style="width: calc(26px * {{ depth }})" class="flex-none justify-center"></div>
 
-    <div class="flex items-center ">
+    <div class="flex-initial items-center max-w-72 px-1 hover:bg-slate-150 hover:rounded-xl">
       {% if children_size > 0 %}
         <div @click="expanded = !expanded" class="flex items-center justify-center cursor-pointer">
           <svg t="1698224111506"
@@ -30,11 +30,11 @@
             href="{{ page.path }}"
             data-turbo-frame="main-content"
             data-turbo-action="advance"
-            class="flex items-center justify-between flex-1 truncate hover:text-primary"
+            class="truncate hover:text-primary"
             data-action="click->navtree#toggleActive"
             @click="header_navtree_show=false"
           >
-            <span>{{ page.link_text | truncate: 16}}</span>
+            <span>{{ page.link_text | truncate: 160}}</span>
           </a>
         </div>
       {% else %}
@@ -42,11 +42,11 @@
           href="{{ page.path }}"
           data-turbo-frame="main-content"
           data-turbo-action="advance"
-          class="flex items-center current truncate hover:text-primary"
+          class="truncate current hover:text-primary"
           data-action="click->navtree#toggleActive"
           @click="header_navtree_show=false"
         >
-          <span>{{ page.link_text | truncate: 16 }}</span>
+          <span>{{ page.link_text | truncate: 160 }}</span>
         </a>
       {% endif %}
     </div>

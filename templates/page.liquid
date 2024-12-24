@@ -104,7 +104,7 @@
     <turbo-frame id="main-content" data-turbo-action="advance" class="grow lg:pl-6 lg:pr-6 xl:pr-0 p-4 mt-4 md:mt-8" :class="show_navtree ? 'md:ml-72' : 'md:ml-0' ">
       <div class="min-h-[calc(100vh-120px)] flex flex-col">
         {% # 面包屑导航 %}
-        <div class="mb-3">
+        <div class="mb-3 max-w-3xl">
           {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
         </div>
         {% if page.settings.show_list %}
