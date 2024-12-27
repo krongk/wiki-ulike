@@ -1,12 +1,12 @@
-{%# 该模板为了解决 rankez 希望下载打印指定目录下的所有子目录内容 %}
-{%# 实现方法：通过参数 p 获取顶级目录变量 channel， 再依次遍历输出其子页面 %}
+{%# 该模板为了解决希望下载打印指定目录下的所有子目录内容 %}
+{%# 实现方法：将顶级栏目模板改为“page.export”，即可输出所有子页面内容 %}
 {%# 涉及到的文件： %}
 {%#   snippets/_export_tree.liquid %}
 {%#   snippets/_export_page.liquid %}
-{%#   themes/index.export.liquid %}
+{%#   templates/page.export.liquid %}
 
 {% layout none %}
-{% assign pages = page.children_in_list %}
+{% assign pages = page.children_in_list | limit: 200 %}
 
 <!doctype html>
 <html lang="{{ site.language }}" class="scroll-smooth h-full">
@@ -28,7 +28,7 @@
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-slate-100 px-6">
           <div class="flex h-16 shrink-0 items-center">
-            <h1 class="mt-6 text-2xl font-semibold">目录</h1>
+            <h1 class="mt-6 text-2xl font-semibold">{{ 'generic.menu' | t}}</h1>
           </div>
           <nav class="flex flex-1 flex-col">
             <ul role="list" class="flex flex-1 flex-col gap-y-0">
