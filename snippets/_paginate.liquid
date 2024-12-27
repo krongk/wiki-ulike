@@ -1,5 +1,5 @@
 {% if paginate.total_count > 0 %}
-  <div class="flex items-center justify-between px-4 py-3 border-t border-gray-200 sm:px-6">
+  <div class="flex items-center justify-between px-2 py-3 border-t border-gray-200">
     {% if paginate.total_pages > 1 %}
 
       <div class="flex justify-between flex-1 sm:hidden">
@@ -7,17 +7,6 @@
         <a {% if paginate.next_page %}href="{{ paginate.url_for[paginate.next_page] }}"{% else %}disabled{% endif %} class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">Next</a>
       </div>
       <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-        <div>
-          <p class="text-sm text-gray-700">
-            Showing
-            <span class="font-medium">{{paginate.from}}</span>
-            to
-            <span class="font-medium">{{paginate.to}}</span>
-            of
-            <span class="font-medium">{{paginate.total_count}}</span>
-            results
-          </p>
-        </div>
         <div>
           <nav class="inline-flex -space-x-px rounded-md shadow-sm isolate" aria-label="Pagination">
             {% comment %} 上一页 {% endcomment %}

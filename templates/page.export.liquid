@@ -22,148 +22,71 @@
     {{ site.settings.head_html }}
   </head>
   <body class="h-full">
-    <div x-data="{ open: false }" @keydown.window.escape="open = false">
-    
-      <div x-show="open" class="relative z-50 lg:hidden"  x-ref="dialog" aria-modal="true" style="display: none;">
-        
-        <div x-show="open" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-gray-900/80" x-description="Off-canvas menu backdrop, show/hide based on off-canvas menu state." aria-hidden="true" style="display: none;"></div>
-        
-        <div class="fixed inset-0 flex">
-          
-            <div x-show="open" x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-description="Off-canvas menu, show/hide based on off-canvas menu state." class="relative mr-16 flex w-full max-w-xs flex-1" @click.away="open = false" style="display: none;">
-              
-                <div x-show="open" x-transition:enter="ease-in-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Close button, show/hide based on off-canvas menu state." class="absolute top-0 left-full flex w-16 justify-center pt-5" style="display: none;">
-                  <button type="button" class="-m-2.5 p-2.5" @click="open = false">
-                    <span class="sr-only">Close sidebar</span>
-                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                    </svg>
-                  </button>
-                </div>
-              
-              <!-- Sidebar component, swap this element with another sidebar if you like -->
-              <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
-                <div class="flex h-16 shrink-0 items-center">
-                  <h1 class="mt-6 text-2xl font-semibold">{{ page.link_text }}</h1>
-                </div>
-                <nav class="flex flex-1 flex-col">
-                  <ul role="list" class="flex flex-1 flex-col gap-y-7">
-                    {% for item in pages %}
-                      {% assign sub_item_count = item.children_in_list | size %}
-                        {% if sub_item_count > 0 %}
-                          <!-- 1st level -->
-                          <li class="mb-1">
-                            <a href="#{{ item.id }}">
-                              <span>{{ item.link_text }}</span>
-                            </a>
-                            <!-- 2nd level -->
-                            <ul class="pl-6 mb-3 ml-4">
-                              {% for sub_item in item.children_in_list %}
-                                {% render "export_tree", page: sub_item %}
-                              {% endfor %}
-                            </ul>
-                          </li>
-                        {% else %}
-                          <!-- 1st level -->
-                          <li class="mb-1">
-                            <a href="#{{item.id}}" class="relative flex items-center justify-between p-1">
-                              <div class="flex items-center space-x-3">
-                                <span>{{ item.link_text }}</span>
-                              </div>
-                              <div class="px-3 grow">
-                                <span class="block border-t border-slate-300"></span>
-                              </div>
-                              <div>
-                              </div>
-                            </a>
-                          </li>
-                        {% endif %}
-                    {% endfor %}
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          
-        </div>
-      </div>
-      
-
+    {% paginate_tag pages, per: 200 %}
       <!-- Static sidebar for desktop -->
-      <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-80 lg:flex-col">
+      <div class="flex lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-80 lg:flex-col">
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-slate-100 px-6">
           <div class="flex h-16 shrink-0 items-center">
-            <h1 class="mt-6 text-2xl font-semibold">{{ page.link_text }}</h1>
+            <h1 class="mt-6 text-2xl font-semibold">目录</h1>
           </div>
           <nav class="flex flex-1 flex-col">
-            <ul role="list" class="flex flex-1 flex-col gap-y-2">
-              <li>
+            <ul role="list" class="flex flex-1 flex-col gap-y-0">
                 {% for item in pages %}
                   {% assign sub_item_count = item.children_in_list | size %}
                     {% if sub_item_count > 0 %}
-                    <!-- 1st level -->
-                    <li class="mb-1">
-                      <a href="#{{ item.id }}">
-                        <span>{{ item.link_text }}</span>
-                      </a>
-                      <!-- 2nd level -->
-                      <ul class="pl-4 mb-1 ml-4 border-l">
-                        {% for sub_item in item.children_in_list %}
-                          {% render "export_tree", page: sub_item %}
-                        {% endfor %}
-                      </ul>
-                    </li>
-                  {% else %}
-                    <!-- 1st level -->
-                    <li class="mb-1">
-                      <a href="#{{item.id}}" class="relative flex items-center justify-between p-1">
-                        <div class="flex items-center space-x-3">
+                      <!-- 1st level -->
+                      <li class="mb-1">
+                        <a href="#{{ item.id }}">
                           <span>{{ item.link_text }}</span>
-                        </div>
-                        <div class="px-3 grow">
-                          <span class="block border-t border-slate-300"></span>
-                        </div>
-                        <div>
-                        </div>
-                      </a>
-                    </li>
-                  {% endif %}
+                        </a>
+                        <!-- 2nd level -->
+                        <ul class="pl-6 mb-3 ml-4">
+                          {% for sub_item in item.children_in_list %}
+                            {% render "export_tree", item: sub_item %}
+                          {% endfor %}
+                        </ul>
+                      </li>
+                    {% else %}
+                      <!-- 1st level -->
+                      <li class="mb-1">
+                        <a href="#{{item.id}}" class="relative flex items-center justify-between p-1">
+                          <div class="flex items-center space-x-3">
+                            <span>{{ item.link_text }}</span>
+                          </div>
+                          <div class="px-3 grow">
+                            <span class="block border-t border-slate-300"></span>
+                          </div>
+                          <div>
+                          </div>
+                        </a>
+                      </li>
+                    {% endif %}
                 {% endfor %}
-              </li>
-              <!-- 1st level -->
-              <li class="-mx-6 mt-auto">
-                <a href="#" target="_blank" class="flex items-center gap-x-4 px-6 py-3 text-sm/6 font-semibold text-gray-900 bg-gray-200 hover:bg-gray-50">
-                  <span class="sr-only">Your profile</span>
-                  <span aria-hidden="true"><!-- 左侧底部按钮，临时未启用--></span>
-                </a>
-              </li>
-              <!-- 1st level -->
+                <!-- Pagination -->
+                <li class="mb-0">
+                  {% render 'paginate', paginate: paginate %}
+                </li>
             </ul>
           </nav>
         </div>
       </div>
 
-      <div class="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-xs sm:px-6 lg:hidden">
-        <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" @click="open = true">
-          <span class="sr-only">Open sidebar</span>
-          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-          </svg>
-        </button>
-      </div>
-
       <main class="py-10 lg:pl-80">
         <div class="px-4 sm:px-6 lg:px-8">
-          <article class="ProseMirror">
-            <h1 class="text-6xl my-4">{{ page.link_text }} </h1>
-            {{ page.settings.content }}
-            {% for item in pages %}
-              {% render 'export_page', page: item %}
-            {% endfor %}
-          </article>
+          <turbo-frame id="main-nav-content" data-turbo-action="advance">
+            <article class="ProseMirror">
+              <h1 class="text-6xl my-4">{{ page.link_text }} </h1>
+              {{ page.settings.content }}
+              {% for item in pages %}
+                {% render 'export_page', page: item %}
+              {% endfor %}
+            </article>
+          </turbo-frame>
         </div>
       </main>
-    </div>
+      
+    {% endpaginate_tag %}
   </body>
 </html>
 
