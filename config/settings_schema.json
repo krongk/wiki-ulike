@@ -80,7 +80,7 @@
         "id": "show_channel_section",
         "type": "checkbox",
         "label": "首页显示栏目导航",
-        "default": true
+        "default": false
       },
       {
         "id": "show_card_icon",
@@ -92,7 +92,7 @@
         "id": "show_newest_section",
         "type": "checkbox",
         "label": "首页显示最新 10 条",
-        "default": true
+        "default": false
       },
       {
         "id": "show_hottest_section",
