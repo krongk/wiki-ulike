@@ -4,6 +4,7 @@
   "generic": {
     "close": "Close",
     "back": "Back",
+    "back_to": "Up one level",
     "search": "Search",
     "popular_search": "Popular Search",
     "search_result": "related searching result",
@@ -20,6 +21,8 @@
     "prev_page": "previous page",
     "next_page": "next page",
     "hot_pages": "Hot visit articles",
+    "recommend_pages": "Recommend articles",
+    "channel_pages": "Channel Navigation",
     "recent_pages": "Recent articles",
     "tags": "Tags"
   },

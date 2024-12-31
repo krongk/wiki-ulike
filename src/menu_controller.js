@@ -20,6 +20,7 @@ export default class extends Controller {
   // 生成目录树
   // { level: 0, children: [ {level: 1, id: '', text: '', children: [], parent: []} ] }
   buildDirectoryTree(headings) {
+    var index = 1
     const root = { level: 0, children: [] }
 
     let currentNode = root
@@ -27,7 +28,9 @@ export default class extends Controller {
     headings.forEach((heading) => {
       const level = parseInt(heading.tagName.substr(1), 10)
 
-      const id = this.generateUniqueId(heading)
+      const id = this.generateUniqueId(heading, index)
+
+      index = index + 1
 
       const node = { level, id, text: heading.textContent, children: [] }
 
@@ -102,12 +105,13 @@ export default class extends Controller {
   }
 
   // 动态生成id
-  generateUniqueId(node) {
+  generateUniqueId(node, index) {
+    node.style.cssText = "padding-top: 120px; margin-top: -120px;"
     // 有id, 直接赋值; 没有, 随机生成
     if (node.id) {
       return node.id
     } else {
-      const generateId =  `heading-${Math.random().toString(36).substring(2, 15)}`
+      const generateId =  `heading-${index}`
       node.id = generateId
       return generateId
     }

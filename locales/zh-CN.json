@@ -4,6 +4,7 @@
   "generic": {
     "close": "关闭",
     "back": "返回",
+    "back_to": "返回上一级",
     "search": "搜索",
     "popular_search": "热门搜索",
     "search_result": "搜索结果",
@@ -20,6 +21,8 @@
     "copyright": "版权所有",
     "published_at": "发布于",
     "hot_pages": "热门话题",
+    "recommend_pages": "专题推荐",
+    "channel_pages": "栏目导览",
     "recent_pages": "最近文章",
     "tags": "快捷标签"
   },

@@ -1,5 +1,12 @@
 {% comment %} 2024072管家婆需求： 新设计，左侧导航fixed固定 {% endcomment %}
 
+{% comment %} 左侧 NavBar只显示当前父级栏目，具体做法： nav_tree_path 添加一个 parent 参数即可。 {% endcomment %}
+{% unless page.parent.path == '/' %}
+  {% assign parent = page.parent %}
+{% else %}
+  {% assign parent = page %}
+{% endunless %}
+
 {% assign sub_pages = page.children_in_list %}
 {% assign sub_pages_size = sub_pages | size %}
 {% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
@@ -79,7 +86,7 @@
               <div class="relative w-full overflow-x-auto">
                 <ul data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
-                    src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
+                    src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id | append: '&parent=' | append: parent.id }}"
                     id="nav_tree"
                   ></turbo-frame>
                 </ul>
