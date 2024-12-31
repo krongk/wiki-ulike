@@ -77,15 +77,39 @@
         "default": "max-w-screen-xl"
       },
       {
+        "id": "show_channel_section",
+        "type": "checkbox",
+        "label": "首页显示栏目导航",
+        "default": true
+      },
+      {
+        "id": "show_card_icon",
+        "type": "checkbox",
+        "label": "首页显示栏目ICON图标",
+        "default": false
+      },
+      {
+        "id": "show_newest_section",
+        "type": "checkbox",
+        "label": "首页显示最新 10 条",
+        "default": true
+      },
+      {
+        "id": "show_hottest_section",
+        "type": "checkbox",
+        "label": "首页显示最热 10 条",
+        "default": true
+      },
+      {
         "id": "is_allow_published_at",
         "type": "checkbox",
-        "label": "是否展示发布日期",
+        "label": "页面是否展示发布日期",
         "default": true
       },
       {
         "id": "is_allow_author",
         "type": "checkbox",
-        "label": "是否展示作者",
+        "label": "页面是否展示作者信息",
         "default": true
       }
     ]
