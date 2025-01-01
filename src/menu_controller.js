@@ -20,7 +20,6 @@ export default class extends Controller {
   // 生成目录树
   // { level: 0, children: [ {level: 1, id: '', text: '', children: [], parent: []} ] }
   buildDirectoryTree(headings) {
-    var index = 1
     const root = { level: 0, children: [] }
 
     let currentNode = root
@@ -28,9 +27,7 @@ export default class extends Controller {
     headings.forEach((heading) => {
       const level = parseInt(heading.tagName.substr(1), 10)
 
-      const id = this.generateUniqueId(heading, index)
-
-      index = index + 1
+      const id = this.generateUniqueId(heading)
 
       const node = { level, id, text: heading.textContent, children: [] }
 
@@ -90,7 +87,7 @@ export default class extends Controller {
 
       // 给 Heading 添加锚点复制功能
       const hea = document.getElementById(node.id)
-      hea.classList = "flex group group-hover:opacity-100"
+      hea.classList = "flex group"
       hea.insertAdjacentHTML("beforeend",'<div data-controller="clipboard" data-clipboard-success-content-value=" Copied!"><input type="hidden" value="' + window.location.href + '#' + node.id + '" data-clipboard-target="source" /><button type="button" data-action="clipboard#copy" data-clipboard-target="button" class="flex ml-1 opacity-0 group-hover:opacity-100">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-5 text-gray-300 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />\n      </svg>\n    </button></div>')
 
       if (node.children.length > 0) {
@@ -105,13 +102,12 @@ export default class extends Controller {
   }
 
   // 动态生成id
-  generateUniqueId(node, index) {
-    node.style.cssText = "padding-top: 120px; margin-top: -120px;"
+  generateUniqueId(node) {
     // 有id, 直接赋值; 没有, 随机生成
     if (node.id) {
       return node.id
     } else {
-      const generateId =  `heading-${index}`
+      const generateId =  `heading-${Math.random().toString(36).substring(2, 15)}`
       node.id = generateId
       return generateId
     }
