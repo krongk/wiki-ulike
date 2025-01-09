@@ -32,6 +32,14 @@
           "label": "Header页头导航菜单",
           "info": "支持HTML标签和TailwindCss样式代码"
         },
+        "features_one": {
+          "label": "自定义HTML块(features_one)",
+          "info": "支持HTML标签和TailwindCss样式代码"
+        },
+        "features_two": {
+          "label": "自定义HTML块(features_two)",
+          "info": "支持HTML标签和TailwindCss样式代码"
+        },
         "footer_menu_html": {
           "label": "Footer页尾导航菜单",
           "info": "支持HTML标签和TailwindCss样式代码"

@@ -32,6 +32,14 @@
           "label": "Header navigation menu",
           "info": "Supports HTML、Javascript and TailwindCss code"
         },
+        "features_one": {
+          "label": "HTML Section 1(features_one)",
+          "info": "Supports HTML、Javascript and TailwindCss code"
+        },
+        "features_two": {
+          "label": "HTML Section 2(features_two)",
+          "info": "Supports HTML、Javascript and TailwindCss code"
+        },
         "footer_menu_html": {
           "label": "Footer navigation menu",
           "info": "Supports HTML、Javascript and TailwindCss code"
