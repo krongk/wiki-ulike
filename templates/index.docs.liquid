@@ -58,6 +58,13 @@
     </div>
   </section>
   
+  <!-- Feature One Section -->
+  {% if site.settings.features_one %}
+    <section class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+      {{ site.settings.features_one }}
+    </section>
+  {% endif %}
+  
   <!-- Started 3 Channel Section -->
   <section class="bg-transparent">
     <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
@@ -132,13 +139,6 @@
           {% endfor %}
         </div>      
       </div>
-    </section>
-  {% endif %}
-
-  <!-- Feature One Section -->
-  {% if site.settings.features_one %}
-    <section class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
-      {{ site.settings.features_one }}
     </section>
   {% endif %}
 
