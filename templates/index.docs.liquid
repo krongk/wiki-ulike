@@ -11,7 +11,7 @@
 
 
 <section class="relative">
-  <div class="absolute w-full h-full -z-10 bg-gradient-to-b from-primary-100 from-5% via-white via-20% to-gray-100 to-85% dark:from-primary dark:to-secondary"></div>
+  <div class="absolute w-full h-full -z-10 bg-gradient-to-b from-primary/35 from-5% via-white via-20% to-accent/35 to-85% dark:from-primary dark:to-accent"></div>
   <!-- Hero Section -->
   <section class="mx-auto max-w-5xl p-12 md:p-24">
     <div class="container flex flex-col h-full px-4 mx-auto">
@@ -64,7 +64,7 @@
       {{ site.settings.features_one }}
     </section>
   {% endif %}
-  
+
   <!-- Started 3 Channel Section -->
   <section class="bg-transparent">
     <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
@@ -74,7 +74,7 @@
       <div class="items-start lg:max-w-none grid grid-cols-3 gap-8 md:grid-cols-3 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
         {% for card_page in card_pages | limit:3 %}
           <!-- Card -->
-          <a href="{{ card_page.path }}" class="flex flex-col h-full bg-gradient-to-b from-secondary-100/60 from-5% to-primary-50/60 to-80% dark:from-accent dark:to-secondary hover:from-secondary-100 hover:to-primary-100 rounded-xl overflow-hidden">
+          <a href="{{ card_page.path }}" class="flex flex-col h-full bg-gradient-to-b from-secondary-100 from-5% to-primary-50/80 to-80% dark:from-secondary dark:to-primary hover:from-secondary-100 hover:to-primary-100 rounded-xl overflow-hidden">
             <!-- Card Content -->
             <div class="flex-1 flex flex-col p-0 md:p-6 relative">
                 <!-- Card body -->
