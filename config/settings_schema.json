@@ -77,6 +77,14 @@
         "default": "max-w-screen-xl"
       },
       {
+        "id": "page_bg_type",
+        "type": "radio",
+        "label": "页面背景设置",
+        "choices": [{"label":"无背景色","value":"0"},{"label":"primary+secondary变体渐变","value":"1"},{"label":"primary主色渐变","value":"2"}],
+        "default": "0",
+        "info": "* 跟随站点【主题颜色】设置的 primary/secondary 颜色"
+      },
+      {
         "id": "show_channel_section",
         "type": "checkbox",
         "label": "首页显示栏目导航",

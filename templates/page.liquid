@@ -12,15 +12,18 @@
 {% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
 {% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
 
-{% comment %} 背景 Hero, 可选 {% endcomment %}
-{% if false %}
-<div class="absolute top-0 -translate-x-1/2 pointer-events-none left-1/2 -z-10">
-  <img class="max-w-none" src="{{ 'images/hero.svg' | asset_url }}" width="1972" height="392" aria-hidden="true" />
-</div>
-{% endif %}
-
 {% comment %} 页面内容部分 {% endcomment %}
-<main class="flex min-h-screen mx-auto {{ screen_width }}">
+<main class="flex min-h-screen mx-auto {{ screen_width }} relative">
+
+  <!-- Bg Style -->
+  {% if site.settings.page_bg_type.value == '1'  %}
+    <div class="absolute inset-x-0 overflow-hidden -top-10 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
+      <div class="relative left-[calc(50%-11rem)] aspect-[1200/800] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-20 sm:left-[calc(50%-20rem)] sm:w-[82.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+  {% elsif site.settings.page_bg_type.value == '2' %}
+    <div class="absolute w-full h-full -z-10 bg-gradient-to-b from-primary/15 from-5% via-white via-20% to-accent/15 to-85% dark:from-primary dark:to-accent"></div>
+  {% endif %}
+
   <div class="flex w-full" x-data="{ show_navtree: true }">
     {% # 侧边栏 %}
     {% # render 'sidebar', current_page: page %}
@@ -86,7 +89,7 @@
               <div class="relative w-full overflow-x-auto">
                 <ul data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
-                    src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id | append: '&parent=' | append: parent.id }}"
+                    src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
                     id="nav_tree"
                   ></turbo-frame>
                 </ul>

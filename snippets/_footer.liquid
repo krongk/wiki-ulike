@@ -1,6 +1,6 @@
 {% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
 
-<footer class="bg-white border-t text-slate-800 dark:bg-slate-900 dark:text-slate-200 border-slate-200 dark:border-gray-700 print:hidden">
+<footer class="border-t text-slate-800 dark:bg-slate-900 dark:text-slate-200 border-slate-200 dark:border-gray-700 print:hidden">
   {% # 自定义导航菜单 %}
   <div class="mx-auto {{ screen_width }} p-4 space-x-2">
     {{ site.settings.footer_menu_html }}

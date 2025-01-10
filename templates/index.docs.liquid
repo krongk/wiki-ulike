@@ -6,9 +6,12 @@
 <div class="mx-auto max-w-screen-xl "></div>
 <div class="mx-auto max-w-screen-2xl"></div>
 
-<div class="flex ml-1 opacity-0 group-hover:opacity-100"></div>
-<div class="flex ml-1 opacity-0 hover:opacity-100"></div>
-
+<!-- Feature One Section -->
+{% if site.settings.features_one %}
+  <section class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+    {{ site.settings.features_one }}
+  </section>
+{% endif %}
 
 <section class="relative" style="background-image: url({{ page.settings.hero_image_url }})">
   {% if page.settings.bg_type.value == '1' %}
@@ -63,13 +66,6 @@
       </div>
     </div>
   </section>
-  
-  <!-- Feature One Section -->
-  {% if site.settings.features_one %}
-    <section class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
-      {{ site.settings.features_one }}
-    </section>
-  {% endif %}
 
   <!-- Started 3 Channel Section -->
   <section class="bg-transparent">
@@ -253,7 +249,7 @@
           "label": "背景颜色样式",
           "choices": [{"label":"primary主色渐变","value":"0"},{"label":"primary+secondary变体渐变","value":"1"}],
           "default": "0",
-          "info": "*  根据【应用设置】--【界面展示】--【主题颜色】设置的 primary/secondary 颜色"
+          "info": "*  跟随站点【主题颜色】设置的 primary/secondary 颜色"
         },
         {
           "id": "description",
