@@ -83,7 +83,7 @@
 
   <!-- Feature One Section -->
   {% if site.settings.features_one %}
-    <section class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+    <section class="mx-auto {{ screen_width }} px-4 sm:px-6">
       {{ site.settings.features_one }}
     </section>
   {% endif %}
@@ -92,7 +92,7 @@
   {% if site.settings.show_channel_section %}
     {% assign channel_pages = site.pages['/'].children_in_list  | limit: 50 %}
     <section class="bg-transparent">
-      <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+      <div class="mx-auto {{ screen_width }} px-4 mt-4 sm:px-6">
         <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
           <div class="w-1 h-full mr-3 bg-primary"></div>
           <span>{{ 'generic.channel_pages' | t }}</span>
@@ -123,7 +123,7 @@
     <section class="bg-transparent">
       <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
         <div class="pt-4 pb-4">
-          {% # 标题 %}
+          
           <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
             <div class="w-1 h-full mr-3 bg-primary"></div>
             <span>{{ 'generic.newest_pages' | t }}</span>
@@ -226,7 +226,7 @@
     <section class="bg-transparent">
       <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
         <div class="pt-4 pb-8 mt-8 lg:mt-14 lg:pb-12">
-          {% # 标题 %}
+          
           <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
             <div class="w-1 h-full mr-3 bg-primary"></div>
             <span>{{ 'generic.hot_pages' | t }}</span>
