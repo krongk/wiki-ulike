@@ -10,8 +10,14 @@
 <div class="flex ml-1 opacity-0 hover:opacity-100"></div>
 
 
-<section class="relative">
-  <div class="absolute w-full h-full -z-10 bg-gradient-to-b from-primary/35 from-5% via-white via-20% to-accent/35 to-85% dark:from-primary dark:to-accent"></div>
+<section class="relative" style="background-image: url({{ page.settings.hero_image_url }})">
+  {% if page.settings.bg_type.value == '1' %}
+    <div class="absolute inset-x-0 overflow-hidden -top-10 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
+      <div class="relative left-[calc(50%-11rem)] aspect-[1200/800] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-30 sm:left-[calc(50%-20rem)] sm:w-[82.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+  {% else %}
+    <div class="absolute w-full h-full -z-10 bg-gradient-to-b from-primary/35 from-5% via-white via-20% to-accent/35 to-85% dark:from-primary dark:to-accent"></div>
+  {% endif %}
   <!-- Hero Section -->
   <section class="mx-auto max-w-5xl p-12 md:p-24">
     <div class="container flex flex-col h-full px-4 mx-auto">
@@ -38,8 +44,8 @@
           <!-- 热门标签 -->
           {% if page.settings.tags.size > 0 %}
             <div class="items-center justify-start hidden w-full mt-4 md:flex flex-wrap">
-              <div class="inline-block">
-                <span class="mr-3">{{ 'generic.tags' | t }}：</span>
+              <div class="inline-block text-gray-500 dark:text-gray-100">
+                <span class="mx-3">{{ 'generic.tags' | t }}：</span>
                 {% for tag in page.settings.tags %}
                   <a
                     href="{{ tag.path }}"
@@ -242,32 +248,24 @@
           "info": "t:settings_schema.generic.settings.hero_image_url.info"
         },
         {
+          "id": "bg_type",
+          "type": "radio",
+          "label": "背景颜色样式",
+          "choices": [{"label":"primary主色渐变","value":"0"},{"label":"primary+secondary变体渐变","value":"1"}],
+          "default": "0",
+          "info": "*  根据【应用设置】--【界面展示】--【主题颜色】设置的 primary/secondary 颜色"
+        },
+        {
           "id": "description",
           "type": "text",
           "label": "t:settings_schema.generic.settings.description.label",
           "default": "👋 What Can We Help?"
         },
         {
-          "id": "hot_tags",
-          "label": "t:settings_schema.generic.settings.hot_tags.label",
-          "type": "text",
-          "placeholder": "sign in,install,account,how to"
-        },
-        {
           "id": "tags",
           "type": "tag_picker",
           "multiple": true,
           "label": "t:settings_schema.page.settings.tags.label"
-        },
-        {
-          "id": "index_card_page_count",
-          "type": "number",
-          "min": 1,
-          "max": 20,
-          "step": 1,
-          "default": 5,
-          "label": "首页列表展示页面数量",
-          "info": ""
         }
       ]
   }
