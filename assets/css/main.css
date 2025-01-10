@@ -904,18 +904,6 @@ video {
   margin-top: 2rem;
 }
 
-.-mt-6 {
-  margin-top: -1.5rem;
-}
-
-.-mt-10 {
-  margin-top: -2.5rem;
-}
-
-.-mt-9 {
-  margin-top: -2.25rem;
-}
-
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1212,10 +1200,6 @@ video {
 
 .max-w-7xl {
   max-width: 80rem;
-}
-
-.max-w-none {
-  max-width: none;
 }
 
 .max-w-screen-2xl {
@@ -1852,6 +1836,12 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-primary\/15 {
+  --tw-gradient-from: hsl(var(--theme-color-primary) / 0.15) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--theme-color-primary) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-primary\/35 {
   --tw-gradient-from: hsl(var(--theme-color-primary) / 0.35) var(--tw-gradient-from-position);
   --tw-gradient-to: hsl(var(--theme-color-primary) / 0) var(--tw-gradient-to-position);
@@ -1861,18 +1851,6 @@ video {
 .from-secondary-100 {
   --tw-gradient-from: hsl(var(--theme-color-secondary-hsl-h) var(--theme-color-secondary-hsl-s) 92%) var(--tw-gradient-from-position);
   --tw-gradient-to: hsl(var(--theme-color-secondary-hsl-h) var(--theme-color-secondary-hsl-s) 92% / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-primary\/25 {
-  --tw-gradient-from: hsl(var(--theme-color-primary) / 0.25) var(--tw-gradient-from-position);
-  --tw-gradient-to: hsl(var(--theme-color-primary) / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-primary\/15 {
-  --tw-gradient-from: hsl(var(--theme-color-primary) / 0.15) var(--tw-gradient-from-position);
-  --tw-gradient-to: hsl(var(--theme-color-primary) / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -1893,6 +1871,10 @@ video {
   --tw-gradient-to: #9089fc var(--tw-gradient-to-position);
 }
 
+.to-accent\/15 {
+  --tw-gradient-to: hsl(var(--theme-color-accent) / 0.15) var(--tw-gradient-to-position);
+}
+
 .to-accent\/35 {
   --tw-gradient-to: hsl(var(--theme-color-accent) / 0.35) var(--tw-gradient-to-position);
 }
@@ -1903,14 +1885,6 @@ video {
 
 .to-secondary {
   --tw-gradient-to: hsl(var(--theme-color-secondary) / 1) var(--tw-gradient-to-position);
-}
-
-.to-accent\/25 {
-  --tw-gradient-to: hsl(var(--theme-color-accent) / 0.25) var(--tw-gradient-to-position);
-}
-
-.to-accent\/15 {
-  --tw-gradient-to: hsl(var(--theme-color-accent) / 0.15) var(--tw-gradient-to-position);
 }
 
 .to-80\% {
@@ -2380,16 +2354,16 @@ video {
   opacity: 1;
 }
 
+.opacity-20 {
+  opacity: 0.2;
+}
+
 .opacity-30 {
   opacity: 0.3;
 }
 
 .opacity-60 {
   opacity: 0.6;
-}
-
-.opacity-20 {
-  opacity: 0.2;
 }
 
 .shadow {
@@ -2438,16 +2412,6 @@ video {
 
 .blur-3xl {
   --tw-blur: blur(64px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.blur-2xl {
-  --tw-blur: blur(40px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.blur-xl {
-  --tw-blur: blur(24px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -2813,10 +2777,6 @@ video {
   text-decoration-line: underline;
 }
 
-.hover\:opacity-100:hover {
-  opacity: 1;
-}
-
 .hover\:shadow-md:hover {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -2924,10 +2884,6 @@ video {
 .group:hover .group-hover\:text-primary {
   --tw-text-opacity: 1;
   color: hsl(var(--theme-color-primary) / var(--tw-text-opacity));
-}
-
-.group:hover .group-hover\:opacity-100 {
-  opacity: 1;
 }
 
 .peer:focus ~ .peer-focus\:text-primary {
@@ -3265,10 +3221,6 @@ video {
     margin-bottom: 2rem;
   }
 
-  .md\:-mt-10 {
-    margin-top: -2.5rem;
-  }
-
   .md\:-mt-20 {
     margin-top: -5rem;
   }
@@ -3301,8 +3253,8 @@ video {
     margin-top: 2rem;
   }
 
-  .md\:-mt-16 {
-    margin-top: -4rem;
+  .md\:-mt-18 {
+    margin-top: -4.5rem;
   }
 
   .md\:block {
