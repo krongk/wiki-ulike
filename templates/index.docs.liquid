@@ -102,7 +102,7 @@
 
   <!-- Channel Section -->
   {% if site.settings.show_channel_section %}
-    <section class="bg-transparent my-12">
+    <section class="bg-transparent py-12">
       <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
         <div class="items-center text-center my-4 md:mb-8">
           <h2 class="text-xl md:text-2xl font-semibold">{{ 'generic.recommend_pages' | t }}</h2>
@@ -147,8 +147,8 @@
   <!-- Newest List Section -->
   {% if site.settings.show_newest_section %}
     {% assign newest_pages = site.pages['/'].pages_in_list | order_by: '-created_at' | limit: 10 %}
-    <section class="bg-transparent">
-      <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-xl">
+    <section class="bg-transparent py-4">
+      <div class="mx-auto {{ screen_width }} px-4 sm:px-6 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-xl">
         <div class="pt-4 pb-4">
           
           <div class="flex items-center h-8 mb-2 text-xl md:text-2xl font-semibold text-slate-800 dark:text-slate-200">
