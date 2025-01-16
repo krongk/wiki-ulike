@@ -1,6 +1,64 @@
-# wiki帮助中心 模板
+# Baklib Wiki Template
 
-## 介绍
+Content synchronized from knowledge base, for Large-scale reusable document content management, like Wiki, Documentation, and content portal.
+
+Knowledge base template deployed by Baklib WIKI.
+
+![Baklib CMS based index theme](./assets/images/theme/index-help-center.png)
+![Baklib CMS based page theme](./assets/images/theme/index-docs.png)
+![Baklib CMS based page theme](./assets/images/theme/page.png)
+
+## 🚀 Project Structure
+
+```
+  .
+  ├── README.md
+  ├── config
+  │   └── settings_schema.json
+  ├── layout
+  │   ├── error.liquid
+  │   └── theme.liquid
+  ├── package-lock.json
+  ├── package.json
+  ├── snippets
+  │   ├── _breadcrumb copy.liquid
+  │   ├── _breadcrumb.liquid
+  │   ├── _custom_menu.liquid
+  │   ├── _export_page.liquid
+  │   ├── _export_tree.liquid
+  │   ├── _feedback_form.liquid
+  │   ├── _footer.liquid
+  │   ├── _header.liquid
+  │   ├── _index_tree.liquid
+  │   ├── _page.liquid
+  │   ├── _page_list.liquid
+  │   ├── _paginate.liquid
+  │   ├── _plugins.liquid
+  │   ├── _sidebar.liquid
+  │   ├── _tag.liquid
+  │   └── _tree.liquid
+  ├── statics
+  │   └── about.liquid
+  ├── tailwind.config.js
+  ├── templates
+  │   ├── index.docs.liquid
+  │   ├── index.help_center.liquid
+  │   ├── index.list.liquid
+  │   ├── nav_tree.liquid
+  │   ├── page.export.liquid
+  │   ├── page.liquid
+  │   ├── search.liquid
+  │   └── tag.liquid
+  ├── yarn-error.log
+  └── yarn.lock
+```
+
+
+## 🧞 Install guide
+
+- The Template install Guide: https://help.baklib.cn/themes/wiki
+
+- The Baklib template install Guide: https://dev.baklib.cn/guide/git
 
 ## 开发
 
