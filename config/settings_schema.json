@@ -58,10 +58,19 @@
     "name": "t:settings_schema.generic.name",
     "settings": [
       {
+        "id": "logo_url",
+        "type": "image_picker",
+        "ratio": "3:1",
+        "width": 150,
+        "label": "t:settings_schema.generic.settings.logo_url.label",
+        "info": "若设置了logo，则页头显示 logo，否则显示：网站图标+站点名称"
+      },
+      {
         "id": "company_name",
         "label": "t:settings_schema.generic.settings.company_name.label",
         "type": "text",
-        "default": "t:settings_schema.generic.settings.company_name.default"
+        "default": "t:settings_schema.generic.settings.company_name.default",
+        "info": "显示在页面底部页脚位置"
       },
       {
         "id": "copyright_info",

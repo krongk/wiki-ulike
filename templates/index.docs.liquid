@@ -71,7 +71,7 @@
   <section class="bg-transparent">
     <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
       <div class="items-center text-center my-4 md:mb-8">
-        <h2 class="text-xl md:text-2xl font-semibold">{{ 'generic.get_started_pages' | t }}</h2>
+        <h2 class="text-xl md:text-2xl font-semibold">{{ page.settings.channel_one_name |  default: '新手入门' }}</h2>
       </div>
       <div class="items-start lg:max-w-none grid grid-cols-3 gap-8 md:grid-cols-3 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
         {% for card_page in card_pages | limit:3 %}
@@ -105,7 +105,7 @@
     <section class="bg-transparent py-12">
       <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
         <div class="items-center text-center my-4 md:mb-8">
-          <h2 class="text-xl md:text-2xl font-semibold">{{ 'generic.recommend_pages' | t }}</h2>
+          <h2 class="text-xl md:text-2xl font-semibold">{{ page.settings.channel_two_name |  default: '栏目导航' }}</h2>
         </div>
         <div class="items-start lg:max-w-none grid grid-cols-3 gap-2 md:gap-4 md:grid-cols-4 lg:grid-cols-4">
           {% for card_page in card_pages, offset: 3 %}
@@ -261,7 +261,22 @@
           "id": "tags",
           "type": "tag_picker",
           "multiple": true,
-          "label": "t:settings_schema.page.settings.tags.label"
+          "label": "t:settings_schema.page.settings.tags.label",
+          "info": "设置以后，标签列表会显示在首页搜索栏下方"
+        },
+        {
+          "id": "channel_one_name",
+          "type": "text",
+          "label": "版块一名称",
+          "default": "新手入门",
+          "info": "版块一显示前 3 个栏目 Card"
+        },
+        {
+          "id": "channel_two_name",
+          "type": "text",
+          "label": "版块二名称",
+          "default": "专题推荐",
+          "info": "版块二显示剩下的所有栏目 Card"
         }
       ]
   }

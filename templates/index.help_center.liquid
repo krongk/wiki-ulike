@@ -64,19 +64,21 @@
             {% endif %}
 
             <!-- 热门搜索 -->
-            <div class="items-center justify-start hidden w-full mt-4 md:flex">
-              <div class="inline-block">
-                <span class="mr-3 text-white">{{ 'generic.popular_search' | t }}:</span>
-                {% for search_hot_key in hot_tags %}
-                  <a
-                    href="{{site.index_path}}-/search?q={{ search_hot_key }}"
-                    class="mr-3 text-white hover:text-primary focus:ring hover:-translate-y-[2px]"
-                  >
-                    {{ search_hot_key }}
-                  </a>
-                {% endfor %}
+            {% if page.settings.hot_tags %}
+              <div class="items-center justify-start hidden w-full mt-4 md:flex">
+                <div class="inline-block">
+                  <span class="mr-3 text-white">{{ 'generic.popular_search' | t }}:</span>
+                  {% for search_hot_key in hot_tags %}
+                    <a
+                      href="{{site.index_path}}-/search?q={{ search_hot_key }}"
+                      class="mr-3 text-white hover:text-primary focus:ring hover:-translate-y-[2px]"
+                    >
+                      {{ search_hot_key }}
+                    </a>
+                  {% endfor %}
+                </div>
               </div>
-            </div>
+            {% endif %}
 
           </div>
         </div>
@@ -91,7 +93,7 @@
       <div class="mx-auto {{ screen_width }} px-4 mt-4 sm:px-6">
         <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
           <div class="w-1 h-full mr-3 bg-primary"></div>
-          <span>{{ 'generic.channel_pages' | t }}</span>
+          <span>{{ site.settings.channel_one_name |  default: '栏目导航' }}</span>
         </div>
         <div class="items-start lg:max-w-none grid grid-cols-2 gap-3 md:grid-cols-6 lg:grid-cols-8 lg:gap-2">
             {% for channel_page in channel_pages %}
@@ -154,7 +156,7 @@
       {% # 列表指南- Guide %}
       <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
         <div class="w-1 h-full mr-3 bg-primary"></div>
-        <span>{{ 'generic.recommend_pages' | t }}</span>
+        <span>{{ site.settings.channel_two_name |  default: '专题推荐' }}</span>
       </div>
       <div class="items-start lg:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
         {% for card_page in card_pages %}
@@ -307,6 +309,20 @@
           "default": 5,
           "label": "首页列表展示页面数量",
           "info": ""
+        },
+        {
+          "id": "channel_one_name",
+          "type": "text",
+          "label": "版块一名称",
+          "default": "栏目导览",
+          "info": "版块一显示所有栏目快捷方式"
+        },
+        {
+          "id": "channel_two_name",
+          "type": "text",
+          "label": "版块二名称",
+          "default": "专题推荐",
+          "info": "版块二显示所有栏目 Card"
         }
       ]
   }

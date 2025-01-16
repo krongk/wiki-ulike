@@ -827,3 +827,49 @@
 
   </article>
 </section>
+
+
+<section id="features_one1" class="mx-auto max-w-7xl relative mb-12">
+  <div class="flex justify-between bg-slate-400 p-2">
+    <h2 class="text-2xl">示例 11：</h2>
+    <p>单独添加一个搜索框到任何地方</p>
+  </div>
+  <article class="bg-slate-100 p-12 mx-auto max-w-2xl">
+
+    <ul>
+      <li>
+        {% form_tag 'search', class: 'w-full' %}
+          <div class="relative">
+            <button type="submit" class="absolute inset-y-0 right-0 flex items-center pl-4 pr-3 sm:right-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
+            </button>
+            <input
+              type="text"
+              name="{{form.keywords_field_name}}" value="{{ params.q | escape_once }}"
+              placeholder="{{ "placeholders.search" | t }}"
+              autocomplete="off"
+              class="block w-full h-6 md:h-8 lg:h-10 pl-3 pr-10 transition duration-300 ease-in-out bg-white bg-opacity-75 dark:text-primary border border-1 rounded-lg outline-none focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90"
+            >
+          </div>
+        {% endform_tag %}
+      </li>
+    </ul>
+  </article>
+  <p>代码</p>
+  <pre class="mx-auto max-w-7xl overflow-auto">
+    { % form_tag &#x27;search&#x27;, class: &#x27;w-full&#x27; % }
+      &lt;div class=&quot;relative&quot;&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;absolute inset-y-0 right-0 flex items-center pl-4 pr-3 sm:right-auto&quot;&gt;
+          &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;w-5 h-5 text-primary&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot; &gt; &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z&quot; /&gt; &lt;/svg&gt;
+        &lt;/button&gt;
+        &lt;input
+          type=&quot;text&quot;
+          name=&quot;{{form.keywords_field_name}}&quot; value=&quot;{{ params.q | escape_once }}&quot;
+          placeholder=&quot;{{ &quot;placeholders.search&quot; | t }}&quot;
+          autocomplete=&quot;off&quot;
+          class=&quot;block w-full h-6 md:h-8 lg:h-10 pl-3 pr-10 transition duration-300 ease-in-out bg-white bg-opacity-75 dark:text-primary border border-1 rounded-lg outline-none focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90&quot;
+        &gt;
+      &lt;/div&gt;
+    { % endform_tag % }
+  </pre>
+</section>
