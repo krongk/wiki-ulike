@@ -5,6 +5,7 @@
 <div class="mx-auto max-w-screen-lg "></div>
 <div class="mx-auto max-w-screen-xl "></div>
 <div class="mx-auto max-w-screen-2xl"></div>
+<span class="flex ml-1 opacity-0 group-hover:opacity-100"></span>
 
 <!-- Feature One Section -->
 {% if site.settings.features_one %}
@@ -148,7 +149,7 @@
   {% if site.settings.show_newest_section %}
     {% assign newest_pages = site.pages['/'].pages_in_list | order_by: '-created_at' | limit: 10 %}
     <section class="bg-transparent py-4">
-      <div class="mx-auto {{ screen_width }} px-4 sm:px-6 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-xl">
+      <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
         <div class="pt-4 pb-4">
           
           <div class="flex items-center h-8 mb-2 text-xl md:text-2xl font-semibold text-slate-800 dark:text-slate-200">
