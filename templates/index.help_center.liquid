@@ -90,11 +90,13 @@
   {% if site.settings.show_channel_section %}
     {% assign channel_pages = site.pages['/'].children_in_list  | limit: 50 %}
     <section class="bg-transparent">
-      <div class="mx-auto {{ screen_width }} px-4 mt-4 sm:px-6">
-        <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
-          <div class="w-1 h-full mr-3 bg-primary"></div>
-          <span>{{ site.settings.channel_one_name |  default: '栏目导航' }}</span>
-        </div>
+      <div class="mx-auto {{ screen_width }} px-4 my-4 sm:px-6">
+        {% if page.settings.channel_one_name %}
+          <div class="flex items-center text-2xl my-4 font-bold text-slate-800 dark:text-slate-200">
+            <div class="w-1 h-full mr-3 bg-primary"></div>
+            <span>{{ page.settings.channel_one_name }}</span>
+          </div>
+        {% endif %}
         <div class="items-start lg:max-w-none grid grid-cols-2 gap-3 md:grid-cols-6 lg:grid-cols-8 lg:gap-2">
             {% for channel_page in channel_pages %}
               <a href="{{ channel_page.path }}" class="flex flex-col text-center items-center text-md h-full px-2 py-4 bg-white hover:bg-blue-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-md overflow-hidden">
@@ -119,10 +121,10 @@
   {% if site.settings.show_newest_section %}
     {% assign newest_pages = site.pages['/'].pages_in_list | order_by: '-created_at' | limit: 10 %}
     <section class="bg-transparent">
-      <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+      <div class="mx-auto {{ screen_width }} px-4 my-4 sm:px-6">
         <div class="pt-4 pb-4">
           
-          <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
+          <div class="flex items-center text-2xl font-bold text-slate-800 dark:text-slate-200">
             <div class="w-1 h-full mr-3 bg-primary"></div>
             <span>{{ 'generic.newest_pages' | t }}</span>
           </div>
@@ -152,12 +154,14 @@
 
   <!-- Pages Section -->
   <section class="bg-transparent">
-    <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+    <div class="mx-auto {{ screen_width }} px-4 my-4 sm:px-6">
       {% # 列表指南- Guide %}
-      <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
-        <div class="w-1 h-full mr-3 bg-primary"></div>
-        <span>{{ site.settings.channel_two_name |  default: '专题推荐' }}</span>
-      </div>
+      {% if page.settings.channel_two_name %}
+        <div class="flex items-center text-2xl font-bold text-slate-800 dark:text-slate-200">
+          <div class="w-1 h-full mr-3 bg-primary"></div>
+          <span>{{ page.settings.channel_two_name }}</span>
+        </div>
+      {% endif %}
       <div class="items-start lg:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
         {% for card_page in card_pages %}
           <!-- Card -->
@@ -222,8 +226,8 @@
   {% if site.settings.show_hottest_section %}
     {% assign hottest_pages = site.pages['/'].pages_in_list | order_by: '-visits_count' | limit: 10 %}
     <section class="bg-transparent">
-      <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
-        <div class="pt-4 pb-8 mt-8 lg:mt-14 lg:pb-12">
+      <div class="mx-auto {{ screen_width }} px-4 my-4 sm:px-6">
+        <div class="py-4 lg:py-12">
           
           <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
             <div class="w-1 h-full mr-3 bg-primary"></div>
@@ -255,7 +259,7 @@
 
   <!-- Feature Two Section -->
   {% if site.settings.features_two %}
-    <section class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+    <section class="mx-auto {{ screen_width }} px-4 my-8 sm:px-6">
       {{ site.settings.features_two }}
     </section>
   {% endif %}
