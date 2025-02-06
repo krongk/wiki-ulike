@@ -92,7 +92,7 @@
     <section class="bg-transparent">
       <div class="mx-auto {{ screen_width }} px-4 my-4 sm:px-6">
         {% if page.settings.channel_one_name %}
-          <div class="flex items-center text-2xl my-4 font-bold text-slate-800 dark:text-slate-200">
+          <div class="flex items-center text-2xl h-8 mb-4 font-bold text-slate-800 dark:text-slate-200">
             <div class="w-1 h-full mr-3 bg-primary"></div>
             <span>{{ page.settings.channel_one_name }}</span>
           </div>
@@ -123,11 +123,11 @@
     <section class="bg-transparent">
       <div class="mx-auto {{ screen_width }} px-4 my-4 sm:px-6">
         <div class="pt-4 pb-4">
-          
-          <div class="flex items-center text-2xl font-bold text-slate-800 dark:text-slate-200">
+          <div class="flex items-center h-8 mb-4 text-2xl font-bold text-slate-800 dark:text-slate-200">
             <div class="w-1 h-full mr-3 bg-primary"></div>
             <span>{{ 'generic.newest_pages' | t }}</span>
           </div>
+
           <div class="grid grid-cols-1 gap-4 md:grid-cols-2 p-4 gap-y-4 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md overflow-hidden">
             {% for sub_page in newest_pages %}
               <a class="flex items-center justify-between transition transform group"
@@ -157,7 +157,7 @@
     <div class="mx-auto {{ screen_width }} px-4 my-4 sm:px-6">
       {% # 列表指南- Guide %}
       {% if page.settings.channel_two_name %}
-        <div class="flex items-center text-2xl font-bold text-slate-800 dark:text-slate-200">
+        <div class="flex items-center text-2xl h-8 mb-4 font-bold text-slate-800 dark:text-slate-200">
           <div class="w-1 h-full mr-3 bg-primary"></div>
           <span>{{ page.settings.channel_two_name }}</span>
         </div>
