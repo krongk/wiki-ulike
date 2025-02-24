@@ -33,7 +33,7 @@
             {% render 'custom_menu' %}
 
             {% # 文章目录 %}
-            <li class="md:hidden" x-show="search_button_show" @click="header_navtree_show=!header_navtree_show" x-cloak>
+            <li class="md:hidden" x-show="search_button_show" @click="header_navtree_show=!header_navtree_show" @click.outside="header_navtree_show=false" x-cloak>
               <svg
                 t="1698303012711"
                 class="w-5 h-5 cursor-pointer icon"

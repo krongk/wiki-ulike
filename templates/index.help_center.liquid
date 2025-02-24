@@ -175,7 +175,7 @@
                     <header class="mb-2">
                       <div class="flex items-center justify-start">
                         {% if site.settings.show_card_icon %}
-                          {% if site.settings.icon %}
+                          {% if card_page.settings.icon %}
                             <span class="mr-2"><img src="{{ card_page.settings.icon | default: default_icon }}" class="h-8"/> </span>
                           {% else %}
                             <span class="mr-2">
@@ -218,7 +218,7 @@
             </div>
           </div>
         {% endfor %}
-      </div>      
+      </div>
     </div>
   </section>
 
@@ -228,7 +228,7 @@
     <section class="bg-transparent">
       <div class="mx-auto {{ screen_width }} px-4 my-4 sm:px-6">
         <div class="py-4 lg:py-12">
-          
+
           <div class="flex items-center h-8 mb-8 text-2xl font-bold text-slate-800 dark:text-slate-200">
             <div class="w-1 h-full mr-3 bg-primary"></div>
             <span>{{ 'generic.hot_pages' | t }}</span>
