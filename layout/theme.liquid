@@ -23,7 +23,9 @@
         });
       "
     >
-      {% render 'header', settings: site.settings %}
+      {% unless page.settings.not_show_header %}
+        {% render 'header', settings: site.settings %}
+      {% endunless %}
       <div class="pt-10 md:pt-16">{{ content_for_layout }}</div>
       {%# render 'footer', settings: site.settings %}
 

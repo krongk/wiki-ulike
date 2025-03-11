@@ -1,0 +1,103 @@
+<!-- 提供视频链接，Card显示视频列表 -->
+{% assign pages = page.children_in_list | limit: 200 %}
+{% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
+{% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
+
+<turbo-frame id="main-content" data-turbo-action="advance">
+  <main class="min-h-screen mx-auto {{ screen_width }} relative px-4">
+    {% if page.settings.show_list %}
+      {% paginate_tag pages, per: 200 %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {% for item in pages %}
+            <div class="">
+              <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="relative pb-[56.25%]">
+                  <video x-init="$watch(true, value => value ? $el.play() : $el.pause())" width="1920" height="1080" loop controls>
+                      <source src="{{ item.settings.video_url }}" type="video/mp4" />
+                      Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="p-4">
+                  <a class="text-lg text-gray-800 hover:underline hover:text-primary" href="{{ item.path }}">{{ item.link_text }}</a>
+                  <p class="text-gray-600">{{ item.settings.description }}</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {% render 'paginate', paginate: paginate %}
+      {% endpaginate_tag %}
+    {% else %}
+      <div class="mb-3 max-w-3xl mt-8">
+        {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+      </div>
+      <div class="mt-4 md:mt-8">
+        {% render 'page', page: page, default_avatar_url: default_avatar_url %}  
+      </div>
+    {% endif %}
+  </main>
+</turbo-frame>
+
+{% schema %}
+  {
+    "name": "Video Page",
+    "description": "The video page template",
+    "thumb_url": "images/theme/page-videos.png",
+    "sub_page_templates": ["page"],
+    "settings": [
+      {
+        "id": "show_list",
+        "type": "checkbox",
+        "default": "false",
+        "label": "栏目",
+        "info": "作为栏目页面，只显示子页面列表"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "readonly": true,
+        "label": "标题",
+        "info": "知识库同步，不可编辑"
+      },
+      {
+        "id": "tags",
+        "type": "tag_picker",
+        "multiple": true,
+        "label": "t:settings_schema.page.settings.tags.label"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "t:settings_schema.page.settings.description.label"
+      },
+      {
+        "id": "video_url",
+        "type": "video_picker",
+        "label": "选择视频"
+      },
+      {
+        "id": "not_show_header",
+        "type": "checkbox",
+        "label": "不显示页头",
+        "info": "往往嵌入到别的窗口时，关闭Header页头部分",
+        "default": false
+      },
+      {
+        "id": "icon",
+        "type": "image_picker",
+        "ratio": "1:1",
+        "width": 100,
+        "label": "t:settings_schema.page.settings.icon.label",
+        // "required": true, 如果必填就用这个参数
+        "info": "t:settings_schema.page.settings.icon.info"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "t:settings_schema.page.settings.content.label",
+        "readonly": true,
+        "info": "t:settings_schema.page.settings.content.info"
+      }
+    ]
+  }
+{% endschema %}
