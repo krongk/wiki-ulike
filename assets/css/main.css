@@ -2153,6 +2153,10 @@ video {
   padding-bottom: 2rem;
 }
 
+.pb-\[56\.25\%\] {
+  padding-bottom: 56.25%;
+}
+
 .pl-3 {
   padding-left: 0.75rem;
 }
