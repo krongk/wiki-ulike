@@ -11,7 +11,7 @@
           {% for item in pages %}
             <div class="">
               <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <div class="relative pb-[56.25%]">
+                <div class="relative aspect-video">
                   <video x-init="$watch(true, value => value ? $el.play() : $el.pause())" width="1920" height="1080" loop controls>
                       <source src="{{ item.settings.video_url }}" type="video/mp4" />
                       Your browser does not support the video tag.
