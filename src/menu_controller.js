@@ -88,7 +88,8 @@ export default class extends Controller {
       // 给 Heading 添加锚点复制功能
       const hea = document.getElementById(node.id)
       hea.classList = "flex group"
-      hea.insertAdjacentHTML("beforeend",'<div data-controller="clipboard" data-clipboard-success-content-value=" Copied!"><input type="hidden" value="' + window.location.href + '#' + node.id + '" data-clipboard-target="source" /><button type="button" data-action="clipboard#copy" data-clipboard-target="button" class="flex ml-1 opacity-0 group-hover:opacity-100">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-5 text-gray-300 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />\n      </svg>\n    </button></div>')
+      hea.insertAdjacentHTML("beforeend",'<div data-controller="clipboard" data-clipboard-success-content-value=" Copied!"><input type="hidden" value="' + window.location.href.split('#')[0] + '#' + node.id + '" data-clipboard-target="source" /><button type="button" data-action="clipboard#copy" data-clipboard-target="button" class="flex ml-1 opacity-0 group-hover:opacity-100">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-5 text-gray-300 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />\n      </svg>\n    </button></div>')
+      hea.insertAdjacentHTML("beforeend",'<a name="' + node.id + '"></a>')
 
       if (node.children.length > 0) {
         const subList = this.renderDirectory(node, li, level+1)
