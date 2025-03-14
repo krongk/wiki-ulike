@@ -24,10 +24,10 @@ export default class extends Controller {
 
     let currentNode = root
 
-    headings.forEach((heading) => {
+    headings.forEach((heading, index) => {
       const level = parseInt(heading.tagName.substr(1), 10)
 
-      const id = this.generateUniqueId(heading)
+      const id = this.generateUniqueId(heading, index)
 
       const node = { level, id, text: heading.textContent, children: [] }
 
@@ -103,14 +103,17 @@ export default class extends Controller {
   }
 
   // 动态生成id
-  generateUniqueId(node) {
+  generateUniqueId(node, index) {
     // 有id, 直接赋值; 没有, 随机生成
     if (node.id) {
       return node.id
     } else {
-      const generateId =  `heading-${Math.random().toString(36).substring(2, 15)}`
+      // bugfix: 生成的id每次都随机，则会导致用户拷贝的 URL 访问不到先前的锚点
+      // const generateId =  `heading-${Math.random().toString(36).substring(2, 15)}`
+      const generateId = `heading-${index}`
       node.id = generateId
       return generateId
+      
     }
   }
 
