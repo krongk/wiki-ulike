@@ -23,10 +23,14 @@
         });
       "
     >
-      {% unless page.settings.not_show_header %}
+      {% unless page.slug == '' %}
+        {% comment %} 非首页 {% endcomment %}
         {% render 'header', settings: site.settings %}
+        <div class="pt-10 md:pt-16">{{ content_for_layout }}</div>
+      {% else %}
+        {% comment %} 首页 {% endcomment %}
+        {{ content_for_layout }}
       {% endunless %}
-      <div class="pt-10 md:pt-16">{{ content_for_layout }}</div>
       {%# render 'footer', settings: site.settings %}
 
       {% # 回到顶部图标 %}

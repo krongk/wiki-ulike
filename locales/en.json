@@ -1,5 +1,5 @@
 {
-  "theme_label": "Wiki",
+  "theme_label": "Ulike Wiki",
   "theme_description": "Content synchronized from knowledge base, for Large-scale reusable document content management, like Wiki, Documentation, and content portal.",
   "generic": {
     "close": "Close",
@@ -29,7 +29,7 @@
     "tags": "Tags"
   },
   "placeholders": {
-    "search": "Searching...",
+    "search": "Ask a question",
     "input_password": "Please input your password"
   },
   "buttons": {

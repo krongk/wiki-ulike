@@ -1,5 +1,5 @@
 {
-  "theme_label": "Wiki",
+  "theme_label": "Ulike Wiki",
   "theme_description": "通过知识库同步页面内容，从而实现内容和站点分离；用于大规模可重用文档内容管理，如Wiki、帮助文档和内容门户。",
   "generic": {
     "close": "关闭",

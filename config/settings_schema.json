@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "wiki",
+    "theme_name": "wiki_ulike",
     "theme_label": "t:theme_label",
     "theme_version": "1.1.0",
     "theme_scope": "wiki",
@@ -63,7 +63,33 @@
         "ratio": "3:1",
         "width": 150,
         "label": "t:settings_schema.generic.settings.logo_url.label",
-        "info": "若设置了logo，则页头显示 logo，否则显示：网站图标+站点名称"
+        "info": "纯色 LOGO，显示在内页"
+      },
+      {
+        "id": "logo_white_url",
+        "type": "image_picker",
+        "ratio": "3:1",
+        "width": 150,
+        "label": "t:settings_schema.generic.settings.logo_url.label",
+        "info": "白色 LOGO，显示在首页"
+      },
+      {
+        "id": "email",
+        "type": "text",
+        "label": "Email",
+        "default": "some@example.com"
+      },
+      {
+        "id": "phone",
+        "type": "text",
+        "label": "Phone",
+        "default": "1234567890"
+      },
+      {
+        "id": "chat_url",
+        "type": "text",
+        "label": "Chat 链接",
+        "default": "#"
       },
       {
         "id": "company_name",
@@ -135,20 +161,20 @@
     "name": "t:settings_schema.generic.header_name",
     "settings": [
       {
-        "id": "header_menu_html",
-        "type": "html",
-        "label": "t:settings_schema.generic.settings.header_menu_html.label",
-        "info": "t:settings_schema.generic.settings.header_menu_html.info",
-        "rows": 6,
-        "placeholder": "<a href='#'> title </a>"
+        "id": "header_menu",
+        "type": "textarea",
+        "label": "页头导航菜单设置",
+        "rows": 10,
+        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
       },
       {
-        "id": "footer_menu_html",
-        "type": "html",
-        "label": "t:settings_schema.generic.settings.footer_menu_html.label",
-        "info": "t:settings_schema.generic.settings.footer_menu_html.info",
-        "rows": 6,
-        "placeholder": "<a href='#'> title </a>"
+        "id": "footer_menu",
+        "type": "textarea",
+        "label": "页脚菜单设置",
+        "rows": 10,
+        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "default": "Products[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nVideos[/videos\nNews[/news"
       },
       {
         "id": "features_one",
