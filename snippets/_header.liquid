@@ -13,9 +13,10 @@
         <div class="grow">
           <div class="flex items-center">
             <!-- Logo -->
-            <a href="{{site.index_path}}" aria-label="{{ site.name }}" class="flex items-center">
+            <a href="{{ site.settings.host_url |  default: '#' }}" aria-label="{{ site.name }}" class="flex items-center">
               {% if site.settings.logo_url %}
-                <span><img src="{{ site.settings.logo_url }}" class="h-6 md:h-8 xl:h-10" alt="{{ site.name }}"/></span>
+                <span class="block dark:hidden"><img src="{{ site.settings.logo_url }}" class="h-6 md:h-8 xl:h-10" alt="{{ site.name }}"/></span>
+                <span class="hidden dark:block"><img src="{{ site.settings.logo_white_url }}" class="h-6 md:h-8" alt="{{ site.name }}"/></span>
               {% else %}
                 <span><img src="{{ site.favicon_url | default: logo }}" class="h-8" alt="Docs" /></span>
                 <span class="hidden ml-2 text-xl font-bold text-slate-600 dark:text-slate-200 md:block">{{ site.name }}</span>
