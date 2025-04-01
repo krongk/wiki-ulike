@@ -2890,10 +2890,6 @@ video {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-slate-300\/20:hover {
-  background-color: rgb(203 213 225 / 0.2);
-}
-
 .hover\:bg-slate-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
@@ -3473,6 +3469,10 @@ video {
 
   .md\:h-44 {
     height: 11rem;
+  }
+
+  .md\:h-6 {
+    height: 1.5rem;
   }
 
   .md\:h-8 {

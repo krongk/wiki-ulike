@@ -17,7 +17,7 @@
 
 <section class="relative" x-data="{isMobile: false}" x-init="isMobile = window.innerWidth < 768 ? true : false">
   <!-- Hero Section -->
-  <section id="hero" class="bg-no-repeat bg-cover bg-center h-[650px]  {% if screen_width == 'max-w-screen-2xl' %}  md:h-[600px] {% else %}  md:h-[360px] {%- endif -%}"
+  <section id="hero" class="bg-no-repeat bg-cover bg-center h-[650px]  {% if screen_width == 'max-w-screen-xl' %}  md:h-[600px] {% else %}  md:h-[360px] {%- endif -%}"
     :style="isMobile ? 'background-image: url({{ page.settings.hero_image_mobile_url | default: default_hero_image }}' : 'background-image: url({{ page.settings.hero_image_url | default: default_hero_image }}'">
     <!-- Header Menu -->
     {% assign header_menus = site.settings.header_menu | newline_to_br | split: '<br />' %}
