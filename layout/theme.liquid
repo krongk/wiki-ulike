@@ -7,12 +7,20 @@
     {{ 'css/viewer.min.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
-
+    <style>
+      @font-face {
+        font-family: 'Saans';
+        font-style: normal;
+        font-weight: normal;
+        font-display: swap;
+        src: url("{{ 'fonts/Saans-Regular-1.woff2' | asset_url }}") format("woff2"),url("{{ 'fonts/Saans-Regular-1.woff' | asset_url }}") format("woff");
+      }
+    </style>
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %}{{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
   </head>
-  <body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false }">
+  <body class="font-custom bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false }">
     <!-- Page wrapper -->
     <div
       class="flex flex-col min-h-screen overflow-auto"

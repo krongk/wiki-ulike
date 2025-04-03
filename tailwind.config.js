@@ -50,6 +50,9 @@ module.exports = {
           }
         }
       },
+      fontFamily: {
+        custom: ['Saans', 'sans-serif'],
+      },
       spacing: {
         4.5: "1.125rem",
         5.5: "1.375rem",
