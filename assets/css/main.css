@@ -3710,6 +3710,11 @@ body, h1, h2, h3, p, a{
     padding-right: 0px;
   }
 
+  .sm\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -4333,8 +4338,8 @@ body, h1, h2, h3, p, a{
     display: block;
   }
 
-  .xl\:h-10 {
-    height: 2.5rem;
+  .xl\:h-14 {
+    height: 3.5rem;
   }
 
   .xl\:h-16 {
