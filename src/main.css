@@ -3,6 +3,18 @@
 @tailwind utilities;
 @config '../tailwind.config.js'
 
+@font-face {
+  font-family: Saans;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Saans-Regular-1.woff2") format("woff2");
+}
+
+body, h1, h2, h3, p, a{
+  font-family: Saans;
+}
+
 .page--article__link {
   border-bottom: 1px solid rgb(240, 240, 240);
 }
@@ -121,4 +133,14 @@
     /* daisyui: @apply table table-pin-rows table-pin-cols; */
     /* baklib editor: @apply table-auto w-full table; */
   }
+}
+
+.footer-item-title::before {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 10px;
+  height: 2px;
+  background: #fff;
+  bottom: -10px;
 }

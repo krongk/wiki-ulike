@@ -13,7 +13,7 @@
 {% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
 
 {% comment %} 页面内容部分 {% endcomment %}
-<main class="flex min-h-screen mx-auto {{ screen_width }} relative">
+<main class="flex min-h-screen mx-auto {{ screen_width }} relative px-2 md:px-12">
 
   <!-- Bg Style -->
   {% if site.settings.page_bg_type.value == '1'  %}
@@ -32,7 +32,7 @@
         <div
           x-show="show_navtree"
           x-cloak
-          class="fixed top-20 w-72 z-50 hidden border-r md:block  border-slate-200 dark:border-gray-700"
+          class="fixed top-20 w-96 z-50 hidden border-r md:block  border-slate-200 dark:border-gray-700"
         >
           <div
             id="page-tree"
@@ -111,7 +111,7 @@
       </svg>
     </div>
     {%# page_list 内页列表点击 URL 不改变，需要添加 data-turbo-action="advance" %}
-    <turbo-frame id="main-content" data-turbo-action="advance" class="grow lg:pl-6 lg:pr-6 xl:pr-0 p-4 mt-4 md:mt-8" :class="show_navtree ? 'md:ml-72' : 'md:ml-0' ">
+    <turbo-frame id="main-content" data-turbo-action="advance" class="grow lg:pl-6 lg:pr-6 xl:pr-0 p-4 mt-4 md:mt-8" :class="show_navtree ? 'md:ml-96' : 'md:ml-0' ">
       <div class="min-h-[calc(100vh-120px)] flex flex-col">
         {% # 面包屑导航 %}
         <div class="mb-3 max-w-3xl">

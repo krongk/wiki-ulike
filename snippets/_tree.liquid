@@ -17,7 +17,7 @@
   <div class="flex space-x-1">
     <div style="width: calc(26px * {{ depth }})" class="flex-none justify-center"></div>
 
-    <div class="flex-initial items-center max-w-72 px-1 hover:bg-slate-150 hover:rounded-xl">
+    <div class="flex-initial items-center max-w-96 px-1 hover:bg-slate-150 hover:rounded-xl">
       {% if children_size > 0 %}
         <div @click="expanded = !expanded" class="flex items-center justify-center cursor-pointer">
           <svg t="1698224111506"
@@ -30,7 +30,7 @@
             href="{{ page.path }}"
             data-turbo-frame="main-content"
             data-turbo-action="advance"
-            class="truncate hover:text-primary"
+            class=" hover:text-primary"
             data-action="click->navtree#toggleActive"
             @click="header_navtree_show=false"
           >
@@ -42,7 +42,7 @@
           href="{{ page.path }}"
           data-turbo-frame="main-content"
           data-turbo-action="advance"
-          class="truncate current hover:text-primary"
+          class=" current hover:text-primary"
           data-action="click->navtree#toggleActive"
           @click="header_navtree_show=false"
         >
