@@ -3,6 +3,7 @@ import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
 import { Application } from "@hotwired/stimulus"
 import MenuController from "./menu_controller"
+import RecaptchaController from "./recaptcha_controller"
 import ViewImagesController from "./view_images_controller"
 import NavtreeController from "./navtree_controller"
 // import ThemeController from "./theme_controller"
@@ -22,3 +23,4 @@ application.register('navtree', NavtreeController)
 // application.register('theme', ThemeController)
 application.register('dropdown', Dropdown)
 application.register('clipboard', Clipboard)
+application.register('recaptcha', RecaptchaController)
