@@ -23,13 +23,6 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body class="font-custom bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false, overlay_open: false }">
-    <!-- google reCAPTCHA -->
-    <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="6LcKxQwrAAAAAEKWsXpK1Snka8ty9NwEf7aUzFgD"></div>
-      <br/>
-      <input type="submit" value="Submit">
-    </form>
-    
     <!-- Page wrapper -->
     <div
       class="flex flex-col min-h-screen overflow-auto"
@@ -67,6 +60,15 @@
         </svg>
       </button>
     </div>
+    <!-- google reCAPTCHA -->
+    {% if site.settings.recaptcha %}
+      <form action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6LcKxQwrAAAAAEKWsXpK1Snka8ty9NwEf7aUzFgD"></div>
+        <br/>
+        <input type="submit" value="Submit">
+      </form>
+    {% endif %}
+    
     {% comment %} 添加挂件
       {% render 'plugins' %} {% endcomment %}
   </body>
