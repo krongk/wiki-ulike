@@ -20,7 +20,7 @@
     {% if false %}{{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
   </head>
-  <body class="font-custom bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false }">
+  <body class="font-custom bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false, overlay_open: false }">
     <!-- Page wrapper -->
     <div
       class="flex flex-col min-h-screen overflow-auto"

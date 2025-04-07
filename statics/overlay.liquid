@@ -1,0 +1,11 @@
+{% layout none %}
+<!--
+通过 iframe 加载第三方URL
+1. 通过 turbo frame 的好处是只有 lazy load 本页面时候才会访问第三方 URL
+2. 需要在域名管理中配置IFrame跨域
+3. statics/overlay.liquid
+4. 见：_header2.liquid
+-->
+<turbo-frame id="overlay_iframe" loading="lazy">
+  <iframe src="{{ site.settings.overlay_url }}" frameborder="0" class="z-50 w-full h-screen overflow-hidden bg-white dark:bg-gray-800"></iframe>
+</turbo-frame>

@@ -281,7 +281,7 @@
                       <h3 class="text-lg font-medium text-gray-900">Email US</h3>
                       <p class="text-sm text-gray-500">
                         <span>Get reply within 24 hours</span><br/>
-                        <a href="mailto:{{ site.settings.email | default: '#' }}" class="text-blue-600 underline">Send us an Email</a></p>
+                        <button @click="overlay_open = true" class="text-blue-600 underline hover:text-secondary">Send us an Email</button>
                     </div>
                 </li>
                 <li class="flex flex-row">
