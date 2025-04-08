@@ -2721,6 +2721,16 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-\[\#3F3636\] {
+  --tw-text-opacity: 1;
+  color: rgb(63 54 54 / var(--tw-text-opacity));
+}
+
+.text-info {
+  --tw-text-opacity: 1;
+  color: hsl(var(--theme-color-info) / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }

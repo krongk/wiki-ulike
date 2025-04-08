@@ -34,7 +34,7 @@
           {% form_tag 'search', class: 'w-full' %}
             <div class="relative rounded-2xl shadow-sm">
               <button type="submit" class="absolute inset-y-0 right-0 flex items-center pl-4 pr-3 sm:right-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#3F3636]" fill="none" viewBox="0 0 24 24" stroke="currentColor" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
               </button>
               <input
             type="text"
@@ -167,7 +167,7 @@
               {% endif %}
             </div>
             <div class="text-start">
-              <h3 class="text-xl mb-1"><a href="{{ card_page.path | append: '?list=true' }}" class="hover:text-blue-600">{{ card_page.link_text }}</a></h3>
+              <h3 class="text-xl mb-1"><a href="{{ card_page.path | append: '?list=true' }}" class="hover:text-primary">{{ card_page.link_text }}</a></h3>
               <p class="text-gray-400">{{ sub_page_count }} {{ 'generic.articles' | t }}</p>
             </div>
           </div>
@@ -183,7 +183,7 @@
                       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
                     </svg>
                   </span>
-                  <a href="{{ sub_page.path }}" class="text-gray-600 hover:text-blue-600 flex space-x-2 items-center">
+                  <a href="{{ sub_page.path }}" class="text-gray-600 hover:text-primary flex space-x-2 items-center">
                     <span class="truncate">{{ sub_page.link_text }}  [{{ ssub_page_count }} {{ 'generic.articles' | t }}] </span>
                   </a>
                 </li>
@@ -194,7 +194,7 @@
                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                     </svg>
                   </span>
-                  <a href="{{ sub_page.path }}" class="text-gray-600 hover:text-blue-600 flex space-x-2 items-center">
+                  <a href="{{ sub_page.path }}" class="text-gray-600 hover:text-primary flex space-x-2 items-center">
                     <span class="truncate">{{ sub_page.link_text }}</span>
                   </a>
                 </li>
@@ -203,7 +203,7 @@
           </ul>
   
           <div>
-            <a href="{{ card_page.path | append: '?list=true' }}" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+            <a href="{{ card_page.path | append: '?list=true' }}" class="inline-flex items-center text-primary hover:text-blue-800">
               {{ 'generic.read_more' | t }}
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -266,8 +266,8 @@
                       </svg>
                     </div>
                     <div>
-                      <h3 class="text-lg font-medium text-gray-900">Chat US 24/7</h3>
-                      <p class="text-sm"><a href="{{ site.settings.chat_url | default: '#' }}" class="text-blue-600 underline">Chat Now</a></p>
+                      <h3 class="text-lg font-medium text-gray-900">CHAT US 24/7</h3>
+                      <p class="text-sm"><a href="{{ site.settings.chat_url | default: '#' }}" class="text-info underline">Chat Now</a></p>
                     </div>
                 </li>
                 <li class="flex flex-row border-r">
@@ -278,10 +278,10 @@
 
                     </div>
                     <div>
-                      <h3 class="text-lg font-medium text-gray-900">Email US</h3>
+                      <h3 class="text-lg font-medium text-gray-900">EMAIL US</h3>
                       <p class="text-sm text-gray-500">
                         <span>Get reply within 24 hours</span><br/>
-                        <button @click="overlay_open = true" class="text-blue-600 underline hover:text-secondary">Send us an Email</button>
+                        <button @click="overlay_open = true" class="text-info underline">Send us an Email</button>
                     </div>
                 </li>
                 <li class="flex flex-row">
@@ -294,7 +294,7 @@
                       <h3 class="text-lg font-medium text-gray-900">CALL US</h3>
                       <p class="text-sm text-gray-500">
                         <span>Mon - Fri: 9AM-18PM GMT</span><br/>
-                        <a href="tel:{{ site.settings.phone | default: '#' }}" class="text-blue-600 underline">{{ site.settings.phone | default: '#' }}</a></p>
+                        <a href="tel:{{ site.settings.phone | default: '#' }}" class="text-info underline">{{ site.settings.phone | default: '#' }}</a></p>
                     </div>
                 </li>
             </ul>
