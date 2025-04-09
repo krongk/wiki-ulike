@@ -24,7 +24,15 @@
       },
       {
         "name": "English",
-        "value": "en-US"
+        "value": "en"
+      },
+      {
+        "name": "Deutsch",
+        "value": "de"
+      },
+      {
+        "name": "Français",
+        "value": "fr"
       }
     ],
     "recommendations": {
@@ -32,8 +40,8 @@
         "fashion": {
           "name": "时尚",
           "colors": {
-            "--theme-color-primary": "#03A9F4",
-            "--theme-color-secondary": "#E91E63",
+            "--theme-color-primary": "#0D9488",
+            "--theme-color-secondary": "#EA580C",
             "--theme-color-accent": "#AAAAAA",
             "--theme-color-info": "#2196F3",
             "--theme-color-success": "#4CAF50",
