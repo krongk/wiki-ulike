@@ -25,7 +25,12 @@
     "get_started_pages": "Get Started",
     "recommend_pages": "Recommend articles",
     "channel_pages": "Channel Navigation",
-    "tags": "Stichworte"
+    "tags": "Stichworte",
+    "chat_us": "Chatten Sie mit uns 24/7",
+    "chat_now": "Jetzt chatten",
+    "email_us": "E-Mail senden",
+    "send_email": "Senden Sie uns eine E-Mail",
+    "call_us": "Rufen Sie uns an"
   },
   "placeholders": {
     "search": "Suche...",

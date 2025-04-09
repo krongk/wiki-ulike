@@ -26,7 +26,12 @@
     "recommend_pages": "Recommend articles",
     "channel_pages": "Channel Navigation",
     "recent_pages": "Recent articles",
-    "tags": "Tags"
+    "tags": "Tags",
+    "chat_us": "CHAT US 24/7",
+    "chat_now": "Chat Now",
+    "email_us": "EMAIL US",
+    "send_email": "Send us an Email",
+    "call_us": "CALL US"
   },
   "placeholders": {
     "search": "Ask a question",

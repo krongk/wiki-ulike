@@ -26,7 +26,12 @@
     "recommend_pages": "Recommend articles",
     "channel_pages": "Channel Navigation",
     "recent_pages": "Articles récents",
-    "tags": "Mots clés"
+    "tags": "Mots clés",
+    "chat_us": "Discutez avec nous 24/7",
+    "chat_now": "Discutez maintenant",
+    "email_us": "Envoyez-nous un e-mail",
+    "send_email": "Envoyez-nous un e-mail",
+    "call_us": "Appelez-nous"
   },
   "placeholders": {
     "search": "Recherche..",

@@ -105,13 +105,6 @@
         "default": "#"
       },
       {
-        "id": "company_name",
-        "label": "t:settings_schema.generic.settings.company_name.label",
-        "type": "text",
-        "default": "t:settings_schema.generic.settings.company_name.default",
-        "info": "显示在页面底部页脚位置"
-      },
-      {
         "id": "copyright_info",
         "type": "text",
         "label": "t:settings_schema.generic.settings.copyright_info.label",
@@ -131,13 +124,6 @@
         "choices": [{"label":"无背景色","value":"0"},{"label":"primary+secondary变体渐变","value":"1"},{"label":"primary主色渐变","value":"2"}],
         "default": "0",
         "info": "* 跟随站点【主题颜色】设置的 primary/secondary 颜色"
-      },
-      {
-        "id": "recaptcha",
-        "type": "checkbox",
-        "label": "开启 Google reCAPTCHA",
-        "info": "开启后，操作会弹出验证码",
-        "default": false
       },
       {
         "id": "show_channel_section",
@@ -184,6 +170,14 @@
         "id": "header_menu",
         "type": "textarea",
         "label": "页头导航菜单设置",
+        "rows": 10,
+        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
+      },
+      {
+        "id": "footer_menu",
+        "type": "textarea",
+        "label": "页脚导航菜单设置",
         "rows": 10,
         "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
         "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"

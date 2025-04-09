@@ -26,7 +26,12 @@
     "recommend_pages": "专题推荐",
     "channel_pages": "栏目导览",
     "recent_pages": "最近文章",
-    "tags": "快捷标签"
+    "tags": "快捷标签",
+    "chat_us": "CHAT US 24/7",
+    "chat_now": "Chat Now",
+    "email_us": "EMAIL US",
+    "send_email": "Send us an Email",
+    "call_us": "CALL US"
   },
   "placeholders": {
     "search": "在站内搜索",
