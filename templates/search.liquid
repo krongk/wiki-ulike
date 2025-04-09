@@ -142,8 +142,8 @@
                                     <!-- Content -->
                                     <div class="pl-6">
                                         <header>
-                                            <h3 class="text-md sm:text-xl mb-1 search-highlight-block">
-                                                <a href="{{ item.url }}">{{ item.settings.title }}</a>
+                                            <h3 class="mb-1">
+                                                <a href="{{ item.url }}" class="text-md sm:text-xl search-highlight-block">{{ item.settings.title }}</a>
                                             </h3>
                                         </header>
                                         <p class="text-slate-600 dark:text-slate-400 search-highlight-block line-clamp-3">
@@ -168,7 +168,7 @@
                             </article>
 
                         {% else %}
-                            <div class="w-full mx-auto my-8">没有任何结果，<a href="{{ site.index_path }}" class="text-blue-600">返回首页</a></div>
+                            <div class="w-full mx-auto my-8">It's empty,<a href="{{ site.index_path }}" class="text-blue-600">Return</a></div>
                         {% endfor %}
 
                         </div>

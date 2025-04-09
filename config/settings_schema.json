@@ -24,14 +24,14 @@
       },
       {
         "name": "English",
-        "value": "en"
+        "value": "en-US"
       },
       {
-        "name": "Deutsch",
+        "name": "Germany",
         "value": "de"
       },
       {
-        "name": "Français",
+        "name": "France",
         "value": "fr"
       }
     ],
