@@ -48,6 +48,7 @@
   },
   "feedback": {
     "title": "Submit Feedback",
+    "content": "Content",
     "input_placeholder": "Please input feedback"
   }
 }

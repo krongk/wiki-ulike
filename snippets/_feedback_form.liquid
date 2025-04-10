@@ -31,7 +31,7 @@
       {%# 反馈内容 %}
       {% if site.plugins.feedback.message_enabled %}
         {% if site.plugins.feedback.message_required %}
-          <div class="text-left">* 反馈内容</div>
+          <div class="text-left">* {{ 'feedback.content' | t }}</div>
         {% endif %}
         <div class="mt-5">
           <textarea
@@ -42,7 +42,7 @@
           <div class="flex justify-end mt-5">
             <input
               type="submit"
-              class="inline-flex items-center justify-center px-5 py-2 tracking-wide text-center border rounded-lg cursor-pointer text-slate-900 dark:text-white text-slate-800 focus:outline-none disabled:pointer-events-none"
+              class="inline-flex items-center justify-center px-5 py-2 tracking-wide text-center border rounded-lg cursor-pointer dark:text-white text-slate-800 focus:outline-none disabled:pointer-events-none"
               value="{{ 'buttons.submit' | t }}" />
           </div>
         </div>

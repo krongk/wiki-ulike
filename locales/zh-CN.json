@@ -48,6 +48,7 @@
   },
   "feedback": {
     "title": "提交反馈",
+    "content": "反馈内容",
     "input_placeholder": "请输入反馈内容"
   }
 }

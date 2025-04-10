@@ -179,7 +179,7 @@
         "type": "textarea",
         "label": "页头导航菜单设置",
         "rows": 10,
-        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "info": "格式：menu_name[slug{sub_menu[slug|sub_menu[slug，每行一个分栏。追加一条链接格式：|sub_menu[slug",
         "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
       },
       {
@@ -187,7 +187,7 @@
         "type": "textarea",
         "label": "页脚导航菜单设置",
         "rows": 10,
-        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "info": "格式：menu_name[slug{sub_menu[slug|sub_menu[slug，每行一个分栏。追加一条链接格式：|sub_menu[slug",
         "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
       },
       {

@@ -48,6 +48,7 @@
   },
   "feedback": {
     "title": "Soumettre des commentaires",
+    "content": "Contenu du message",
     "input_placeholder": "Veuillez saisir vos commentaires"
   }
 }
