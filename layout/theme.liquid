@@ -19,8 +19,6 @@
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %}{{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
-    {%# 添加google reCAPTCHA %}
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body class="font-custom bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false, overlay_open: false }">
     <!-- Page wrapper -->
@@ -60,14 +58,6 @@
         </svg>
       </button>
     </div>
-    <!-- google reCAPTCHA -->
-    {% if site.settings.recaptcha %}
-      <form action="?" method="POST">
-        <div class="g-recaptcha" data-sitekey="6LcKxQwrAAAAAEKWsXpK1Snka8ty9NwEf7aUzFgD"></div>
-        <br/>
-        <input type="submit" value="Submit">
-      </form>
-    {% endif %}
     
     {% comment %} 添加挂件
       {% render 'plugins' %} {% endcomment %}

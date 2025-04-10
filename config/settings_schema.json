@@ -102,7 +102,7 @@
       {
         "id": "chat_url",
         "type": "text",
-        "label": "Chat 链接",
+        "label": "调起聊天窗口的 Chat Script 代码",
         "default": "#"
       },
       {
@@ -215,7 +215,7 @@
         "id": "head_html",
         "type": "html",
         "label": "t:settings_schema.generic.settings.head_html.label",
-        "info": "t:settings_schema.generic.settings.head_html.info",
+        "info": "放在</head>里的代码",
         "rows": 10,
         "placeholder": "t:settings_schema.generic.settings.head_html.placeholder"
       }
