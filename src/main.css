@@ -121,6 +121,10 @@
     /* daisyui: @apply table table-pin-rows table-pin-cols; */
     /* baklib editor: @apply table-auto w-full table; */
   }
+  /* 使有序列表左侧数字不被遮挡 */
+  ol{
+    @apply pl-8;
+  }
 }
 
 .footer-item-title::before {
