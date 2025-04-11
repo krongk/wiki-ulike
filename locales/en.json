@@ -31,7 +31,8 @@
     "chat_now": "Chat Now",
     "email_us": "EMAIL US",
     "send_email": "Send us an Email",
-    "call_us": "CALL US"
+    "call_us": "CALL US",
+    "request": "Submit a request"
   },
   "placeholders": {
     "search": "Ask a question",

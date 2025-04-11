@@ -93,11 +93,23 @@
         "label": "Email",
         "default": "some@example.com"
       },
+      {
+        "id": "email_desc",
+        "type": "text",
+        "label": "Email Description",
+        "default": "Get reply within 24 hours"
+      },
       { 
         "id": "phone",
         "type": "text",
         "label": "Phone",
         "default": "1234567890"
+      },
+      {
+        "id": "call_desc",
+        "type": "text",
+        "label": "Call Description",
+        "default": "Mon - Fri: 9AM-18PM GMT"
       },
       {
         "id": "chat_url",

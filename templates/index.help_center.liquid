@@ -275,12 +275,13 @@
                       <svg width="81" height="81" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M73.3125 8.5H7.68751C5.09864 8.5 3 10.6042 3 13.2V50.8C3 53.3958 5.09864 55.5 7.68751 55.5H73.3125C75.9014 55.5 78 53.3958 78 50.8V13.2C78 10.6042 75.9013 8.5 73.3125 8.5ZM75.6563 13.2V50.8C75.6562 51.015 75.6268 51.2289 75.5687 51.4359C75.4967 51.2842 75.3929 51.1498 75.2645 51.0419L52.2479 31.6771L75.2645 12.3123C75.319 12.2664 75.3692 12.2155 75.4146 12.1605C75.5691 12.4739 75.6563 12.8267 75.6563 13.2ZM73.3125 10.85C73.3268 10.85 73.3409 10.8508 73.3551 10.8511L43.5625 35.9168H37.4376L7.64493 10.8511C7.65915 10.8508 7.67323 10.85 7.68751 10.85H73.3125ZM5.73552 51.0418C5.60707 51.1498 5.50329 51.2841 5.43125 51.4358C5.3732 51.2289 5.34375 51.0149 5.34371 50.8V13.2C5.34371 12.8267 5.43091 12.4739 5.58539 12.1605C5.63074 12.2156 5.68098 12.2664 5.73549 12.3124L28.7521 31.6771L5.73552 51.0418ZM7.68748 53.15C7.42573 53.15 7.1743 53.1063 6.93926 53.027C7.04895 52.9811 7.15105 52.9187 7.24204 52.8421L30.5752 33.211L36.0903 37.851C36.3053 38.1052 36.6259 38.2667 36.9843 38.2667H44.0156C44.3741 38.2667 44.6947 38.1052 44.9096 37.851L50.4247 33.211L73.7579 52.842C73.8489 52.9187 73.951 52.9811 74.0607 53.027C73.8196 53.1085 73.5668 53.1501 73.3124 53.15H7.68748Z" fill="#3F3636"/>
                       </svg>
-
                     </div>
                     <div>
                       <h3 class="text-lg font-medium text-gray-900">{{ 'generic.email_us' | t }}</h3>
                       <p class="text-sm text-gray-500">
-                        <span>Get reply within 24 hours</span><br/>
+                        {% if site.settings.email_desc %}
+                          <span>{{ site.settings.email_desc }}</span><br/>
+                        {% endif %}
                         <button @click="overlay_open = true" class="text-info underline">{{ 'generic.send_email' | t }}</button>
                     </div>
                 </li>
@@ -293,7 +294,9 @@
                     <div>
                       <h3 class="text-lg font-medium text-gray-900">{{ 'generic.call_us' | t }}</h3>
                       <p class="text-sm text-gray-500">
-                        <span>Mon - Fri: 9AM-18PM GMT</span><br/>
+                        {% if site.settings.call_desc %}
+                          <span>{{ site.settings.call_desc }}</span><br/>
+                        {% endif %}
                         <a href="tel:{{ site.settings.phone | default: '#' }}" class="text-info underline">{{ site.settings.phone | default: '#' }}</a></p>
                     </div>
                 </li>
@@ -329,47 +332,10 @@
         {% endif %}
       {% endfor %}
       <div class="footer-item">
-          <div class="relative footer-item-title text-lg mb-6">Stay Current</div>
-          <div class="footer__item-content">
-            <ul class="flex space-x-2" role="list">
-              <li class="p-2 md:p-3 border border-0.5 hover:bg-white hover:text-black border-gray-500 social-media__item--facebook">
-                <a href="https://www.facebook.com/ulike.uk" target="_blank" rel="noopener" class="social-media__link"
-                  aria-label="Follow us on Facebook"><svg focusable="false" width="9" height="17"
-                    class="icon icon--facebook   " viewBox="0 0 9 17">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M2.486 16.2084L2.486 8.81845H0L0 5.93845L2.486 5.93845L2.486 3.81845C2.38483 2.79982 2.73793 1.78841 3.45107 1.05407C4.16421 0.319722 5.16485 -0.0628415 6.186 0.00844868C6.9284 0.00408689 7.67039 0.0441585 8.408 0.128449V2.69845L6.883 2.69845C6.4898 2.61523 6.08104 2.73438 5.79414 3.01585C5.50724 3.29732 5.3803 3.70373 5.456 4.09845L5.456 5.93845H8.308L7.936 8.81845H5.46L5.46 16.2084H2.486Z"
-                      fill="currentColor"></path>
-                  </svg></a>
-              </li>
-              <li class="p-2 md:p-3 border border-0.5 hover:bg-white hover:text-black border-gray-500 social-media__item--instagram">
-                <a href="https://www.instagram.com/ulike_gb/" target="_blank" rel="noopener" class="social-media__link"
-                  aria-label="Follow us on Instagram"><svg focusable="false" width="16" height="16"
-                    class="icon icon--instagram   " viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M8 0C5.827 0 5.555.01 4.702.048 3.85.087 3.269.222 2.76.42a3.921 3.921 0 00-1.417.923c-.445.444-.719.89-.923 1.417-.198.509-.333 1.09-.372 1.942C.01 5.555 0 5.827 0 8s.01 2.445.048 3.298c.039.852.174 1.433.372 1.942.204.526.478.973.923 1.417.444.445.89.719 1.417.923.509.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.445-.01 3.298-.048c.852-.039 1.433-.174 1.942-.372a3.922 3.922 0 001.417-.923c.445-.444.719-.89.923-1.417.198-.509.333-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.298c-.039-.852-.174-1.433-.372-1.942a3.922 3.922 0 00-.923-1.417A3.921 3.921 0 0013.24.42c-.509-.198-1.09-.333-1.942-.372C10.445.01 10.173 0 8 0zm0 1.441c2.136 0 2.39.009 3.233.047.78.036 1.203.166 1.485.276.374.145.64.318.92.598.28.28.453.546.598.92.11.282.24.705.276 1.485.038.844.047 1.097.047 3.233s-.009 2.39-.047 3.233c-.036.78-.166 1.203-.276 1.485-.145.374-.318.64-.598.92-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.844.038-1.097.047-3.233.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.479 2.479 0 01-.92-.598 2.478 2.478 0 01-.598-.92c-.11-.282-.24-.705-.276-1.485-.038-.844-.047-1.097-.047-3.233s.009-2.39.047-3.233c.036-.78.166-1.203.276-1.485.145-.374.318-.64.598-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.844-.038 1.097-.047 3.233-.047zm0 9.226a2.667 2.667 0 110-5.334 2.667 2.667 0 010 5.334zm0-6.775a4.108 4.108 0 100 8.216 4.108 4.108 0 000-8.216zm5.23-.162a.96.96 0 11-1.92 0 .96.96 0 011.92 0z"
-                      fill="currentColor"></path>
-                  </svg></a>
-              </li>
-              <li class="p-2 md:p-3 border border-0.5 hover:bg-white hover:text-black border-gray-500 social-media__item--youtube">
-                <a href="https://www.youtube.com/channel/UCR5GSUNp0G6DG9sE9jtnfGA" target="_blank" rel="noopener"
-                  class="social-media__link" aria-label="Follow us on YouTube"><svg fill="none" focusable="false"
-                    width="18" height="13" class="icon icon--youtube   " viewBox="0 0 18 13">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M16.0325 0.369454C16.807 0.572743 17.4168 1.17173 17.6238 1.9324C18 3.31101 18 6.1875 18 6.1875C18 6.1875 18 9.06389 17.6238 10.4427C17.4168 11.2033 16.807 11.8023 16.0325 12.0056C14.6288 12.375 9 12.375 9 12.375C9 12.375 3.37122 12.375 1.96752 12.0056C1.19311 11.8023 0.583159 11.2033 0.376159 10.4427C0 9.06389 0 6.1875 0 6.1875C0 6.1875 0 3.31101 0.376159 1.9324C0.583159 1.17173 1.19311 0.572743 1.96752 0.369454C3.37122 0 9 0 9 0C9 0 14.6288 0 16.0325 0.369454ZM11.8636 6.1876L7.1591 8.79913V3.57588L11.8636 6.1876Z"
-                      fill="currentColor"></path>
-                  </svg></a>
-              </li>
-              <li class="p-2 md:p-3 border border-0.5 hover:bg-white hover:text-black border-gray-500 social-media__item--tiktok">
-                <a href="https://www.tiktok.com/@ulikeglobal" target="_blank" rel="noopener" class="social-media__link"
-                  aria-label="Follow us on TikTok"><svg fill="none" focusable="false" width="14" height="16"
-                    class="icon icon--tiktok   " viewBox="0 0 14 16">
-                    <path
-                      d="M13.6893 6.47331C13.5586 6.48602 13.4273 6.49268 13.296 6.49327C11.8552 6.49347 10.5114 5.76723 9.72211 4.56182V11.1389C9.72211 13.8236 7.54571 16 4.86099 16C2.17627 16 -0.00012207 13.8236 -0.00012207 11.1389C-0.00012207 8.45417 2.17627 6.27777 4.86099 6.27777C4.96247 6.27777 5.06166 6.28689 5.16143 6.29317V8.68866C5.06166 8.67669 4.96361 8.65845 4.86099 8.65845C3.49077 8.65845 2.37998 9.76923 2.37998 11.1395C2.37998 12.5097 3.49077 13.6205 4.86099 13.6205C6.23148 13.6205 7.44177 12.5407 7.44177 11.1702L7.46571 0H9.75745C9.97355 2.05512 11.6307 3.66035 13.6916 3.81102V6.47331"
-                      fill="currentColor"></path>
-                  </svg></a>
-              </li>
-            </ul>
-          </div>
+        <!-- Feature two Section -->
+        {% if site.settings.features_two %}
+          {{ site.settings.features_two }}
+        {% endif %}
       </div>
     </div>
 
