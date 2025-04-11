@@ -24,7 +24,7 @@
       },
       {
         "name": "English",
-        "value": "en-US"
+        "value": "en"
       },
       {
         "name": "Germany",
@@ -93,7 +93,7 @@
         "label": "Email",
         "default": "some@example.com"
       },
-      {
+      { 
         "id": "phone",
         "type": "text",
         "label": "Phone",
