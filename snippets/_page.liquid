@@ -59,7 +59,7 @@
 
     {% # 只有没有子页面的时候才显示feedback和上下页 %}
     {% # feedback %}
-    <div class="mt-4 md:mt-12 flex flex-col items-center justify-center w-full my-8 space-y-3 print:hidden" id="{{ page.id }}_feedback">
+    <div class="mt-12 md:mt-24 flex flex-col items-center justify-center w-full my-8 space-y-3 print:hidden" id="{{ page.id }}_feedback">
       <a
         data-turbo-method="get"
         data-turbo-stream="true"

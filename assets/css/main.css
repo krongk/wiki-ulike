@@ -1069,12 +1069,12 @@ video {
   height: 2rem;
 }
 
-.h-\[650px\] {
-  height: 650px;
+.h-\[380px\] {
+  height: 380px;
 }
 
-.h-\[680px\] {
-  height: 680px;
+.h-\[650px\] {
+  height: 650px;
 }
 
 .h-\[calc\(100vh-theme\(spacing\.16\)\)\] {
@@ -3855,6 +3855,10 @@ video {
     margin-top: 0px;
   }
 
+  .md\:mt-12 {
+    margin-top: 3rem;
+  }
+
   .md\:mt-44 {
     margin-top: 11rem;
   }
@@ -3865,6 +3869,10 @@ video {
 
   .md\:mt-8 {
     margin-top: 2rem;
+  }
+
+  .md\:mt-24 {
+    margin-top: 6rem;
   }
 
   .md\:block {
