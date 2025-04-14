@@ -3855,8 +3855,8 @@ video {
     margin-top: 0px;
   }
 
-  .md\:mt-12 {
-    margin-top: 3rem;
+  .md\:mt-24 {
+    margin-top: 6rem;
   }
 
   .md\:mt-44 {
@@ -3869,10 +3869,6 @@ video {
 
   .md\:mt-8 {
     margin-top: 2rem;
-  }
-
-  .md\:mt-24 {
-    margin-top: 6rem;
   }
 
   .md\:block {

@@ -162,6 +162,9 @@ site.settings.header_menu 格式如下：
             </li>
           {% endif %}
         {% endfor %}
+        <li>
+          <button @click="overlay_open = true" class="">{{ 'generic.request' | t }}</button>
+        </li>
       </ul>
     </nav>
 
