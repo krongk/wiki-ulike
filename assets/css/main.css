@@ -3030,6 +3030,10 @@ video {
   ol {
     padding-left: 2rem;
   }
+  /* 增加行间距 */
+  p {
+    line-height: 2rem;
+  }
 }
 
 .footer-item-title::before {

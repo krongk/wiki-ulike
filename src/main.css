@@ -125,6 +125,10 @@
   ol{
     @apply pl-8;
   }
+  /* 增加行间距 */
+  p{
+    @apply leading-8;
+  }
 }
 
 .footer-item-title::before {
