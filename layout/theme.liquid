@@ -29,9 +29,6 @@
         window.addEventListener('scroll', () => {
           scrolled = window.scrollY > window.innerHeight;
         });
-        document.addEventListener('turbo:load', () => {
-          quickChatApi.chat();
-        });
       "
     >
       {% unless page.slug == '' %}
