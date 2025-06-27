@@ -18,7 +18,7 @@
     </style>
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %}{{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
-    
+    {{ site.settings.head_html }}
   </head>
   <body class="font-custom bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false, overlay_open: false }">
     <!-- Page wrapper -->
@@ -77,6 +77,6 @@
         </div>
       </div>
     </div>
-    {{ site.settings.head_html }}
+    
   </body>
 </html>
