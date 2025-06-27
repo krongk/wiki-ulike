@@ -74,6 +74,13 @@
       <div class="w-full text-center">{{ 'feedback.title' | t}}</div>
     </div>
 
+    {% # Support Cards: call/email/chat %}
+    <section class="my-8 w-full">
+        <!-- Cards Container -->
+        <h2 class="text-xl font-semibold my-4 md:my-8">{{ 'generic.get_help' | t }}</h2>
+        {% render 'support_cards' %}
+    </section>
+
   </div>
   {% # 页内目录导航 %}
   <nav class="hidden w-48 xl:block shrink-0 print:hidden" data-controller="menu">
