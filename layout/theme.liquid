@@ -18,21 +18,6 @@
     </style>
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %}{{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
-
-    {%# QuickCEP Chat %}
-    <script src="https://chat.quickcep.com/initQuickChat.js?platform=shopify&accessId=c0556fa7-2855-4f14-b46d-a18e08bd6e3f" data-turbo-track="reload" async></script>
-    <script>
-      function chat(){
-            console.log('loading chat...')
-            quickChatApi.chat()
-        }
-        window.quickChatReadyHook = function(){
-          quickChatApi.on('close', function(){
-          quickChatApi.close()
-          });
-        }
-    </script>
-
     {{ site.settings.head_html }}
 
   </head>
