@@ -2,6 +2,9 @@
 {{ site.settings.head_html }}
 <script>
     function chat(){
+        console.log('loading chat...')
+        quickChatApi.chat()
+        
         document.addEventListener("turbo:load", () => {
             quickChatApi.chat()
         })
