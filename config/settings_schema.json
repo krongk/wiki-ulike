@@ -112,12 +112,6 @@
         "default": "Mon - Fri: 9AM-18PM GMT"
       },
       {
-        "id": "chat_url",
-        "type": "text",
-        "label": "调起聊天窗口的 Chat Script 代码",
-        "default": "#"
-      },
-      {
         "id": "overlay_url",
         "type": "text",
         "label": "request iframe 链接",
