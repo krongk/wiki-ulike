@@ -124,7 +124,6 @@
         {% endif %}
       </div>
       <!-- 上下页 -->
-    
       <div class="items-center justify-between py-8 space-y-3 lg:flex lg:space-y-0 lg:space-x-4 print:hidden">
         <!-- Prev link -->
         <a
@@ -169,8 +168,9 @@
           </div>
         </a>
       </div>
-      {% render 'footer', settings: site.settings %}
+      
     </turbo-frame>
+    {% render 'footer', settings: site.settings %}
   </div>
 </main>
 
