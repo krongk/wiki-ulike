@@ -10,7 +10,7 @@
             <div>
                 <h3 class="text-lg font-medium text-gray-900">{{ 'generic.chat_us' | t }}</h3>
                 <p class="text-sm"><a data-turbo="false" href="{{ site.settings.chat_url | default: '#' }}" class="text-info underline">{{ 'generic.chat_now' | t }}</a></p>
-                <button @click="javascript:quickChatApi.chat()" class="btn ">Chat </button>
+                <button @click="quickChatApi.chat()" class="btn ">Chat </button>
             </div>
         </li>
         <li class="flex flex-row border-r">
