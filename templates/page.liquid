@@ -124,12 +124,23 @@
             {% render 'page', page: page, default_avatar_url: default_avatar_url %}
           {% endif %}
         </div>
-        <!-- 上下页 -->
+        
+        
+      </turbo-frame>
+
+      {% # Support Cards: call/email/chat %}
+      <section class="my-8 w-full">
+          <!-- Cards Container -->
+          <h2 class="text-xl font-semibold my-4 md:my-8">{{ 'generic.get_help' | t }}</h2>
+          {% render 'support_cards' %}
+      </section>
+
+      <!-- 上下页 -->
         <div class="items-center justify-between py-8 space-y-3 lg:flex lg:space-y-0 lg:space-x-4 print:hidden">
           <!-- Prev link -->
           <a
             href="{{ page.prev_page.path }}"
-            data-turbo="false"
+            data-turbo="true"
             class="block w-full p-3 text-left border rounded-md hover:bg-primary-50 lg:w-1/2 border-slate-200 dark:border-gray-700"
           >
             <div class="mb-2 text-gray-400">{{ 'generic.prev_page' | t}}</div>
@@ -151,7 +162,7 @@
           <!-- Next link -->
           <a
             href="{{ page.next_page.path }}"
-            data-turbo="false"
+            data-turbo="true"
             class="block w-full p-3 text-left border rounded-md lg:text-right hover:bg-primary-50 lg:w-1/2 border-slate-200 dark:border-gray-700"
           >
             <div class="mb-2 text-gray-400">{{ 'generic.next_page' | t}}</div>
@@ -169,14 +180,6 @@
             </div>
           </a>
         </div>
-        
-      </turbo-frame>
-      {% # Support Cards: call/email/chat %}
-      <section class="my-8 w-full">
-          <!-- Cards Container -->
-          <h2 class="text-xl font-semibold my-4 md:my-8">{{ 'generic.get_help' | t }}</h2>
-          {% render 'support_cards' %}
-      </section>
 
       {% render 'footer', settings: site.settings %}
     </section>
