@@ -1,3 +1,13 @@
+<script>
+    document.addEventListener('DOMContentLoaded', startFrontController)
+    document.addEventListener('turbo:render', startFrontController)
+
+    function startFrontController(event) {
+        document.removeEventListener('DOMContentLoaded', startFrontController)
+        quickChatApi.chat()
+    }
+</script>
+
 <!-- support cards: Chat/Email/Call -->
 <section class="my-4 px-4">
     <ul role="list" class="grid grid-cols-1 gap-24 md:grid-cols-3">
