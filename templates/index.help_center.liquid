@@ -99,7 +99,7 @@
         {% endif %}
         <div class="items-start lg:max-w-none grid grid-cols-2 gap-3 md:grid-cols-6 lg:grid-cols-8 lg:gap-2">
             {% for channel_page in channel_pages %}
-              <a href="{{ channel_page.path }}" class="flex flex-col text-center items-center text-md h-full px-2 py-4 bg-white hover:bg-blue-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-md overflow-hidden">
+              <a href="{{ channel_page.path }}" data-turbo="false" class="flex flex-col text-center items-center text-md h-full px-2 py-4 bg-white hover:bg-blue-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-md overflow-hidden">
                 {% if channel_page.settings.icon %}
                   <span class=""><img src="{{ channel_page.settings.icon | default: default_icon }}" class="h-8"/> </span>
                 {% else %}
@@ -230,7 +230,7 @@
           </div>
           <div class="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4">
             {% for faq_page in hottest_pages %}
-              <a class="flex items-center justify-between transition transform group"
+              <a data-turbo="false" class="flex items-center justify-between transition transform group"
                 href="{{ faq_page.path }}">
                 <div class="flex">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 transition group-hover:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
