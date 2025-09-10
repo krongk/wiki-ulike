@@ -20,7 +20,7 @@
   <section id="hero" class="bg-no-repeat bg-cover bg-center h-[650px]  {% if screen_width == 'max-w-screen-xl' %}  md:h-[600px] {% else %}  md:h-[360px] {%- endif -%}"
     :style="isMobile ? 'background-image: url({{ page.settings.hero_image_mobile_url | default: default_hero_image }}' : 'background-image: url({{ page.settings.hero_image_url | default: default_hero_image }}'">
     
-   
+    {% render 'header2', screen_width: screen_width, page: page %}
 
     <!-- hero1 -->
     <div class="mx-auto {{ screen_width }}  px-8 my-4 md:px-12">
