@@ -277,7 +277,6 @@ if (window.__ULIKE_HEADER_LOADED__) {
   var $root = $('#mobile-menu-drawer');
 
   function toggleMenu($trigger) {
-    console.log(11111);
     var targetId = $trigger.attr('aria-controls');
     if (!targetId) return;
     var $menu = $('#' + targetId);
