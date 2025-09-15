@@ -289,12 +289,12 @@ if (window.__ULIKE_HEADER_LOADED__) {
       $menu.removeAttr('open').attr('aria-hidden', 'true');
     } else {
       // 打开前，先关闭其他
-      $root.find('.mobile-nav__link[aria-expanded="true"]').each(function () {
-        var $t = $(this);
-        var $m = $('#' + $t.attr('aria-controls'));
-        $t.attr('aria-expanded', 'false');
-        $m.removeAttr('open').attr('aria-hidden', 'true');
-      });
+      // $root.find('.mobile-nav__link[aria-expanded="true"]').each(function () {
+      //   var $t = $(this);
+      //   var $m = $('#' + $t.attr('aria-controls'));
+      //   $t.attr('aria-expanded', 'false');
+      //   $m.removeAttr('open').attr('aria-hidden', 'true');
+      // });
       // 打开当前
       $trigger.attr('aria-expanded', 'true');
       $menu.attr('open', '').attr('aria-hidden', 'false');
