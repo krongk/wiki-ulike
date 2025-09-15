@@ -25,7 +25,7 @@
     :style="isMobile ? 'background-image: url({{ page.settings.hero_image_mobile_url | default: default_hero_image }}' : 'background-image: url({{ page.settings.hero_image_url | default: default_hero_image }}'">
     
     <!-- hero1 -->
-    <div class="mx-auto {{ screen_width }}  px-8 my-4 md:px-12">
+    <div class="mx-auto {{ screen_width }}  px-8 md:px-12">
       <div class="flex flex-col items-start justify-center flex-grow max-w-3xl space-y-4">
         <h1 class="text-2xl md:text-4xl font-semibold text-white transition duration-500 md:mt-0 text-shadow" style="color: {{ page.settings.text_color | default: '#ffffff' }};">
           {{ page.settings.title }}
