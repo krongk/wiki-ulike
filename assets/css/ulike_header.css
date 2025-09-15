@@ -2324,7 +2324,6 @@ store-header{
     z-index: 1;
     display: block;
     padding: 0 20px;
-    display: none;
   }
   .header-new-popup .header-new-product-item{
     gap: 8px;
