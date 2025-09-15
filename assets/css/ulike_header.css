@@ -2428,6 +2428,8 @@ store-header{
   
   .header-new-popup .header-new-item .mobile-nav__link{
     padding:0;
+    display: flex;
+    align-items: center;
   }
   
   .header-new-popup .mobile-nav__item:not(:last-child) {
