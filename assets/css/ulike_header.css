@@ -2315,8 +2315,6 @@ store-header{
     touch-action: manipulation
   }
   .header-new-popup {
-    width: auto;
-    height: auto;
     background: #fff;
     top: 0;
     left: 0;
