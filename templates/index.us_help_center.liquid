@@ -268,44 +268,7 @@
 
 {% comment %} 首页自定义 Footer  {% endcomment %}
 <!-- Header Menu -->
-{% assign footer_menus = site.settings.footer_menu | newline_to_br | split: '<br />' %}
-
-<footer class="footer bg-accent text-white py-4">
-  <div class="mx-auto {{ screen_width }} px-4 py-4 md:pt-8">
-    <div class="grid grid-cols-2 md:grid-cols-4">
-      {% for menu_line in footer_menus %}
-        {%  assign p_menu_arr = menu_line | split: '{' %}
-        {%  assign parent_menu = p_menu_arr[0] | split: '[' %}
-        {%  assign sub_menus = p_menu_arr[1] | split: '|' %}
-        {%  assign sub_menus_count =  sub_menus | size %}
-        {% if sub_menus_count > 0 %}
-          <div class="footer-item">
-            <div class="relative footer-item-title text-lg mb-6">{{ parent_menu[0] }}</div>
-            <div class="flex flex-col gap-2 text-sm text-gray-400 font-light">
-              {% for second_menu in sub_menus %}
-                {%  assign second_menu_arr = second_menu | split: '[' %}
-                <a href="{{ second_menu_arr[1] | default: '#'}}">{{ second_menu_arr[0] }}</a>
-              {% endfor %}
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-      <div class="footer-item">
-        <!-- Feature two Section -->
-        {% if site.settings.features_two %}
-          {{ site.settings.features_two }}
-        {% endif %}
-      </div>
-    </div>
-
-    <div class="flex justify-between mt-4 md:mt-8 pt-4 md:pt-6 border-t border-gray-600">
-      <div class="text-sm font-light text-gray-400">
-        © {{ site.settings.copyright_info }}
-      </div>
-      
-    </div>
-  </div>
-</footer>
+ {% render 'footer_us' %}
 
 
 {% schema %}
