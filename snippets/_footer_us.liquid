@@ -721,6 +721,7 @@
             return isMobileUserAgent && window.innerWidth <= maxMobileWidth;
         }
         $(function () {
+
             if (isMobile()) {
                 $(document).on('click', 'footer .footer__item-list .footer__item', function () {
                     $(this).toggleClass('active');
