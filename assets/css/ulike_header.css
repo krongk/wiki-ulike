@@ -1292,12 +1292,11 @@ a {
 
 /* Layout: desktop header */
 #shopify-section-header {
-
-  
   position: -webkit-sticky;
   position: sticky;
   top: calc(var(--enable-sticky-announcement-bar) * var(--announcement-bar-height, 0px));
   z-index: 10;
+  height: 70px;
 }
 
 .ulike-header {
