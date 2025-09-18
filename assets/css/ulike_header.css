@@ -1807,14 +1807,16 @@ mobile-navigation .mobile-nav__link[aria-expanded="true"] .animated-plus-jt svg 
 /* Responsive */
 @media (max-width: 1200px) {
     #shopify-section-header {
-      height: inherit;
+      height: 60px;
     }
     .ulike-header {
         display: none;
     }
 
     .ulike-masthead {
-        display: block;
+      position: fixed;
+      display: block;
+      width: 100%;
     }
 }
 
