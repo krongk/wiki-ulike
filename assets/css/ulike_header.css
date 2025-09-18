@@ -1299,6 +1299,7 @@ a {
   height: 70px;
 }
 
+
 .ulike-header {
     position: fixed;
     top: 0;
@@ -1805,6 +1806,9 @@ mobile-navigation .mobile-nav__link[aria-expanded="true"] .animated-plus-jt svg 
 
 /* Responsive */
 @media (max-width: 1200px) {
+    #shopify-section-header {
+      height: inherit;
+    }
     .ulike-header {
         display: none;
     }
