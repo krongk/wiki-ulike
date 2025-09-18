@@ -296,6 +296,10 @@ if (window.__ULIKE_HEADER_LOADED__) {
       // });
       // 打开当前
       $trigger.attr('aria-expanded', 'true');
+      $root.find('.mobile-nav__link[aria-expanded="true"]').each(function () {
+         var $t = $(this);
+         $t.attr('aria-expanded', 'false');
+      });
       $menu.attr('open', '').attr('aria-hidden', 'false');
     }
   }
