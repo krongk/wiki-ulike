@@ -1305,6 +1305,7 @@ a {
     z-index: 100;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
+    width: 100%;
 }
 
 .header__wrapper {
