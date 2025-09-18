@@ -1566,7 +1566,6 @@ mobile-navigation .mobile-nav__link.heading.h5:focus-visible {
 
 /* Chevron animation */
 mobile-navigation .animated-plus-jt svg { transition: transform .2s ease; }
-/* mobile-navigation .mobile-nav__link[aria-expanded="true"] .animated-plus-jt svg { transform: rotate(180deg); } */
 
 /* Utilities */
 .ulike-hide {
