@@ -1333,7 +1333,7 @@ a {
     line-height: 30px;
 }
 
-.ulike-nav a {
+/* .ulike-nav a {
     color: var(--txt);
     text-decoration: none;
     font: 500 15px/1.2 var(--heading-font-family, inherit);
@@ -1341,7 +1341,7 @@ a {
 
 .ulike-nav a:hover {
     color: var(--accent);
-}
+} */
 
 /* Right icons */
 .ulike-actions {
