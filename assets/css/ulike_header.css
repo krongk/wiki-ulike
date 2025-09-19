@@ -2250,10 +2250,6 @@ store-header{
   font-style: var(--heading-font-style);
 }
 
-li.mobile-nav__item.mobile-has__tag {
-  display: none;
-}
-
 
 .header-new-popup .menu-tag,.header__linklist-item.has-tag .menu-tag{
   width: 32px;
