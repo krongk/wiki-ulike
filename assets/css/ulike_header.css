@@ -1552,7 +1552,6 @@ mobile-navigation .mobile-nav__link.heading.h5 {
     padding: 14px 2px;
     font-size: 16px;
     font-weight: 500;
-    color: #190A0A;
     -webkit-tap-highlight-color: transparent;
     transition: color .18s ease;
 }
