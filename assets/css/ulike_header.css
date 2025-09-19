@@ -2241,6 +2241,19 @@ store-header{
   background: #BC0047;
 }
 
+.header__linklist-item.has-tag{
+  display: flex;
+  gap: 5px;
+  color: #E0004D;
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  font-style: var(--heading-font-style);
+}
+li.mobile-nav__item.mobile-has__tag {
+  display: none;
+}
+
+
 .header-new-popup .menu-tag,.header__linklist-item.has-tag .menu-tag{
   width: 32px;
   height: 14px;
@@ -2269,10 +2282,12 @@ store-header{
   z-index: -1;
 }
 
+
 .header__linklist-item.has-tag .header__linklist-link {
   display: flex;
   align-items: center;
 }
+
 
 @media (min-width:1200px) {
   .header-new-popup .market-cont-menu-item:hover .market-cont-menu-img{
