@@ -2249,6 +2249,7 @@ store-header{
   font-weight: var(--heading-font-weight);
   font-style: var(--heading-font-style);
 }
+
 li.mobile-nav__item.mobile-has__tag {
   display: none;
 }
