@@ -1,0 +1,696 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    dd,
+    dl,
+    dt,
+    li,
+    ol,
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: 0 0;
+        list-style: none;
+    }
+
+    .common-btn {
+        padding: 0px 1.5rem;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+        border-radius: 4px;
+        background: #E0004D;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 48px;
+        margin-top: 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-new_footer-new {
+        background: #040000;
+    }
+
+    .footer-new_footer-new .footer__inner {
+        background: #040000;
+        padding: 80px 0px 50px;
+        display: flex;
+        color: #919191;
+        font-family: Saans;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 24px;
+        /* 171.429% */
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list {
+        display: grid;
+        gap: 20px;
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item {
+        padding-left: 20px;
+        position: relative;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-title {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 28px;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .down {
+        display: none;
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        padding: 2px 7px;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .down .add,
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .down .minus {
+        height: 28px;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .down .minus {
+        display: none;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-content .linklist__item {
+        margin: 12px 0px 0px;
+        color: #919191;
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-content .linklist__item a {
+        color: #919191;
+        line-height: 24px;
+        /* 171.429% */
+        text-decoration: none;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-content .linklist__item a:hover {
+        color: #fbfaf4;
+        text-decoration-line: underline;
+        -moz-text-decoration-line: underline;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-content .linklist__item:hover {
+        color: #fbfaf4;
+    }
+
+    .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-content .linklist__item:hover a {
+        color: #fbfaf4;
+        text-decoration-line: underline;
+    }
+
+    .footer-new_footer-new .footer__aside {
+        color: #919191;
+        padding: 15px 0px 15px 20px;
+        border-top: 1px solid #2E2E2E;
+    }
+
+    .footer-new_footer-new .footer__aside .footer__payment-methods {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-new_footer-new .footer__aside .footer__payment-methods .policy {
+        width: 40%;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list {
+        color: rgba(255, 255, 255, 0.7);
+        text-align: right;
+        font-family: Saans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 380;
+        line-height: 24px;
+        /* 150% */
+        width: 60%;
+    }
+
+    .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list .text-pay {
+        padding-right: 20px;
+    }
+
+    .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list .pay-image {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        margin-top: 12px;
+    }
+
+    .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list .pay-image img {
+        width: 530px;
+        pointer-events: none;
+        /* Disables dragging */
+        user-drag: none;
+        /* Additional support for some browsers */
+        -webkit-user-drag: none;
+        /* Additional support for Safari */
+    }
+
+    .footer-new_footer-new .footer-brand-image {
+        padding: 50px 0px 60px;
+    }
+
+    .footer-new_footer-new .footer-brand-image img {
+        width: 100%;
+        pointer-events: none;
+        /* Disables dragging */
+        user-drag: none;
+        /* Additional support for some browsers */
+        -webkit-user-drag: none;
+        /* Additional support for Safari */
+    }
+
+    .footer-new_footer-new .icon-wrapper.pc {
+        display: flex;
+    }
+
+    .footer-new_footer-new .icon-wrapper.mobile {
+        display: none;
+    }
+
+    .footer-new_footer-new .icon-wrapper {
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    .footer-new_footer-new .icon-wrapper svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media (max-width: 768px) {
+        .footer-new_footer-new {
+            background: #040000;
+        }
+
+        .footer-new_footer-new .footer__inner {
+            padding: 50px 0px 100px;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list {
+            display: block;
+            width: 100%;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item {
+            border-bottom: 1px solid #4F4F4F;
+            padding: 12px 0px;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-title {
+            font-size: 16px;
+            line-height: 28px;
+            /* 140% */
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item .down {
+            display: block;
+            position: absolute;
+            right: 0px;
+            top: 10px;
+            padding: 2px 7px;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item .down .add,
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item .down .minus {
+            height: 28px;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item .down .minus {
+            display: none;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 1s ease-out;
+            -webkit-transition: max-height 1s ease-out;
+            -moz-transition: max-height 1s ease-out;
+            -ms-transition: max-height 1s ease-out;
+            -o-transition: max-height 1s ease-out;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item .footer__item-content .linklist__item {
+            font-size: 12px;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item.active .footer__item-content {
+            max-height: inherit;
+            transition: max-height 1s ease-in;
+            -webkit-transition: max-height 1s ease-in;
+            -moz-transition: max-height 1s ease-in;
+            -ms-transition: max-height 1s ease-in;
+            -o-transition: max-height 1s ease-in;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item.active .add {
+            display: none;
+        }
+
+        .footer-new_footer-new .footer__inner .footer__item-list .footer__item.active .minus {
+            display: block;
+        }
+
+        .footer-new_footer-new .footer__aside {
+            color: #919191;
+            padding: 50px 0px 30px 0px;
+            border-top: 1px solid #2E2E2E;
+        }
+
+        .footer-new_footer-new .footer__aside .footer__payment-methods {
+            flex-direction: column-reverse;
+        }
+
+        .footer-new_footer-new .footer__aside .footer__payment-methods .policy {
+            width: 100%;
+            justify-content: center;
+            margin-top: 15px;
+            color: #EEE;
+        }
+
+        .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list {
+            color: #EEE;
+            text-align: left;
+            font-size: 12px;
+            width: 100%;
+        }
+
+        .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list .text-pay {
+            padding-right: 0px;
+            color: rgba(238, 238, 238, 0.4);
+        }
+
+        .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list .pay-image {
+            margin-top: 8px;
+        }
+
+        .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list .pay-image span {
+            display: none;
+        }
+
+        .footer-new_footer-new .footer__aside .footer__payment-methods .pay-list .pay-image picture {
+            width: 100%;
+        }
+
+        .footer-new_footer-new .footer-brand-image {
+            margin-top: 0px;
+            padding: 0px 15px 80px;
+        }
+
+        .footer-new_footer-new .footer-brand-image img {
+            width: 100%;
+            pointer-events: none;
+            /* Disables dragging */
+            user-drag: none;
+            /* Additional support for some browsers */
+            -webkit-user-drag: none;
+            /* Additional support for Safari */
+        }
+
+
+        .footer-new_footer-new .icon-wrapper.pc {
+            display: none;
+        }
+
+        .footer-new_footer-new .icon-wrapper.mobile {
+            margin-top: 30px;
+            display: flex;
+        }
+
+    }
+</style>
+    <footer class="footer-new_footer-new" id="footer-new">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__item-list">
+                    <div class="footer__item footer__item--links">
+              <p class="footer__item-title heading heading--small">About Ulike</p>
+                    <div class="down">
+                      <div class="add">
+                        <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20.683 15.1749H14.7962V20.9967H13.2052V15.1749H7.31836V13.5943H13.2052V7.74609H14.7962V13.5943H20.683V15.1749Z" fill="#FBFAF4"></path>
+                          </svg>
+                      </div>
+                      <div class="minus">
+                        <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20.8267 15.7239H14.8989H13.2969H7.36914V14.1323H13.2969H14.8989H20.8267V15.7239Z" fill="#FBFAF4"></path>
+                        </svg>
+                      </div>
+                      
+                    </div>
+                    <div class="footer__item-content">
+                      <ul class="linklist list--unstyled" role="list"><li class="linklist__item"><a href="https://www.ulike.com/pages/10th-anniversary" title="Our Story" aria-label="Our Story" class="link--faded">Our Story</a></li><li class="linklist__item"><a href="https://www.ulike.com/pages/technology-ice-cooling" title="Ulike IPL Technology" aria-label="Ulike IPL Technology" class="link--faded">Ulike IPL Technology</a></li><li class="linklist__item"><a href="https://www.ulike.com/pages/ulike4pcos" title="Ulike for PCOS" aria-label="Ulike for PCOS" class="link--faded">Ulike for PCOS</a></li><li class="linklist__item"><a href="https://www.ulike.com/blogs/all" title="Blogs" aria-label="Blogs" target="_blank" class="link--faded">Blogs</a></li><li class="linklist__item"><a href="https://www.ulike.com/pages/heroes-discount" title="Heroes Discount" aria-label="Heroes Discount" class="link--faded">Heroes Discount</a></li><li class="linklist__item"><a href="https://www.ulike.com/pages/student-discount" title="Student Discount" aria-label="Student Discount" class="link--faded">Student Discount</a></li><li class="linklist__item"><a href="https://www.ulike.com/collections/ipl-hair-removal" title="IPL Hair Removal Devices" aria-label="IPL Hair Removal Devices" class="link--faded">IPL Hair Removal Devices</a></li><li class="linklist__item"><a href="https://www.ulike.com/pages/collaboration-ulikepartner" title="Collaboration" aria-label="Collaboration" class="link--faded">Collaboration</a></li><li class="linklist__item"><a href="https://www.ulike.com/pages/referfriend" title="Refer a Friend" aria-label="Refer a Friend" class="link--faded">Refer a Friend</a></li></ul>
+                    </div>
+            </div>
+
+                    <div class="footer__item footer__item--links">
+                        <p class="footer__item-title heading heading--small">Support</p>
+                        <div class="down">
+                            <div class="add">
+                                <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.683 15.1749H14.7962V20.9967H13.2052V15.1749H7.31836V13.5943H13.2052V7.74609H14.7962V13.5943H20.683V15.1749Z"
+                                        fill="#FBFAF4"></path>
+                                </svg>
+                            </div>
+                            <div class="minus">
+                                <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.8267 15.7239H14.8989H13.2969H7.36914V14.1323H13.2969H14.8989H20.8267V15.7239Z"
+                                        fill="#FBFAF4"></path>
+                                </svg>
+                            </div>
+
+                        </div>
+                        <div class="footer__item-content">
+                            <ul class="linklist list--unstyled" role="list">
+                            
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/faqs" title="FAQs" aria-label="FAQs"
+                                        class="link--faded">FAQs</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/contact-us" title="Contact"
+                                        aria-label="Contact" class="link--faded">Contact</a></li>
+                                <li class="linklist__item"><a href="https://account.ulike.com/login?site=us"
+                                        rel="nofollow" title="Account" aria-label="Account"
+                                        class="link--faded">Account</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/apps/track123" rel="nofollow" target="_blank"
+                                        title="Track My Order" aria-label="Track My Order" class="link--faded">Track My
+                                        Order</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/how-to-use" title="How to use" aria-label="How to use" class="link--faded">How to use</a></li>
+                               <li class="linklist__item"><a href="https://www.ulike.com/products/ulike-1-1-virtual-consultation" title="Book a Private Online Consultation" aria-label="Book a Private Online Consultation" class="link--faded">Book a Private Online Consultation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer__item footer__item--links">
+                        <p class="footer__item-title heading heading--small">Policy</p>
+                        <div class="down">
+                            <div class="add">
+                                <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.683 15.1749H14.7962V20.9967H13.2052V15.1749H7.31836V13.5943H13.2052V7.74609H14.7962V13.5943H20.683V15.1749Z"
+                                        fill="#FBFAF4"></path>
+                                </svg>
+                            </div>
+                            <div class="minus">
+                                <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.8267 15.7239H14.8989H13.2969H7.36914V14.1323H13.2969H14.8989H20.8267V15.7239Z"
+                                        fill="#FBFAF4"></path>
+                                </svg>
+                            </div>
+
+                        </div>
+                        <div class="footer__item-content">
+                            <ul class="linklist list--unstyled" role="list">
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/privacy-policy" title="Privacy Policy"
+                                        aria-label="Privacy Policy" class="link--faded">Privacy Policy</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/terms-conditions" title="Terms of Service"
+                                        aria-label="Terms of Service" class="link--faded">Terms of Service</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/shipping-policy" title="Shipping Policy"
+                                        aria-label="Shipping Policy" class="link--faded">Shipping Policy</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/warranty-policy" title="Warranty Policy"
+                                        aria-label="Warranty Policy" class="link--faded">Warranty Policy</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/return-and-refund-policy"
+                                        title="Return and Refund Policy" aria-label="Return and Refund Policy"
+                                        class="link--faded">Return and Refund Policy</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/ca-notice-at-collection"
+                                        title="CA Notice at Collection" aria-label="CA Notice at Collection"
+                                        class="link--faded">CA Notice at Collection</a></li>
+                                <li class="linklist__item"><a href="https://www.ulike.com/pages/data-sale-opt-out"
+                                        title="Do not sell or share my personal information"
+                                        aria-label="Do not sell or share my personal information" class="link--faded">Do
+                                        not sell or share my personal information</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer__item footer__item--links">
+                        <p class="footer__item-title heading heading--small">
+                            Keep in Touch
+                        </p>
+                        <div class="down">
+                            <div class="add">
+                                <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.683 15.1749H14.7962V20.9967H13.2052V15.1749H7.31836V13.5943H13.2052V7.74609H14.7962V13.5943H20.683V15.1749Z"
+                                        fill="#FBFAF4"></path>
+                                </svg>
+                            </div>
+                            <div class="minus">
+                                <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.8267 15.7239H14.8989H13.2969H7.36914V14.1323H13.2969H14.8989H20.8267V15.7239Z"
+                                        fill="#FBFAF4"></path>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <div class="footer__item-content">
+                            <div class="linklist__item">
+                                <div class="footrt-email_url">
+                                    Support: <a target="_self" href="mailto:support@ulikeglobal.com"
+                                        aria-label="support@ulikeglobal.com">support@ulikeglobal.com</a>
+                                </div>
+                            </div>
+                            <div class="linklist__item">
+                                <div class="footrt-email_url">
+                                    Distributors: <a target="_self" href="mailto:distributor@ulike.com"
+                                        aria-label="distributor@ulike.com">distributor@ulike.com</a>
+                                </div>
+                            </div>
+                            <div class="linklist__item">
+                                <div class="footrt-email_url">
+                                    PR Inquiries: <a target="_self" href="mailto:pr@ulikeglobal.com"
+                                        aria-label="pr@ulikeglobal.com">pr@ulikeglobal.com</a>
+                                </div>
+                            </div>
+
+                            <div class="linklist__item">
+                                <div class="footrt-email_url">
+                                    Legal Affairs: <a target="_self" href="mailto:legal@ulike.com"
+                                        aria-label="legal@ulike.com">legal@ulike.com</a>
+                                </div>
+                            </div>
+                            <div class="linklist__item">
+                                Mon - Fri: 10AM-7PM EST<br>
+                                +1 833-206-6933
+                            </div>
+                            <div class="icon-wrapper pc">
+                                <a href="https://www.facebook.com/ulikeglobal">
+                                    <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                        <path
+                                            d="M25.5601 34.4379V25.3074H28.6236L29.0832 21.7481H25.5601V19.4759C25.5601 18.4457 25.845 17.7437 27.324 17.7437L29.2072 17.7429V14.5593C28.8815 14.517 27.7636 14.4199 26.4624 14.4199C23.7454 14.4199 21.8853 16.0784 21.8853 19.1234V21.7481H18.8125V25.3074H21.8853V34.4379H25.5601Z"
+                                            fill="#000000"></path>
+                                    </svg>
+                                </a>
+                                <a href="https://twitter.com/ulikeglobal">
+                                    <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                        <path
+                                            d="M25.9047 22.8895L33.3513 14.4199H31.5873L25.1187 21.7725L19.956 14.4199H14L21.8087 25.5393L14 34.4199H15.764L22.5907 26.6537L28.044 34.4199H34M16.4007 15.7215H19.1107L31.586 33.1823H28.8753"
+                                            fill="#000000"></path>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/ulikeglobal">
+                                    <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                        <mask id="mask0_1005_8929" style="mask-type:luminance"
+                                            maskUnits="userSpaceOnUse" x="14" y="14" width="20" height="21">
+                                            <path d="M14 14.4263H33.9937V34.4176H14V14.4263Z" fill="#ffffff"></path>
+                                        </mask>
+                                        <g mask="url(#mask0_1005_8929)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M23.9969 14.4263C21.2819 14.4263 20.9414 14.4378 19.8752 14.4864C18.8111 14.535 18.0844 14.704 17.4485 14.9511C16.7912 15.2065 16.2337 15.5484 15.6779 16.1041C15.1221 16.6599 14.7803 17.2174 14.5248 17.8748C14.2777 18.5107 14.1087 19.2374 14.0602 20.3014C14.0115 21.3677 14 21.7081 14 24.4231C14 27.1381 14.0115 27.4785 14.0602 28.5448C14.1087 29.6089 14.2777 30.3356 14.5248 30.9714C14.7803 31.6288 15.1221 32.1863 15.6779 32.7421C16.2337 33.2979 16.7912 33.6397 17.4485 33.8952C18.0844 34.1423 18.8111 34.3113 19.8752 34.3598C20.9414 34.4085 21.2819 34.42 23.9969 34.42C26.7118 34.42 27.0523 34.4085 28.1185 34.3598C29.1826 34.3113 29.9093 34.1423 30.5452 33.8952C31.2025 33.6397 31.76 33.2979 32.3158 32.7421C32.8716 32.1863 33.2134 31.6288 33.4689 30.9714C33.716 30.3356 33.885 29.6089 33.9335 28.5448C33.9822 27.4785 33.9937 27.1381 33.9937 24.4231C33.9937 21.7081 33.9822 21.3677 33.9335 20.3014C33.885 19.2374 33.716 18.5107 33.4689 17.8748C33.2134 17.2174 32.8716 16.6599 32.3158 16.1041C31.76 15.5484 31.2025 15.2065 30.5452 14.9511C29.9093 14.704 29.1826 14.535 28.1185 14.4864C27.0523 14.4378 26.7118 14.4263 23.9969 14.4263ZM23.9969 16.2275C26.6661 16.2275 26.9823 16.2377 28.0364 16.2858C29.0111 16.3302 29.5404 16.4931 29.8927 16.63C30.3593 16.8113 30.6923 17.028 31.0421 17.3778C31.392 17.7276 31.6086 18.0606 31.79 18.5273C31.9269 18.8795 32.0897 19.4088 32.1342 20.3835C32.1823 21.4377 32.1925 21.7538 32.1925 24.4231C32.1925 27.0924 32.1823 27.4086 32.1342 28.4627C32.0897 29.4374 31.9269 29.9667 31.79 30.319C31.6086 30.7856 31.392 31.1186 31.0421 31.4684C30.6923 31.8183 30.3593 32.0349 29.8927 32.2162C29.5404 32.3531 29.0111 32.516 28.0364 32.5604C26.9825 32.6085 26.6663 32.6187 23.9969 32.6187C21.3274 32.6187 21.0113 32.6085 19.9573 32.5604C18.9826 32.516 18.4533 32.3531 18.101 32.2162C17.6344 32.0349 17.3013 31.8183 16.9515 31.4684C16.6017 31.1186 16.3851 30.7856 16.2037 30.319C16.0668 29.9667 15.904 29.4374 15.8595 28.4627C15.8114 27.4086 15.8012 27.0924 15.8012 24.4231C15.8012 21.7538 15.8114 21.4377 15.8595 20.3835C15.904 19.4088 16.0668 18.8795 16.2037 18.5273C16.3851 18.0606 16.6017 17.7276 16.9515 17.3778C17.3013 17.028 17.6344 16.8113 18.101 16.63C18.4533 16.4931 18.9826 16.3302 19.9573 16.2858C21.0114 16.2377 21.3276 16.2275 23.9969 16.2275Z"
+                                                fill="#000000" style="fill:#000000;"></path>
+                                        </g>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M23.9968 27.7553C22.1564 27.7553 20.6645 26.2634 20.6645 24.4231C20.6645 22.5827 22.1564 21.0908 23.9968 21.0908C25.8372 21.0908 27.3291 22.5827 27.3291 24.4231C27.3291 26.2634 25.8372 27.7553 23.9968 27.7553ZM23.9968 19.2896C21.1616 19.2896 18.8633 21.5879 18.8633 24.4231C18.8633 27.2582 21.1616 29.5566 23.9968 29.5566C26.832 29.5566 29.1303 27.2582 29.1303 24.4231C29.1303 21.5879 26.832 19.2896 23.9968 19.2896Z"
+                                            fill="#000000"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M30.5321 19.0868C30.5321 19.7494 29.995 20.2865 29.3324 20.2865C28.6699 20.2865 28.1328 19.7494 28.1328 19.0868C28.1328 18.4243 28.6699 17.8872 29.3324 17.8872C29.995 17.8872 30.5321 18.4243 30.5321 19.0868Z"
+                                            fill="#000000"></path>
+                                    </svg>
+                                </a>
+
+                                <a href="https://www.tiktok.com/@ulikeglobal">
+                                    <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                        <path
+                                            d="M30.7598 22.8294C30.6237 22.8427 30.4869 22.8496 30.3501 22.8502C28.8492 22.8503 27.4495 22.0939 26.6274 20.8382V27.6893C26.6274 30.4859 24.3603 32.753 21.5637 32.753C18.7671 32.753 16.5 30.4859 16.5 27.6894C16.5 24.8929 18.767 22.6258 21.5636 22.6258C21.6694 22.6258 21.7727 22.6353 21.8766 22.6419V25.1372C21.7727 25.1247 21.6706 25.1058 21.5636 25.1058C20.1363 25.1058 18.9792 26.2628 18.9792 27.6902C18.9792 29.1175 20.1363 30.2745 21.5636 30.2745C22.991 30.2745 24.2519 29.1498 24.2519 27.7223L24.2768 16.0864H26.6641C26.8892 18.2272 28.6154 19.8993 30.7622 20.0563V22.8295"
+                                            fill="#000000"></path>
+                                    </svg>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCR5GSUNp0G6DG9sE9jtnfGA">
+                                    <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M31.0325 18.6019C31.807 18.8052 32.4168 19.4042 32.6238 20.1648C33 21.5434 33 24.4199 33 24.4199C33 24.4199 33 27.2963 32.6238 28.6751C32.4168 29.4357 31.807 30.0347 31.0325 30.238C29.6288 30.6074 24 30.6074 24 30.6074C24 30.6074 18.3712 30.6074 16.9675 30.238C16.1931 30.0347 15.5832 29.4357 15.3762 28.6751C15 27.2963 15 24.4199 15 24.4199C15 24.4199 15 21.5434 15.3762 20.1648C15.5832 19.4042 16.1931 18.8052 16.9675 18.6019C18.3712 18.2324 24 18.2324 24 18.2324C24 18.2324 29.6288 18.2324 31.0325 18.6019ZM26.8636 24.42L22.1591 27.0316V21.8083L26.8636 24.42Z"
+                                            fill="#000000"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="icon-wrapper mobile">
+                        <a href="https://www.facebook.com/ulikeglobal">
+                            <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                <path
+                                    d="M25.5601 34.4379V25.3074H28.6236L29.0832 21.7481H25.5601V19.4759C25.5601 18.4457 25.845 17.7437 27.324 17.7437L29.2072 17.7429V14.5593C28.8815 14.517 27.7636 14.4199 26.4624 14.4199C23.7454 14.4199 21.8853 16.0784 21.8853 19.1234V21.7481H18.8125V25.3074H21.8853V34.4379H25.5601Z"
+                                    fill="#000000"></path>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/ulikeglobal">
+                            <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                <path
+                                    d="M25.9047 22.8895L33.3513 14.4199H31.5873L25.1187 21.7725L19.956 14.4199H14L21.8087 25.5393L14 34.4199H15.764L22.5907 26.6537L28.044 34.4199H34M16.4007 15.7215H19.1107L31.586 33.1823H28.8753"
+                                    fill="#000000"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/ulikeglobal">
+                            <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                <mask id="mask0_1005_8929" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="14"
+                                    y="14" width="20" height="21">
+                                    <path d="M14 14.4263H33.9937V34.4176H14V14.4263Z" fill="#ffffff"></path>
+                                </mask>
+                                <g mask="url(#mask0_1005_8929)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M23.9969 14.4263C21.2819 14.4263 20.9414 14.4378 19.8752 14.4864C18.8111 14.535 18.0844 14.704 17.4485 14.9511C16.7912 15.2065 16.2337 15.5484 15.6779 16.1041C15.1221 16.6599 14.7803 17.2174 14.5248 17.8748C14.2777 18.5107 14.1087 19.2374 14.0602 20.3014C14.0115 21.3677 14 21.7081 14 24.4231C14 27.1381 14.0115 27.4785 14.0602 28.5448C14.1087 29.6089 14.2777 30.3356 14.5248 30.9714C14.7803 31.6288 15.1221 32.1863 15.6779 32.7421C16.2337 33.2979 16.7912 33.6397 17.4485 33.8952C18.0844 34.1423 18.8111 34.3113 19.8752 34.3598C20.9414 34.4085 21.2819 34.42 23.9969 34.42C26.7118 34.42 27.0523 34.4085 28.1185 34.3598C29.1826 34.3113 29.9093 34.1423 30.5452 33.8952C31.2025 33.6397 31.76 33.2979 32.3158 32.7421C32.8716 32.1863 33.2134 31.6288 33.4689 30.9714C33.716 30.3356 33.885 29.6089 33.9335 28.5448C33.9822 27.4785 33.9937 27.1381 33.9937 24.4231C33.9937 21.7081 33.9822 21.3677 33.9335 20.3014C33.885 19.2374 33.716 18.5107 33.4689 17.8748C33.2134 17.2174 32.8716 16.6599 32.3158 16.1041C31.76 15.5484 31.2025 15.2065 30.5452 14.9511C29.9093 14.704 29.1826 14.535 28.1185 14.4864C27.0523 14.4378 26.7118 14.4263 23.9969 14.4263ZM23.9969 16.2275C26.6661 16.2275 26.9823 16.2377 28.0364 16.2858C29.0111 16.3302 29.5404 16.4931 29.8927 16.63C30.3593 16.8113 30.6923 17.028 31.0421 17.3778C31.392 17.7276 31.6086 18.0606 31.79 18.5273C31.9269 18.8795 32.0897 19.4088 32.1342 20.3835C32.1823 21.4377 32.1925 21.7538 32.1925 24.4231C32.1925 27.0924 32.1823 27.4086 32.1342 28.4627C32.0897 29.4374 31.9269 29.9667 31.79 30.319C31.6086 30.7856 31.392 31.1186 31.0421 31.4684C30.6923 31.8183 30.3593 32.0349 29.8927 32.2162C29.5404 32.3531 29.0111 32.516 28.0364 32.5604C26.9825 32.6085 26.6663 32.6187 23.9969 32.6187C21.3274 32.6187 21.0113 32.6085 19.9573 32.5604C18.9826 32.516 18.4533 32.3531 18.101 32.2162C17.6344 32.0349 17.3013 31.8183 16.9515 31.4684C16.6017 31.1186 16.3851 30.7856 16.2037 30.319C16.0668 29.9667 15.904 29.4374 15.8595 28.4627C15.8114 27.4086 15.8012 27.0924 15.8012 24.4231C15.8012 21.7538 15.8114 21.4377 15.8595 20.3835C15.904 19.4088 16.0668 18.8795 16.2037 18.5273C16.3851 18.0606 16.6017 17.7276 16.9515 17.3778C17.3013 17.028 17.6344 16.8113 18.101 16.63C18.4533 16.4931 18.9826 16.3302 19.9573 16.2858C21.0114 16.2377 21.3276 16.2275 23.9969 16.2275Z"
+                                        fill="#000000" style="fill:#000000;"></path>
+                                </g>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M23.9968 27.7553C22.1564 27.7553 20.6645 26.2634 20.6645 24.4231C20.6645 22.5827 22.1564 21.0908 23.9968 21.0908C25.8372 21.0908 27.3291 22.5827 27.3291 24.4231C27.3291 26.2634 25.8372 27.7553 23.9968 27.7553ZM23.9968 19.2896C21.1616 19.2896 18.8633 21.5879 18.8633 24.4231C18.8633 27.2582 21.1616 29.5566 23.9968 29.5566C26.832 29.5566 29.1303 27.2582 29.1303 24.4231C29.1303 21.5879 26.832 19.2896 23.9968 19.2896Z"
+                                    fill="#000000"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M30.5321 19.0868C30.5321 19.7494 29.995 20.2865 29.3324 20.2865C28.6699 20.2865 28.1328 19.7494 28.1328 19.0868C28.1328 18.4243 28.6699 17.8872 29.3324 17.8872C29.995 17.8872 30.5321 18.4243 30.5321 19.0868Z"
+                                    fill="#000000"></path>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.tiktok.com/@ulikeglobal">
+                            <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                <path
+                                    d="M30.7598 22.8294C30.6237 22.8427 30.4869 22.8496 30.3501 22.8502C28.8492 22.8503 27.4495 22.0939 26.6274 20.8382V27.6893C26.6274 30.4859 24.3603 32.753 21.5637 32.753C18.7671 32.753 16.5 30.4859 16.5 27.6894C16.5 24.8929 18.767 22.6258 21.5636 22.6258C21.6694 22.6258 21.7727 22.6353 21.8766 22.6419V25.1372C21.7727 25.1247 21.6706 25.1058 21.5636 25.1058C20.1363 25.1058 18.9792 26.2628 18.9792 27.6902C18.9792 29.1175 20.1363 30.2745 21.5636 30.2745C22.991 30.2745 24.2519 29.1498 24.2519 27.7223L24.2768 16.0864H26.6641C26.8892 18.2272 28.6154 19.8993 30.7622 20.0563V22.8295"
+                                    fill="#000000"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCR5GSUNp0G6DG9sE9jtnfGA">
+                            <svg width="48" height="49" viewBox="0 0 48 49" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.419922" width="48" height="48" rx="24" fill="#ffffff"></rect>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M31.0325 18.6019C31.807 18.8052 32.4168 19.4042 32.6238 20.1648C33 21.5434 33 24.4199 33 24.4199C33 24.4199 33 27.2963 32.6238 28.6751C32.4168 29.4357 31.807 30.0347 31.0325 30.238C29.6288 30.6074 24 30.6074 24 30.6074C24 30.6074 18.3712 30.6074 16.9675 30.238C16.1931 30.0347 15.5832 29.4357 15.3762 28.6751C15 27.2963 15 24.4199 15 24.4199C15 24.4199 15 21.5434 15.3762 20.1648C15.5832 19.4042 16.1931 18.8052 16.9675 18.6019C18.3712 18.2324 24 18.2324 24 18.2324C24 18.2324 29.6288 18.2324 31.0325 18.6019ZM26.8636 24.42L22.1591 27.0316V21.8083L26.8636 24.42Z"
+                                    fill="#000000"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__aside">
+                <div class="footer__payment-methods">
+                    <div class="policy">
+                        <p>© Ulike. All rights Reserved 2025.</p>
+                    </div>
+
+                    <div class="pay-list">
+                        <p class="text-pay">Pay securely with</p>
+                        <div class="pay-image">
+                            <span class="hidden-desk">We accept</span>
+                            <picture>
+                                <source media="(max-width: 767px)"
+                                    srcset="//www.ulike.com/cdn/shop/files/20241107-185523.png?v=1730976986&amp;width=400 400w, //www.ulike.com/cdn/shop/files/20241107-185523.png?v=1730976986&amp;width=800 800w"
+                                    width="1030" height="168" loading="lazy"><img
+                                    src="//www.ulike.com/cdn/shop/files/web.svg?v=1730975577" loading="lazy" srcset="
+                  //www.ulike.com/cdn/shop/files/web.svg?v=1730975577&amp;width=500 500w,
+                  //www.ulike.com/cdn/shop/files/web.svg?v=1730975577&amp;width=600 600w,
+                  //www.ulike.com/cdn/shop/files/web.svg?v=1730975577&amp;width=1000 1000w
+                " sizes="(max-width: 1000px) 100vw, 1000px" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 品牌vi -->
+            <div class="footer-brand-image">
+                <img src="//www.ulike.com/cdn/shop/files/web-_logo.svg?v=1730980351" loading="lazy" srcset="
+          //www.ulike.com/cdn/shop/files/web-_logo.svg?v=1730980351&amp;width=500 500w,
+          //www.ulike.com/cdn/shop/files/web-_logo.svg?v=1730980351&amp;width=600 1000w,
+          //www.ulike.com/cdn/shop/files/web-_logo.svg?v=1730980351&amp;width=1520 1520w,
+          //www.ulike.com/cdn/shop/files/web-_logo.svg?v=1730980351&amp;width=1920 1920w
+        " sizes="(max-width: 1920px) 100vw, 1920px" alt="Ulike Hair Removal Brand Logo">
+            </div>
+        </div>
+    </footer>
+    <script>
+        // 用户自定义js公共库
+        function isMobile() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isMobileUserAgent = /Android|iPhone|iPad|iPod|BlackBerry/i.test(
+                userAgent
+            );
+            const maxMobileWidth = 768; // 常用的移动设备屏幕最大宽度
+            return isMobileUserAgent && window.innerWidth <= maxMobileWidth;
+        }
+        $(function () {
+
+            if (isMobile()) {
+                $(document).on('click', 'footer .footer__item-list .footer__item', function () {
+                    $(this).toggleClass('active');
+                });
+                // 默认展开第一个;
+                $('footer .footer__item-list .footer__item').first().addClass('active');
+            }
+        });
+    </script>
