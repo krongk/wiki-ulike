@@ -120,7 +120,7 @@ site.settings.header_menu 格式如下：
           {%  assign sub_menus_count =  sub_menus | size %}
 
           {% if sub_menus_count > 0 %}
-            <li class="relative flex items-center space-x-1" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+            <li class="relative flex items-center space-x-1 hover:bg-gray-500" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
                 <a class="" href="{{ parent_menu[1] | default: '#' }}" :aria-expanded="open">{{ parent_menu[0] }}</a>
                 <button class="shrink-0 p-1" :aria-expanded="open" @click.prevent="open = !open">
                     <span class="sr-only">Show submenu for "Flyout Menu"</span>
@@ -157,13 +157,13 @@ site.settings.header_menu 格式如下：
                 </ul>
             </li>
           {% else %}
-            <li class="">
+            <li class="hover:bg-gray-500">
               <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
             </li>
           {% endif %}
         {% endfor %}
         <li>
-          <button @click="overlay_open = true" class="">{{ 'generic.request' | t }}</button>
+          <button @click="overlay_open = true" class="hover:bg-gray-500">{{ 'generic.request' | t }}</button>
         </li>
       </ul>
     </nav>
