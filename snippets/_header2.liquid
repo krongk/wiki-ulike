@@ -157,8 +157,8 @@ site.settings.header_menu 格式如下：
                 </ul>
             </li>
           {% else %}
-            <li class="">
-              <a class="group block px-4 hover:bg-gray-500 h-auto" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
+            <li class="group block p-2 md:p-4 hover:bg-gray-500">
+              <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
             </li>
           {% endif %}
         {% endfor %}
