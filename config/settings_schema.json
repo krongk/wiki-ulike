@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "wiki_ulike",
+    "theme_name": "ulike",
     "theme_label": "t:theme_label",
     "theme_version": "1.1.0",
     "theme_scope": "wiki",
