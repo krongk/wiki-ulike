@@ -52,25 +52,20 @@
     </div>
   </div>
   {% if children_size > 0 %}
-    <template x-teleport="#js-treeview__{{ dom_id }}">
-      {% assign selected_ids = selected_ids | join: ',' %}
-      {% assign depth = depth | plus: 1 %}
-      <turbo-frame
-        id="frame-treeview__{{ dom_id }}"
-        src="{{ site.nav_tree_path |  append: '?parent=' | append: page.id | append: '&selected_ids=' | append: selected_ids | append: '&depth=' | append: depth }}"
-        loading="lazy"
-      >
-      </turbo-frame>
-    </template>
-  {% endif %}
-</li>
-{% if children_size > 0 %}
-  <ul
+   <ul
     id="js-treeview__{{ dom_id }}"
     class="relative"
     x-data="{ show: {{ !!expanded }} }"
     x-show="show"
     x-cloak
     x-collapse
-  ></ul>
-{% endif %}
+  >
+    <turbo-frame
+      id="frame-treeview__{{ dom_id }}"
+      src="{{ site.nav_tree_path | append: '?parent=' | append: page.id | append: '&selected_ids=' | append: selected_ids | append: '&depth=' | append: depth }}"
+      loading="lazy"
+    ></turbo-frame>
+  </ul>
+
+  {% endif %}
+</li>
