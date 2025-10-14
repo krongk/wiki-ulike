@@ -50,7 +50,7 @@
                   data-controller="navtree" data-navtree-target="menuList">
                 <turbo-frame
                   src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
-                  id="nav_tree"
+                  id="nav_tree" data-turbo-permanent
                 ></turbo-frame>
               </ul>
             </div>
