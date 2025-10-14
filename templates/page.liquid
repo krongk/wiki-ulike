@@ -1,4 +1,5 @@
 {% comment %} 2024072管家婆需求： 新设计，左侧导航fixed固定 {% endcomment %}
+
 {% comment %} 左侧 NavBar只显示当前父级栏目，具体做法： nav_tree_path 添加一个 parent 参数即可。 {% endcomment %}
 {% unless page.parent.path == '/' %}
   {% assign parent = page.parent %}
@@ -27,7 +28,7 @@
     {% # 侧边栏 %}
     {% # render 'sidebar', current_page: page %}
     <div x-data="{ showSidebar: window.innerWidth >= 768 }">
-      <div x-show="showSidebar" x-cloak>
+      <template x-if="showSidebar">
         <div
           x-show="show_navtree"
           x-cloak
@@ -50,7 +51,7 @@
                   data-controller="navtree" data-navtree-target="menuList">
                 <turbo-frame
                   src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
-                  id="nav_tree" data-turbo-permanent
+                  id="nav_tree"
                 ></turbo-frame>
               </ul>
             </div>
@@ -65,9 +66,9 @@
             </svg>
           </div>
         </div>
-      </div>
+      </template>
       {% # header中的树形菜单 %}
-      <div x-show="!showSidebar" x-cloak>
+      <template x-if="!showSidebar">
         <div
           x-show="header_navtree_show"
           x-cloak
@@ -96,7 +97,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </template>
     </div>
     {% # 打开侧边栏 %}
     <div
