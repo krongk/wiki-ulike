@@ -1,5 +1,7 @@
 {% comment %} 2024072管家婆需求： 新设计，左侧导航fixed固定 {% endcomment %}
-
+{% assign page1 = site.pages[parent_path] %}
+{% assign nav_tree = page1 | nav_tree: 1 %}
+{{ nav_tree | size}}
 {% comment %} 左侧 NavBar只显示当前父级栏目，具体做法： nav_tree_path 添加一个 parent 参数即可。 {% endcomment %}
 {% unless page.parent.path == '/' %}
   {% assign parent = page.parent %}
