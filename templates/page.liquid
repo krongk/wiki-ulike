@@ -27,7 +27,7 @@
     {% # 侧边栏 %}
     {% # render 'sidebar', current_page: page %}
     <div x-data="{ showSidebar: window.innerWidth >= 768 }">
-      <template x-if="showSidebar">
+      <div x-show="showSidebar" x-cloak>
         <div
           x-show="show_navtree"
           x-cloak
@@ -65,9 +65,9 @@
             </svg>
           </div>
         </div>
-      </template>
+      </div>
       {% # header中的树形菜单 %}
-      <template x-if="!showSidebar">
+      <div x-show="!showSidebar" x-cloak>
         <div
           x-show="header_navtree_show"
           x-cloak
@@ -96,7 +96,7 @@
             </div>
           </div>
         </div>
-      </template>
+      </div>
     </div>
     {% # 打开侧边栏 %}
     <div
