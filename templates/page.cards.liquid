@@ -114,7 +114,7 @@
     </div>
     {%# page_list 内页列表点击 URL 不改变，需要添加 data-turbo-action="advance" %}
     <section class="p-4 mt-4 grow lg:pl-6 lg:pr-6 xl:pr-0 md:mt-8" :class="show_navtree ? 'md:ml-96' : 'md:ml-0' ">
-      <turbo-frame id="main-content" data-turbo-action="advance">
+      <turbo-frame id="main-content-frame" data-turbo-action="advance">
         <div class="min-h-[calc(100vh-120px)] flex flex-col">
           {% # 面包屑导航 %}
           <div class="mb-3 max-w-3xl">
