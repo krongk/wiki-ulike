@@ -37,7 +37,6 @@ export default class extends Controller {
   ]
 
   connect() {
-    debugger
     this.itemTemplate = this.hasItemTemplateTarget ? this.itemTemplateTarget.innerHTML.trim() : null
     if (!this.hasCurrentPathValue) {
       this.currentPathValue = window.location.pathname
@@ -120,7 +119,7 @@ export default class extends Controller {
     tf.loading = "lazy"
 
     tf.innerHTML = `
-      <div class="flex justify-center items-center h-12 text-base-content/60">
+      <div class="flex justify-center items-center h-12 bg-transparent text-base-content/60">
         <span class="loading loading-spinner loading-sm"></span>
       </div>
     `
