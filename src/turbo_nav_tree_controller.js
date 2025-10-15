@@ -37,18 +37,36 @@ export default class extends Controller {
   ]
 
   connect() {
-    this.itemTemplate = this.hasItemTemplateTarget ? this.itemTemplateTarget.innerHTML.trim() : null
-    if (!this.hasCurrentPathValue) {
-      this.currentPathValue = window.location.pathname
+    this.currentPath = this.hasCurrentPathValue ? this.currentPath : window.location.pathname;
+    this.menuContainer = this.rootContainer();
+
+    if (this.element.dataset.rendered === "true") {
+      console.log("connect re");
+      this.refreshActiveState();
+      return;
     }
+
+    this.element.dataset.rendered = "true";
+
+    this.itemTemplate = this.hasItemTemplateTarget ? this.itemTemplateTarget.innerHTML.trim() : null
 
     // 渲染导航树
     this.renderTree(this.navTreeValue || [], this.depthValue || 0, this.element)
-
-    requestAnimationFrame(() => {
-      this.menuContainer = this.rootContainer()
-    })
   }
+
+  disconnect() {
+    console.log("disconnect");
+  }
+
+  refreshActiveState = () => {
+    const currentPath = this.currentPath;
+
+    const aDom = this.element.querySelector(`a[href='${currentPath}']`);
+    this.getParents(aDom, "li", this.menuContainer).forEach((li) => {
+      this.treeContainerToggle(li, true);
+    });
+    this.click({ currentTarget: aDom });
+  };
 
   renderTree(nodes, depth, container) {
     const ul = document.createElement("ul")
@@ -78,11 +96,12 @@ export default class extends Controller {
         if (isActive) {
           // const activeClass = this.hasItemActiveClassValue ? this.itemActiveClassValue : ""
           liDom.setAttribute("active", "")
-          if (this.isPathActive(node, false)) treeItem.setAttribute("active", "")
-
-          requestAnimationFrame(() => {
-            liDom.scrollIntoView({ behavior: "smooth", block: "center" })
-          })
+          if (this.isPathActive(node, false)) {
+            treeItem.setAttribute("active", "")
+            requestAnimationFrame(() => {
+              liDom.scrollIntoView({ behavior: "smooth", block: "center" })
+            })
+          }
         }
 
         // --- 有 children 数据，直接渲染 ---
@@ -118,7 +137,7 @@ export default class extends Controller {
     tf.loading = "lazy"
 
     tf.innerHTML = `
-      <div class="flex justify-center items-center bg-transparent text-base-content/60">
+      <div class="flex justify-center items-center text-base-content/60">
         <span class="loading loading-spinner loading-sm"></span>
       </div>
     `
@@ -129,33 +148,33 @@ export default class extends Controller {
     const target = event.currentTarget
     const li = target.closest("li")
     const childrenContainer = li.querySelector("[turbo-nav-tree-children-container]")
+    this.treeContainerToggle(li, childrenContainer.hidden);
+  }
 
-    if (childrenContainer && childrenContainer.children.length > 0) {
-      const shouldOpen = childrenContainer.hidden
+  treeContainerToggle(li, status) {
+    const childrenContainer = li.querySelector("[turbo-nav-tree-children-container]")
+    if (!(childrenContainer && childrenContainer.children.length > 0)) return
 
-      // 添加过渡动画
-      if (shouldOpen) {
-        childrenContainer.hidden = false
-        childrenContainer.classList.add('opacity-0')
-        requestAnimationFrame(() => {
-          childrenContainer.classList.remove('opacity-0')
-          childrenContainer.classList.add('opacity-100')
-        })
-      } else {
-        childrenContainer.classList.add('opacity-100')
-        requestAnimationFrame(() => {
-          childrenContainer.classList.remove('opacity-100')
-          childrenContainer.classList.add('opacity-0')
-        })
-        childrenContainer.addEventListener("transitionend", () => {
-          childrenContainer.hidden = true
-        }, { once: true })
-      }
-
-      const itemTargetIcon = li.querySelector("[turbo-nav-tree-item-target-icon]")
-      itemTargetIcon.classList.add("transition-transform", "duration-300", 'peer-hover:text-primary')
-      itemTargetIcon.classList.toggle("rotate-90", shouldOpen)
+    // 添加过渡动画
+    if (status) {
+      childrenContainer.hidden = false;
+      childrenContainer.classList.add("opacity-0");
+      requestAnimationFrame(() => {
+        childrenContainer.classList.remove("opacity-0");
+        childrenContainer.classList.add("opacity-100");
+      });
+    } else {
+      childrenContainer.hidden = true;
+      childrenContainer.classList.add("opacity-100");
+      requestAnimationFrame(() => {
+        childrenContainer.classList.remove("opacity-100");
+        childrenContainer.classList.add("opacity-0");
+      });
     }
+
+    const itemTargetIcon = li.querySelector("[turbo-nav-tree-item-target-icon]");
+    itemTargetIcon.classList.add("transition-transform", "duration-300", "peer-hover:text-primary");
+    itemTargetIcon.classList.toggle("rotate-90", status);
   }
 
   click(event) {
@@ -236,14 +255,14 @@ export default class extends Controller {
   // 激活判断
   isPathActive(node, isPrefix = true) {
     if (isPrefix) {
-      const currentParts = this.currentPathValue.split('/').filter(Boolean)
+      const currentParts = this.currentPath.split('/').filter(Boolean)
       const nodeParts = node.path.split('/').filter(Boolean)
 
       if (nodeParts.length > currentParts.length) return false
 
       return nodeParts.every((part, idx) => currentParts[idx] === part)
     } else {
-      return node.path == this.currentPathValue
+      return node.path == this.currentPath
     }
   }
 
