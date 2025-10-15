@@ -51,7 +51,6 @@ export default class extends Controller {
   }
 
   renderTree(nodes, depth, container) {
-    debugger
     const ul = document.createElement("ul")
     ul.className = this.hasContainerStyleValue ? this.containerStyleValue : "w-full space-y-1"
     requestAnimationFrame(() => {
@@ -119,7 +118,7 @@ export default class extends Controller {
     tf.loading = "lazy"
 
     tf.innerHTML = `
-      <div class="flex justify-center items-center h-12 bg-transparent text-base-content/60">
+      <div class="flex justify-center items-center bg-transparent text-base-content/60">
         <span class="loading loading-spinner loading-sm"></span>
       </div>
     `
