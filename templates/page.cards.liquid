@@ -26,7 +26,7 @@
     {% # 侧边栏 %}
     {% # render 'sidebar', current_page: page %}
     <div x-data="{ showSidebar: window.innerWidth >= 768 }">
-      <template x-if="showSidebar">
+      <div x-show="showSidebar" x-cloak>
         <div
           x-show="show_navtree"
           x-cloak
@@ -36,23 +36,16 @@
             id="page-tree"
             class="mr-0"
           >
-            <div class="">
-              <ul class="pt-5 h-[calc(100vh-theme(spacing.16))] max-h-[calc(100vh-120px)]
-                  overflow-y-scroll
-                  [&::-webkit-scrollbar]:w-2
-                  [&::-webkit-scrollbar-track]:rounded-full
-                  [&::-webkit-scrollbar-track]:bg-gray-100
-                  [&::-webkit-scrollbar-thumb]:rounded-full
-                  [&::-webkit-scrollbar-thumb]:bg-gray-300
-                  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
-                  data-controller="navtree" data-navtree-target="menuList">
-                <turbo-frame
-                  src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
-                  id="nav_tree" data-turbo-permanent
-                ></turbo-frame>
-              </ul>
+
+
+          <div class="sticky top-[calc(var(--header-height)_+_1rem)] max-h-[calc(100vh-var(--header-height)-4rem)] max-w-full w-full overflow-auto bg-base-200 rounded-box custom-menu">
+          <turbo-frame id="page_nav_tree_frame__" src="/s/page/nav_tree" loading="lazy" data-turbo-permanent>
+            <div class="flex justify-center items-center h-20 bg-transparent text-base-content/60">
+              <span class="loading loading-spinner loading-md"></span>
             </div>
+          </turbo-frame>
+			  </div>
+
           </div>
           {% # 关闭侧边栏 %}
           <div
@@ -64,9 +57,9 @@
             </svg>
           </div>
         </div>
-      </template>
+      </div>
       {% # header中的树形菜单 %}
-      <template x-if="!showSidebar">
+      <div x-show="!showSidebar" x-cloak>
         <div
           x-show="header_navtree_show"
           x-cloak
@@ -88,14 +81,25 @@
                 <ul data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
                     src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
-                    id="nav_tree"
+                    id="nav_tree" data-turbo-permanent
                   ></turbo-frame>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      </template>
+      </div>
+    </div>
+    {% # 打开侧边栏 %}
+    <div
+      x-show="!show_navtree"
+      x-cloak
+      @click="show_navtree=true"
+      class="fixed -left-1 top-20 px-3 py-1 bg-white rounded-r-full border cursor-pointer hover:bg-primary dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 2xl:top-28"
+    >
+      <svg t="1697770917150" class="w-5 h-5 rotate-180 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055">
+        <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
+      </svg>
     </div>
     {% # 打开侧边栏 %}
     <div
@@ -110,7 +114,7 @@
     </div>
     {%# page_list 内页列表点击 URL 不改变，需要添加 data-turbo-action="advance" %}
     <section class="p-4 mt-4 grow lg:pl-6 lg:pr-6 xl:pr-0 md:mt-8" :class="show_navtree ? 'md:ml-96' : 'md:ml-0' ">
-      <turbo-frame id="main-content" data-turbo-action="advance">
+      <turbo-frame id="main-content-frame" data-turbo-action="advance">
         <div class="min-h-[calc(100vh-120px)] flex flex-col">
           {% # 面包屑导航 %}
           <div class="mb-3 max-w-3xl">

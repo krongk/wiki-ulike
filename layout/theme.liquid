@@ -7,6 +7,8 @@
     {{ 'css/viewer.min.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'baklib/shared/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'baklib/shared/main.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
     <style>
       @font-face {
         font-family: 'Saans';
@@ -16,15 +18,28 @@
         src: url("{{ 'images/saans-regular-1.woff2' | asset_url }}") format("woff2"),url("{{ 'images/saans-regular-1.woff' | asset_url }}") format("woff");
       }
     </style>
+    <style>
+      {%- assign screen_width = site.settings.screen_width.value | presence | default: '1200px' -%}
+      {%- assign left_sidebar_width = site.settings.left_sidebar_width | presence | default: '380' | append: 'px' -%}
+      {%- assign right_sidebar_width = site.settings.right_sidebar_width | presence | default: '240' | append: 'px' -%}
+      {%- assign header_height = site.settings.header_height | presence | default: '64' | append: 'px' -%}
+
+      :root {
+        --max-content-width: {{ screen_width }};
+        --left-sidebar-width: {{ left_sidebar_width }};
+        --right-sidebar-width: {{ right_sidebar_width  }};
+        --header-height: {{ header_height }};
+      }
+    </style>
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if true %}{{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
 
   </head>
-  <body class="font-custom bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false, overlay_open: false }">
+  <body class="bg-white font-custom text-slate-800 dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme" x-data="{ header_navtree_show: false, overlay_open: false }">
     <!-- Page wrapper -->
     <div
-      class="flex flex-col min-h-screen overflow-auto"
+      class="flex overflow-auto flex-col min-h-screen"
       x-data="{ scrolled: false }"
       x-init="
         window.addEventListener('scroll', () => {
@@ -52,24 +67,24 @@
             behavior: 'smooth'
           });
         "
-        class="fixed z-50 flex items-center justify-center w-10 h-10 rounded-full bottom-4 right-4 xl:w-16 xl:h-16 bg-slate-100 dark:bg-slate-600 hover:bg-primary"
+        class="flex fixed right-4 bottom-4 z-50 justify-center items-center w-10 h-10 rounded-full xl:w-16 xl:h-16 bg-slate-100 dark:bg-slate-600 hover:bg-primary"
       >
         <svg class="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 33L24 21L36 33" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13H36" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </div>
-    
+
     {% comment %} 添加挂件
       {% render 'plugins' %} {% endcomment %}
     {% comment %} What's new 侧边栏弹窗 {% endcomment %}
     <div @keydown.window.escape="overlay_open = false" x-show="overlay_open" class="relative z-50 print:hidden" aria-labelledby="slide-over-title" x-ref="dialog" aria-modal="true">
-      <div class="fixed inset-0 overflow-hidden">
-        <div class="absolute inset-0 z-50 overflow-hidden">
-          <div class="fixed inset-y-0 right-0 flex max-w-full min-w-1/3 pl-10 pointer-events-none">
+      <div class="overflow-hidden fixed inset-0">
+        <div class="overflow-hidden absolute inset-0 z-50">
+          <div class="flex fixed inset-y-0 right-0 pl-10 max-w-full pointer-events-none min-w-1/3">
             <div x-show="overlay_open" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="w-screen max-w-md pointer-events-auto" x-description="Slide-over panel, show/hide based on slide-over state." @click.away="overlay_open = false">
               <div class="pl-0.5 bg-slate-200">
-                <turbo-frame id="overlay_iframe" src="/s/overlay" loading="lazy" class="z-50 w-full h-screen overflow-hidden bg-white dark:bg-gray-800">
+                <turbo-frame id="overlay_iframe" src="/s/overlay" loading="lazy" class="overflow-hidden z-50 w-full h-screen bg-white dark:bg-gray-800">
                 loading...
                 </turbo-frame>
               </div>
@@ -78,6 +93,6 @@
         </div>
       </div>
     </div>
-    
+
   </body>
 </html>
