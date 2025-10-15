@@ -2,8 +2,8 @@
 {% assign card_pages = site.pages['/'].children_in_nav_menu  | limit: 24 %}
 
 <!--prepare class for yarn build -->
-<div class="mx-auto max-w-screen-lg "></div>
-<div class="mx-auto max-w-screen-xl "></div>
+<div class="mx-auto max-w-screen-lg"></div>
+<div class="mx-auto max-w-screen-xl"></div>
 <div class="mx-auto max-w-screen-2xl"></div>
 <span class="flex ml-1 opacity-0 group-hover:opacity-100"></span>
 
@@ -16,23 +16,23 @@
 
 <section class="relative" style="background-image: url({{ page.settings.hero_image_url }})">
   {% if page.settings.bg_type.value == '1' %}
-    <div class="absolute inset-x-0 overflow-hidden -top-10 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
+    <div class="overflow-hidden absolute inset-x-0 -top-10 blur-3xl transform-gpu -z-10 sm:-top-80" aria-hidden="true">
       <div class="relative left-[calc(50%-11rem)] aspect-[1200/800] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-30 sm:left-[calc(50%-20rem)] sm:w-[82.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
     </div>
   {% else %}
     <div class="absolute w-full h-full -z-10 bg-gradient-to-b from-primary/35 from-5% via-white via-20% to-accent/35 to-85% dark:from-primary dark:to-accent"></div>
   {% endif %}
   <!-- Hero Section -->
-  <section class="mx-auto max-w-5xl p-12 md:p-24">
-    <div class="container flex flex-col h-full px-4 mx-auto">
-      <div class="flex flex-col items-center justify-center flex-grow">
-        <h1 class="py-2 my-4 leading-8 text-2xl md:text-4xl font-bold transition duration-500 md:mt-0 text-shadow">
+  <section class="p-12 mx-auto max-w-5xl md:p-24">
+    <div class="container flex flex-col px-4 mx-auto h-full">
+      <div class="flex flex-col flex-grow justify-center items-center">
+        <h1 class="py-2 my-4 text-2xl font-bold leading-8 transition duration-500 md:text-4xl md:mt-0 text-shadow">
           {{ page.settings.description }}
         </h1>
-        <div class="z-0 flex flex-col items-center justify-center w-full md:w-2/3">
+        <div class="flex z-0 flex-col justify-center items-center w-full md:w-2/3">
           {% form_tag 'search', class: 'w-full' %}
             <div class="relative">
-              <button type="submit" class="absolute inset-y-0 right-0 flex items-center pl-4 pr-3 sm:right-auto">
+              <button type="submit" class="flex absolute inset-y-0 right-0 items-center pr-3 pl-4 sm:right-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" > <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
               </button>
               <input
@@ -40,14 +40,14 @@
                 name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}"
                 placeholder="{{ "placeholders.search" | t }}"
                 autocomplete="off"
-                class="block w-full h-10 md:h-12 lg:h-14 pl-3 pr-10 transition duration-300 ease-in-out bg-white bg-opacity-75 dark:text-primary border border-transparent rounded-full outline-none focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90"
+                class="block pr-10 pl-3 w-full h-10 bg-white bg-opacity-75 rounded-full border border-transparent transition duration-300 ease-in-out outline-none md:h-12 lg:h-14 dark:text-primary focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90"
               >
             </div>
           {% endform_tag %}
 
           <!-- 热门标签 -->
           {% if page.settings.tags.size > 0 %}
-            <div class="items-center justify-start hidden w-full mt-4 md:flex flex-wrap">
+            <div class="hidden flex-wrap justify-start items-center mt-4 w-full md:flex">
               <div class="inline-block text-sm text-gray-500 dark:text-gray-100">
                 <span class="mx-2">{{ 'generic.tags' | t }}：</span>
                 {% for tag in page.settings.tags %}
@@ -71,59 +71,59 @@
   <!-- Started 3 Channel Section -->
   <section class="bg-transparent">
     <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
-      <div class="items-center text-center my-4 md:mb-8">
-        <h2 class="text-xl md:text-2xl font-semibold">{{ page.settings.channel_one_name |  default: '新手入门' }}</h2>
+      <div class="items-center my-4 text-center md:mb-8">
+        <h2 class="text-xl font-semibold md:text-2xl">{{ page.settings.channel_one_name |  default: '新手入门' }}</h2>
       </div>
-      <div class="items-start lg:max-w-none grid grid-cols-3 gap-8 md:grid-cols-3 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
+      <div class="grid grid-cols-3 gap-8 items-start lg:max-w-none md:grid-cols-3 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16">
         {% for card_page in card_pages | limit:3 %}
           <!-- Card -->
-          <a href="{{ card_page.path }}" class="flex flex-col h-full bg-gradient-to-b from-secondary-100 from-5% to-primary-50/80 to-80% dark:from-secondary dark:to-primary hover:from-secondary-100 hover:to-primary-100 rounded-xl overflow-hidden">
+          <a href="{{ card_page.path }}" class="flex flex-col h-full bg-gradient-to-b from-secondary-100 from-5% to-primary-50/80 to-80% dark:from-secondary dark:to-primary hover:from-secondary-100 hover:to-primary-100 rounded-xl overflow-hidden"  data-turbo="false">
             <!-- Card Content -->
-            <div class="flex-1 flex flex-col p-0 md:p-6 relative">
+            <div class="flex relative flex-col flex-1 p-0 md:p-6">
                 <!-- Card body -->
                 <div class="flex-1">
                     <!-- Header -->
-                    <header class="mb-2 p-4 md:p-0 z-10">
-                      <div class="flex items-center justify-start">
-                        <h3 class="line-clamp-2 text-md md:text-xl md:font-semibold ">{{ card_page.link_text }}</h3>
+                    <header class="z-10 p-4 mb-2 md:p-0">
+                      <div class="flex justify-start items-center">
+                        <h3 class="line-clamp-2 text-md md:text-xl md:font-semibold">{{ card_page.link_text }}</h3>
                       </div>
                     </header>
-                    <!-- Content -->  
+                    <!-- Content -->
                     <div class="h-12 md:h-44">
-                      <span class="hidden md:flex text-gray-500 dark:text-gray-300">{{ card_page.settings.description }}</span>
-                      <div class="absolute -bottom-0 -right-0 opacity-60"><img src="{{ card_page.settings.icon }}" class="object-cover h-12 md:h-40"/></div>
+                      <span class="hidden text-gray-500 md:flex dark:text-gray-300">{{ card_page.settings.description }}</span>
+                      <div class="absolute -right-0 -bottom-0 opacity-60"><img src="{{ card_page.settings.icon }}" class="object-cover h-12 md:h-40"/></div>
                     </div>
                 </div>
             </div>
           </a>
         {% endfor %}
-      </div>      
+      </div>
     </div>
   </section>
 
   <!-- Channel Section -->
   {% if site.settings.show_channel_section %}
-    <section class="bg-transparent py-12">
+    <section class="py-12 bg-transparent">
       <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
-        <div class="items-center text-center my-4 md:mb-8">
-          <h2 class="text-xl md:text-2xl font-semibold">{{ page.settings.channel_two_name |  default: '栏目导航' }}</h2>
+        <div class="items-center my-4 text-center md:mb-8">
+          <h2 class="text-xl font-semibold md:text-2xl">{{ page.settings.channel_two_name |  default: '栏目导航' }}</h2>
         </div>
-        <div class="items-start lg:max-w-none grid grid-cols-3 gap-2 md:gap-4 md:grid-cols-4 lg:grid-cols-4">
+        <div class="grid grid-cols-3 gap-2 items-start lg:max-w-none md:gap-4 md:grid-cols-4 lg:grid-cols-4">
           {% for card_page in card_pages, offset: 3 %}
-            <a href="{{ card_page.path }}" class="flex flex-col h-full bg-accent-100 dark:bg-primary hover:bg-opacity-50 rounded-xl overflow-hidden">
+            <a href="{{ card_page.path }}" class="flex overflow-hidden flex-col h-full rounded-xl bg-accent-100 dark:bg-primary hover:bg-opacity-50"  data-turbo="false">
               <!-- Card Content -->
-              <div class="flex-1 flex flex-col p-2 md:p-6">
+              <div class="flex flex-col flex-1 p-2 md:p-6">
                   <!-- Card body -->
                   <div class="flex-1">
                       <!-- Header -->
                       <header class="mb-2">
-                        <div class="flex flex-col text-center md:text-left items-center md:items-start">
+                        <div class="flex flex-col items-center text-center md:text-left md:items-start">
                           {% if site.settings.show_card_icon %}
                             {% if card_page.settings.icon %}
                               <span class="mb-2"><img src="{{ card_page.settings.icon }}" class="h-10"/> </span>
                             {% else %}
                               <span class="mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 w-10 h-10 text-primary dark:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 size-10 text-primary dark:text-white">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
                                 </svg>
                               </span>
@@ -133,14 +133,14 @@
                         </div>
                       </header>
                       <!-- Content -->
-                      <div class="my-4 relative">
-                        <span class="hidden md:flex text-sm text-gray-500 dark:text-gray-300">{{ card_page.settings.description }}</span>
+                      <div class="relative my-4">
+                        <span class="hidden text-sm text-gray-500 md:flex dark:text-gray-300">{{ card_page.settings.description }}</span>
                       </div>
                   </div>
               </div>
             </a>
           {% endfor %}
-        </div>      
+        </div>
       </div>
     </section>
   {% endif %}
@@ -148,17 +148,17 @@
   <!-- Newest List Section -->
   {% if site.settings.show_newest_section %}
     {% assign newest_pages = site.pages['/'].pages_in_list | order_by: '-created_at' | limit: 10 %}
-    <section class="bg-transparent py-4">
+    <section class="py-4 bg-transparent">
       <div class="mx-auto {{ screen_width }} px-4 sm:px-6">
         <div class="pt-4 pb-4">
-          
-          <div class="flex items-center h-8 mb-2 text-xl md:text-2xl font-semibold text-slate-800 dark:text-slate-200">
-            <div class="w-1 h-full mr-3 bg-primary"></div>
+
+          <div class="flex items-center mb-2 h-8 text-xl font-semibold md:text-2xl text-slate-800 dark:text-slate-200">
+            <div class="mr-3 w-1 h-full bg-primary"></div>
             <span>{{ 'generic.newest_pages' | t }}</span>
           </div>
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 p-4 gap-y-4 overflow-hidden">
+          <div class="grid overflow-hidden grid-cols-1 gap-4 gap-y-4 p-4 md:grid-cols-2">
             {% for sub_page in newest_pages %}
-              <a class="flex items-center justify-between transition transform group"
+              <a class="flex justify-between items-center transition transform group"
                 href="{{ sub_page.path }}">
                 <div class="flex">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 transition group-hover:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -169,7 +169,7 @@
                   </h6>
                 </div>
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-5 h-5 mr-4 text-gray-500 dark:text-gray-300 transition group-hover:text-primary group-hover:translate-x-3 md:transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-4 w-5 h-5 text-gray-500 transition dark:text-gray-300 group-hover:text-primary group-hover:translate-x-3 md:transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -186,14 +186,14 @@
     <section class="bg-transparent">
       <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
         <div class="pt-4 pb-8 mt-8 lg:mt-14 lg:pb-12">
-          
-          <div class="flex items-center h-8 mb-4 text-xl md:text-2xl font-semibold text-slate-800 dark:text-slate-200">
-            <div class="w-1 h-full mr-3 bg-primary"></div>
+
+          <div class="flex items-center mb-4 h-8 text-xl font-semibold md:text-2xl text-slate-800 dark:text-slate-200">
+            <div class="mr-3 w-1 h-full bg-primary"></div>
             <span>{{ 'generic.hot_pages' | t }}</span>
           </div>
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4">
+          <div class="grid grid-cols-1 gap-4 gap-y-4 md:grid-cols-2">
             {% for faq_page in hottest_pages %}
-              <a class="flex items-center justify-between transition transform group"
+              <a class="flex justify-between items-center transition transform group"
                 href="{{ faq_page.path }}">
                 <div class="flex">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 transition group-hover:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -204,7 +204,7 @@
                   </h6>
                 </div>
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-5 h-5 mr-4 text-gray-500 dark:text-gray-300 transition group-hover:text-primary group-hover:translate-x-3 md:transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-4 w-5 h-5 text-gray-500 transition dark:text-gray-300 group-hover:text-primary group-hover:translate-x-3 md:transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
