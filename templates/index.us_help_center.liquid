@@ -169,7 +169,7 @@
               {% endif %}
             </div>
             <div class="text-start">
-              <h3 class="mb-1 text-xl"><a href="{{ card_page.path | append: '?list=true' }}" class="hover:text-primary">{{ card_page.link_text }}</a></h3>
+              <h3 class="mb-1 text-xl"><a href="{{ card_page.path | append: '?list=true' }}" data-turbo="false" class="hover:text-primary">{{ card_page.link_text }}</a></h3>
               <p class="text-gray-400">{{ sub_page_count }} {{ 'generic.articles' | t }}</p>
             </div>
           </div>
