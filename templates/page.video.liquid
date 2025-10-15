@@ -3,14 +3,14 @@
 {% assign screen_width = site.settings.screen_width.value |  default: 'max-w-screen-xl' %}
 {% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
 
-<turbo-frame id="main-content" data-turbo-action="advance">
+<turbo-frame id="main-content-frame" data-turbo-action="advance">
   <main class="min-h-screen mx-auto {{ screen_width }} relative px-4">
     {% if page.settings.show_list %}
       {% paginate_tag pages, per: 200 %}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {% for item in pages %}
             <div class="">
-              <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+              <div class="overflow-hidden bg-white rounded-lg shadow-lg">
                 <div class="relative aspect-video">
                   <video x-init="$watch(true, value => value ? $el.play() : $el.pause())" width="1920" height="1080" loop controls>
                       <source src="{{ item.settings.video_url }}" type="video/mp4" />
@@ -28,11 +28,11 @@
         {% render 'paginate', paginate: paginate %}
       {% endpaginate_tag %}
     {% else %}
-      <div class="mb-3 max-w-3xl mt-8">
+      <div class="mt-8 mb-3 max-w-3xl">
         {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
       </div>
       <div class="mt-4 md:mt-8">
-        {% render 'page', page: page, default_avatar_url: default_avatar_url %}  
+        {% render 'page', page: page, default_avatar_url: default_avatar_url %}
       </div>
     {% endif %}
   </main>
