@@ -15,7 +15,7 @@
 
   <!-- Bg Style -->
   {% if site.settings.page_bg_type.value == '1'  %}
-    <div class="absolute inset-x-0 overflow-hidden -top-10 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
+    <div class="overflow-hidden absolute inset-x-0 -top-10 blur-3xl transform-gpu -z-10 sm:-top-80" aria-hidden="true">
       <div class="relative left-[calc(50%-11rem)] aspect-[1200/800] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-secondary opacity-20 sm:left-[calc(50%-20rem)] sm:w-[82.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
     </div>
   {% elsif site.settings.page_bg_type.value == '2' %}
@@ -30,7 +30,7 @@
         <div
           x-show="show_navtree"
           x-cloak
-          class="fixed top-20 w-96 z-50 hidden border-r md:block  border-slate-200 dark:border-gray-700"
+          class="hidden fixed top-20 z-50 w-96 border-r md:block border-slate-200 dark:border-gray-700"
         >
           <div
             id="page-tree"
@@ -45,18 +45,18 @@
                   [&::-webkit-scrollbar-thumb]:rounded-full
                   [&::-webkit-scrollbar-thumb]:bg-gray-300
                   dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500" 
+                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
                   data-controller="navtree" data-navtree-target="menuList">
                 <turbo-frame
                   src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
-                  id="nav_tree"
+                  id="nav_tree" data-turbo-permanent
                 ></turbo-frame>
               </ul>
             </div>
           </div>
           {% # 关闭侧边栏 %}
           <div
-            class="absolute flex items-center justify-center w-10 h-10 bg-white border rounded-full cursor-pointer -right-5 top-0 dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 hover:bg-primary"
+            class="flex absolute top-0 -right-5 justify-center items-center w-10 h-10 bg-white rounded-full border cursor-pointer dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 hover:bg-primary"
             @click="show_navtree = !show_navtree"
           >
             <svg t="1697770917150" class="w-5 h-5 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055" >
@@ -71,7 +71,7 @@
           x-show="header_navtree_show"
           x-cloak
           @click.outside="header_navtree_show=false"
-          class="fixed left-0 z-50 w-full px-4 overflow-hidden transition-all duration-300 transform top-24 sm:px-6"
+          class="overflow-hidden fixed left-0 top-24 z-50 px-4 w-full transition-all duration-300 transform sm:px-6"
           x-transition:enter="transition ease-out duration-300"
           x-transition:enter-start="opacity-0 translate-y-[-10%]"
           x-transition:enter-end="opacity-100 translate-y-0"
@@ -79,12 +79,12 @@
           x-transition:leave-start="opacity-100 translate-y-0"
           x-transition:leave-end="opacity-0 translate-y-[-10%]"
         >
-          <div class="w-full p-5 bg-white rounded shadow-lg text-slate-800 dark:bg-slate-900 dark:text-slate-200">
+          <div class="p-5 w-full bg-white rounded shadow-lg text-slate-800 dark:bg-slate-900 dark:text-slate-200">
             <div
               id="page-tree"
               class="overflow-y-scroll max-h-[calc(100vh-160px)]"
             >
-              <div class="relative w-full overflow-x-auto">
+              <div class="overflow-x-auto relative w-full">
                 <ul data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
                     src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id }}"
@@ -102,48 +102,48 @@
       x-show="!show_navtree"
       x-cloak
       @click="show_navtree=true"
-      class="fixed px-3 py-1 bg-white hover:bg-primary border rounded-r-full cursor-pointer dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 top-20 2xl:top-28 -left-1"
+      class="fixed -left-1 top-20 px-3 py-1 bg-white rounded-r-full border cursor-pointer hover:bg-primary dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700 2xl:top-28"
     >
       <svg t="1697770917150" class="w-5 h-5 rotate-180 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055">
         <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
       </svg>
     </div>
     {%# page_list 内页列表点击 URL 不改变，需要添加 data-turbo-action="advance" %}
-    <section class="grow lg:pl-6 lg:pr-6 xl:pr-0 p-4 mt-4 md:mt-8" :class="show_navtree ? 'md:ml-96' : 'md:ml-0' ">
+    <section class="p-4 mt-4 grow lg:pl-6 lg:pr-6 xl:pr-0 md:mt-8" :class="show_navtree ? 'md:ml-96' : 'md:ml-0' ">
       <turbo-frame id="main-content" data-turbo-action="advance">
         <div class="min-h-[calc(100vh-120px)] flex flex-col">
           {% # 面包屑导航 %}
           <div class="mb-3 max-w-3xl">
             {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
           </div>
-          
+
           <!-- Cards Pages -->
           <div id="services" class="relative pt-20 pb-8 md:pt-24 md:pb-12 dark:bg-gray-900 dark:bg-opacity-20">
-            <div class="container xl:max-w-6xl mx-auto px-4">
+            <div class="container px-4 mx-auto xl:max-w-6xl">
               <!-- section header -->
-              <header class="text-center mx-auto mb-12">
-                <h2 class="text-2xl md:text-3xl leading-normal mb-2 font-bold text-gray-800 dark:text-gray-100">
+              <header class="mx-auto mb-12 text-center">
+                <h2 class="mb-2 text-2xl font-bold leading-normal text-gray-800 md:text-3xl dark:text-gray-100">
                   {{ page.settings.title }}</h2>
-                <hr class="block w-12 h-0.5 mx-auto my-5 bg-primary-700 border-primary-700">
-                <p class="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">{{ page.settings.description  }}</p>
+                <hr class="block mx-auto my-5 w-12 h-0.5 bg-primary-700 border-primary-700">
+                <p class="pb-2 mx-auto text-xl font-light leading-relaxed text-gray-500">{{ page.settings.description  }}</p>
               </header><!-- end section header -->
 
               <!-- row -->
-              <div class="flex flex-wrap flex-row justify-center -mx-4 text-center">
-            
+              <div class="flex flex-row flex-wrap justify-center -mx-4 text-center">
+
                 {% for item in sub_pages %}
-                  <div class="flex-shrink w-11/12 max-w-full sm:w-1/2 lg:w-1/3 px-4">
+                  <div class="flex-shrink px-4 w-11/12 max-w-full sm:w-1/2 lg:w-1/3">
                     <!-- service block -->
-                    <a href="{{ item.path }}" class="p-6 mb-12 block shadow rounded bg-gray-50 dark:bg-gray-800 hover:shadow-xl transform transition duration-300 ease-in-out hover:-translate-y-2 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                      <div class="text-primary-700 mb-6">
+                    <a href="{{ item.path }}" class="block p-6 mb-12 bg-gray-50 rounded shadow transition duration-300 ease-in-out transform dark:bg-gray-800 hover:shadow-xl hover:-translate-y-2 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                      <div class="mb-6 text-primary-700">
                         <!-- icon -->
                         {% if item.settings.icon %}
-                          <img src="{{ item.settings.icon }}" alt="{{ item.settings.title }}" class="inline-block text-primary w-12 h-12 object-cover rounded">
+                          <img src="{{ item.settings.icon }}" alt="{{ item.settings.title }}" class="inline-block object-cover w-12 h-12 rounded text-primary">
                         {% else %}
                           <svg xmlns="http://www.w3.org/2000/svg" class="inline-block" width="3rem" height="3rem" fill="currentColor" viewBox="0 0 512 512"><rect x="48" y="96" width="416" height="304" rx="32.14" ry="32.14" style="fill:none;stroke:currentColor;stroke-linejoin:round;stroke-width:32px"></rect><line x1="16" y1="416" x2="496" y2="416" style="stroke:currentColor;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"></line></svg>
                         {% endif %}
                       </div>
-                      <h3 class="text-xl leading-normal mb-2 font-semibold text-gray-800 dark:text-gray-100">{{ item.link_text }}</h3>
+                      <h3 class="mb-2 text-xl font-semibold leading-normal text-gray-800 dark:text-gray-100">{{ item.link_text }}</h3>
                       <p class="mb-4 text-gray-500 line-clamp-3">{{ item.settings.description }}</p>
                     </a>
                     <!-- end service block -->
@@ -162,7 +162,7 @@
       {% # Support Cards: call/email/chat %}
       <section class="my-8 w-full">
           <!-- Cards Container -->
-          <h2 class="text-xl font-semibold my-4 md:my-8">{{ 'generic.get_help' | t }}</h2>
+          <h2 class="my-4 text-xl font-semibold md:my-8">{{ 'generic.get_help' | t }}</h2>
           {% render 'support_cards' %}
       </section>
 
@@ -175,7 +175,7 @@
   {
     "name": "Page Cards",
     "description": "The cards style sub_pages template",
-    "thumb_url": "images/theme/page-cards.png",
+    "thumb_url": "images/theme/page.png",
     "sub_page_templates": ["page"],
     "settings": [
       {
