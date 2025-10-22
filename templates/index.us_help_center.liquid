@@ -70,7 +70,7 @@
           {% if page.settings.hot_tags %}
             <div class="hidden justify-start items-center mt-4 w-full md:flex">
               <div class="inline-block">
-            <span class="mr-3 text-white">{{ 'generic.popular_search' | t }}:</span>
+            <span class="mr-3 text-black font-medium">{{ 'generic.popular_search' | t }}:</span>
             {% for search_hot_key in hot_tags %}
               <a
                 href="{{site.index_path}}-/search?q={{ search_hot_key }}"
