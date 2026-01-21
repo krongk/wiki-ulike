@@ -1,5 +1,6 @@
-<article class="flex justify-between mx-auto w-full xl:space-x-12">
-  <div class="flex flex-col w-full">
+<div class="flex gap-8 w-full">
+  <div class="flex flex-col flex-1 min-w-0">
+    <article class="w-full">
     <h1 class="flex items-center mb-2 text-2xl font-bold sm:text-3xl xl:text-4xl text-slate-800 dark:text-slate-200">
       {{ page.settings.title }}
     </h1>
@@ -39,7 +40,7 @@
     {% endif %}
 
     {% if page.settings.description %}
-      <figure class="p-4 my-2 rounded-md border-l-2 border-primary bg-slate-100 dark:bg-slate-800">
+      <figure class="p-4 my-2 rounded-md border-l-2 border-primary bg-accent-50 dark:bg-slate-800">
         <blockquote class="font-semibold text-gray-500">
           <p>{{ page.settings.description }}</p>
         </blockquote>
@@ -54,45 +55,222 @@
         </div>
       </div>
     </div>
-  </div>
-</article>
+    </article>
 
-<div class="py-4 border-t border-primary-300">
-  {% paginate_tag pages %}
-    <ul role="list" class="divide-y divide-gray-100">
-      {% for page in pages %}
-        <li class="flex flex-wrap gap-y-4 gap-x-6 justify-between items-center px-3 py-2 rounded-lg sm:flex-nowrap hover:bg-slate-100">
-          <div>
-            <p class="flex leading-6">
-              {% if page.settings.icon %}
-                <span class="mr-4"><img src="{{ page.settings.icon }}" class="h-6" /> </span>
-              {% else %}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                  stroke="currentColor" class="mr-1 w-5 h-5 size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z">
-                  </path>
-                </svg>
-              {% endif %}
-              <a href="{{ page.path }}" data-turbo="false" class="hover:underline">{{ page.link_text }}</a>
-            </p>
-            <div class="flex gap-x-2 items-center mt-1 text-xs leading-5 text-gray-500">
-              {% if site.settings.is_allow_published_at %}
-                <svg viewBox="0 0 2 2" class="w-0.5 h-0.5 fill-current">
-                  <circle cx="1" cy="1" r="1"></circle>
-                </svg>
-                <p><time datetime="{{ page.published_at }}">{{ 'generic.published_at' | t }}: {{ page.published_at | date: "%Y-%m-%d" }}</time></p>
-              {% endif %}
-            </div>
+{% comment %} 获取当前页面的直接子页面（一级子页面）并进行分页 {% endcomment %}
+{% assign first_level_pages_all = page.children_in_list %}
+{% assign first_level_count = first_level_pages_all | size %}
+
+{% if first_level_count > 0 %}
+  <style>
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details summary::marker {
+      display: none;
+    }
+  </style>
+
+  {% comment %} 栏目列表（一级和二级子页面）- Card 样式 {% endcomment %}
+  <div class="py-8 border-t border-primary-300">
+    {% paginate_tag first_level_pages_all, as: 'first_level_pages', per: 6 %}
+      <div class="grid grid-cols-1 gap-6 md:gap-8 md:grid-cols-2" style="align-items: start; align-content: start;" :class="show_navtree ? 'lg:grid-cols-2 lg:gap-8' : 'lg:grid-cols-3 lg:gap-6'">
+        {% for first_level_page in first_level_pages %}
+          {% assign second_level_pages_all = first_level_page.children_in_list %}
+          {% assign second_level_count = second_level_pages_all | size %}
+          {% comment %} 限制每个一级子页面下只显示前6个二级子页面 {% endcomment %}
+          {% assign second_level_pages = second_level_pages_all | limit: 6 %}
+
+          {% comment %} Card 容器 {% endcomment %}
+          <article class="flex flex-col self-start p-2 transition-shadow">
+            {% if second_level_count > 0 %}
+              {% comment %} 一级子页面可展开，默认展开 {% endcomment %}
+              <details class="group" open>
+                <summary class="list-none cursor-pointer">
+                  {% comment %} 一级子页面标题（带图标）{% endcomment %}
+                  <h2 class="flex gap-2 items-center mb-5 text-xl font-bold leading-tight text-slate-800 dark:text-slate-200">
+                    {% if first_level_page.settings.icon %}
+                      <img src="{{ first_level_page.settings.icon }}" alt="" class="flex-shrink-0 w-5 h-5" />
+                    {% else %}
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-5 h-5 text-primary">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                      </svg>
+                    {% endif %}
+                    <a href="{{ first_level_page.path }}" class="transition-colors hover:text-primary">
+                      {{ first_level_page.link_text }}
+                    </a>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="flex-shrink-0 ml-auto w-5 h-5 transition-transform text-slate-400 group-open:rotate-180"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </h2>
+                </summary>
+
+                {% comment %} 二级子页面列表（问题列表）{% endcomment %}
+                <div class="space-y-2.5">
+                  {% for second_level_page in second_level_pages %}
+                    <div class="px-3 py-2.5 rounded-md bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700">
+                      <div class="mb-2">
+                        <a href="{{ second_level_page.path }}" class="text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-300 hover:text-primary">
+                          {{ second_level_page.link_text }}
+                        </a>
+                      </div>
+
+                      {% if second_level_page.settings.description %}
+                        <p class="mb-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{{ second_level_page.settings.description }}</p>
+                      {% endif %}
+
+                      {% comment %} 显示标签 {% endcomment %}
+                      {% if second_level_page.settings.tags.size > 0 %}
+                        <div class="flex flex-wrap gap-2 mb-3">
+                          {% for tag in second_level_page.settings.tags %}
+                            <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
+                              {{ tag.name }}
+                            </span>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
+
+                {% comment %} "See all X articles" 链接 {% endcomment %}
+                {% if second_level_count > 6 %}
+                  <div class="pt-5 mt-5 border-t border-slate-200 dark:border-slate-700">
+                    <a
+                      href="{{ first_level_page.path }}"
+                      class="inline-flex gap-1.5 items-center text-sm font-medium text-primary hover:underline"
+                    >
+                      See all {{ second_level_count }} articles
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </a>
+                  </div>
+                {% endif %}
+              </details>
+            {% else %}
+              {% comment %} 如果没有二级子页面，显示链接到一级页面 {% endcomment %}
+              <h2 class="flex gap-2 items-center mb-5 text-xl font-bold leading-tight text-slate-800 dark:text-slate-200">
+                {% if first_level_page.settings.icon %}
+                  <img src="{{ first_level_page.settings.icon }}" alt="" class="flex-shrink-0 w-5 h-5" />
+                {% else %}
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-5 h-5 text-primary">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                  </svg>
+                {% endif %}
+                <a href="{{ first_level_page.path }}" class="transition-colors hover:text-primary">
+                  {{ first_level_page.link_text }}
+                </a>
+              </h2>
+              <div class="flex flex-1 items-center pt-2">
+                <a
+                  href="{{ first_level_page.path }}"
+                  class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary hover:underline"
+                >
+                  查看 {{ first_level_page.link_text }}
+                </a>
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+
+      {% comment %} 一级子页面分页 {% endcomment %}
+      {% if paginate.total_pages > 1 %}
+        <div class="mt-8">
+          <div class="flex justify-center">
+            {% render 'paginate', paginate: paginate %}
           </div>
-        </li>
-      {% endfor %}
-    </ul>
-    <!-- Pagination -->
-    <div class="mt-8">
-      <div class="flex justify-center">
-        {% render 'paginate', paginate: paginate %}
+        </div>
+      {% endif %}
+      {% endpaginate_tag %}
+    </div>
+  </div>
+
+  {% comment %} 右侧边栏：最多浏览的页面 {% endcomment %}
+  <aside class="hidden md:block md:w-64 md:flex-shrink-0 md:mr-0">
+    <div class="sticky top-24 pt-8">
+      {% assign all_pages = site.pages_in_list %}
+      {% assign hottest_pages = all_pages | order_by: '-visits_count' | limit: 10 %}
+      <div class="pt-8">
+        <h3 class="mb-4 text-lg font-semibold text-slate-800 dark:text-slate-200">{{ 'generic.most_viewed_pages' | t }}</h3>
+        <ul class="space-y-4">
+          {% assign counter = 0 %}
+          {% for hot_page in hottest_pages %}
+            {% unless hot_page.path == '/' %}
+              {% assign counter = counter | plus: 1 %}
+              {% if counter <= 6 %}
+                <li>
+                  <a
+                    href="{{ hot_page.path }}"
+                    data-turbo-frame="main-content-frame"
+                    data-turbo-action="advance"
+                    class="flex gap-3 items-start group hover:text-primary"
+                  >
+                    <span class="flex-shrink-0 mt-0.5 text-sm font-medium text-slate-400 dark:text-slate-500">
+                      {{ counter | prepend: '0' | slice: -2, 2 }}
+                    </span>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-sm font-medium leading-snug text-slate-700 dark:text-slate-300 group-hover:text-primary line-clamp-2">
+                        {{ hot_page.link_text }}
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+        </ul>
       </div>
     </div>
-  {% endpaginate_tag %}
+  </aside>
 </div>
+{% else %}
+  {% comment %} 如果没有一级子页面，显示原来的列表样式 {% endcomment %}
+  <div class="py-4 border-t border-primary-300">
+    {% paginate_tag pages %}
+      <ul role="list" class="divide-y divide-gray-100">
+        {% for page in pages %}
+          <li class="flex flex-wrap gap-y-4 gap-x-6 justify-between items-center px-3 py-2 rounded-lg sm:flex-nowrap hover:bg-accent-50">
+            <div>
+              <p class="flex leading-6">
+                {% if page.settings.icon %}
+                  <span class="mr-4"><img src="{{ page.settings.icon }}" class="h-6" /> </span>
+                {% else %}
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="mr-1 w-5 h-5 size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z">
+                    </path>
+                  </svg>
+                {% endif %}
+                <a href="{{ page.path }}" data-turbo="false" class="hover:underline">{{ page.link_text }}</a>
+              </p>
+              <div class="flex gap-x-2 items-center mt-1 text-xs leading-5 text-gray-500">
+                {% if site.settings.is_allow_published_at %}
+                  <svg viewBox="0 0 2 2" class="w-0.5 h-0.5 fill-current">
+                    <circle cx="1" cy="1" r="1"></circle>
+                  </svg>
+                  <p><time datetime="{{ page.published_at }}">{{ 'generic.published_at' | t }}: {{ page.published_at | date: "%Y-%m-%d" }}</time></p>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <!-- Pagination -->
+      <div class="mt-8">
+        <div class="flex justify-center">
+          {% render 'paginate', paginate: paginate %}
+        </div>
+      </div>
+    {% endpaginate_tag %}
+  </div>
+{% endif %}
