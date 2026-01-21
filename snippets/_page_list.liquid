@@ -88,7 +88,7 @@
               <details class="group" open>
                 <summary class="list-none cursor-pointer">
                   {% comment %} 一级子页面标题（带图标）{% endcomment %}
-                  <h2 class="flex gap-2 items-center mb-5 text-xl font-bold leading-tight text-slate-800 dark:text-slate-200">
+                  <h2 class="flex gap-2 items-center mb-5 text-lg font-bold leading-tight text-slate-800 dark:text-slate-200">
                     {% if first_level_page.settings.icon %}
                       <img src="{{ first_level_page.settings.icon }}" alt="" class="flex-shrink-0 w-5 h-5" />
                     {% else %}
@@ -157,7 +157,7 @@
               </details>
             {% else %}
               {% comment %} 如果没有二级子页面，显示链接到一级页面 {% endcomment %}
-              <h2 class="flex gap-2 items-center mb-5 text-xl font-bold leading-tight text-slate-800 dark:text-slate-200">
+              <h2 class="flex gap-2 items-center mb-5 text-lg font-bold leading-tight text-slate-800 dark:text-slate-200">
                 {% if first_level_page.settings.icon %}
                   <img src="{{ first_level_page.settings.icon }}" alt="" class="flex-shrink-0 w-5 h-5" />
                 {% else %}
