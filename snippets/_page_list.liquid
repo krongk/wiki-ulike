@@ -88,7 +88,7 @@
               <details class="group" open>
                 <summary class="list-none cursor-pointer">
                   {% comment %} 一级子页面标题（带图标）{% endcomment %}
-                  <h2 class="flex gap-2 items-center mb-5 text-lg font-bold leading-tight text-slate-800 dark:text-slate-200">
+                  <h2 class="flex gap-2 items-center mb-5 text-lg leading-tight text-slate-800 dark:text-slate-200">
                     {% if first_level_page.settings.icon %}
                       <img src="{{ first_level_page.settings.icon }}" alt="" class="flex-shrink-0 w-5 h-5" />
                     {% else %}
@@ -157,7 +157,7 @@
               </details>
             {% else %}
               {% comment %} 如果没有二级子页面，显示链接到一级页面 {% endcomment %}
-              <h2 class="flex gap-2 items-center mb-5 text-lg font-bold leading-tight text-slate-800 dark:text-slate-200">
+              <h2 class="flex gap-2 items-center mb-5 text-lg leading-tight text-slate-800 dark:text-slate-200">
                 {% if first_level_page.settings.icon %}
                   <img src="{{ first_level_page.settings.icon }}" alt="" class="flex-shrink-0 w-5 h-5" />
                 {% else %}
@@ -189,35 +189,32 @@
   {% comment %} 右侧边栏：最多浏览的页面 {% endcomment %}
   <aside class="hidden md:block md:w-64 md:flex-shrink-0 md:mr-0">
     <div class="sticky top-24 pt-8">
-      {% assign all_pages = site.pages_in_list %}
-      {% assign hottest_pages = all_pages | order_by: '-visits_count' | limit: 10 %}
+      {% assign hottest_pages = site.pages['/'].pages_in_list | order_by: '-visits_count' | limit: 10 %}
       <div class="pt-8">
         <h3 class="mb-4 text-lg font-semibold text-slate-800 dark:text-slate-200">{{ 'generic.most_viewed_pages' | t }}</h3>
         <ul class="space-y-4">
           {% assign counter = 0 %}
           {% for hot_page in hottest_pages %}
-            {% unless hot_page.path == '/' %}
-              {% assign counter = counter | plus: 1 %}
-              {% if counter <= 6 %}
-                <li>
-                  <a
-                    href="{{ hot_page.path }}"
-                    data-turbo-frame="main-content-frame"
-                    data-turbo-action="advance"
-                    class="flex gap-3 items-start group hover:text-primary"
-                  >
-                    <span class="flex-shrink-0 mt-0.5 text-sm font-medium text-slate-400 dark:text-slate-500">
-                      {{ counter | prepend: '0' | slice: -2, 2 }}
-                    </span>
-                    <div class="flex-1 min-w-0">
-                      <div class="text-sm font-medium leading-snug text-slate-700 dark:text-slate-300 group-hover:text-primary line-clamp-2">
-                        {{ hot_page.link_text }}
-                      </div>
+            {% assign counter = counter | plus: 1 %}
+            {% if counter <= 10 %}
+              <li>
+                <a
+                  href="{{ hot_page.path }}"
+                  data-turbo-frame="main-content-frame"
+                  data-turbo-action="advance"
+                  class="flex gap-3 items-start group hover:text-primary"
+                >
+                  <span class="flex-shrink-0 mt-0.5 text-sm font-medium text-slate-400 dark:text-slate-500">
+                    {{ counter | prepend: '0' | slice: -2, 2 }}
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-medium leading-snug text-slate-700 dark:text-slate-300 group-hover:text-primary line-clamp-2">
+                      {{ hot_page.link_text }}
                     </div>
-                  </a>
-                </li>
-              {% endif %}
-            {% endunless %}
+                  </div>
+                </a>
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
