@@ -111,7 +111,7 @@
 
 /* wiki保持跟editor样式同步，去掉了 tailwind prose */
 .ProseMirror {
-  @apply w-full max-w-4xl break-words;
+  @apply w-full break-words;
   /* 使分栏的宽度固定 */
   [data-block-column-width="flex-1"] {
     @apply w-1/2;
